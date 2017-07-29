@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var navigator: NavigationServiceType?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -20,12 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let factory = NavigationPresenterFactory()
         window = factory.window
 
-        let viewController = UIViewController()
-        viewController.title = "Test"
-        viewController.view.backgroundColor = .red
+        let navigationService = NavigationService.create()
+        navigator = navigationService
 
+        let location = Navigation.Route.carsList.asLocation()
         let presenter = factory.createPresenter()
-        presenter.present(viewController)
+        navigationService.navigate(to: location, using: presenter)
 
         return true
     }

@@ -21,7 +21,7 @@ struct CarsListFlow: FlowPresentable {
 
         // FIXME: Implement
 
-        let viewController = UIViewController()
+        let viewController = CarsListViewController(onSelectCallback: nil)
         viewController.title = "List"
         presenter.present(viewController)
     }

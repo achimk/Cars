@@ -15,3 +15,13 @@ protocol CarType {
     var brand: String { get }
     var manufactureDate: Date { get }
 }
+
+protocol CarConvertible {
+    func asCar() -> CarType
+}
+
+extension CarConvertible where Self: CarType {
+    final func asCar() -> CarType {
+        return self
+    }
+}
