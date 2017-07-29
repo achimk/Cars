@@ -12,7 +12,6 @@
 		AA08805D1F2CDB18004AB71A /* WindowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08805C1F2CDB18004AB71A /* WindowPresenter.swift */; };
 		AA08805F1F2CDC23004AB71A /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08805E1F2CDC23004AB71A /* NavigationPresenter.swift */; };
 		AA0880611F2CDD4B004AB71A /* NavigationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880601F2CDD4B004AB71A /* NavigationPresenterTests.swift */; };
-		AA0880641F2CE019004AB71A /* ViewControllerPresenterProducable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880631F2CE019004AB71A /* ViewControllerPresenterProducable.swift */; };
 		AA0880681F2CE25A004AB71A /* ViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880671F2CE25A004AB71A /* ViewControllerPresenter.swift */; };
 		AA08806A1F2CE446004AB71A /* ViewControllerPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880691F2CE446004AB71A /* ViewControllerPresenterTests.swift */; };
 		AA0880871F2CF27E004AB71A /* NavigationPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880861F2CF27E004AB71A /* NavigationPresenterFactory.swift */; };
@@ -26,6 +25,15 @@
 		AA0880A11F2CF6E5004AB71A /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880A01F2CF6E5004AB71A /* LocationTests.swift */; };
 		AA0880A31F2CF821004AB71A /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880A21F2CF821004AB71A /* RouterTests.swift */; };
 		AA0880A81F2CF95C004AB71A /* LocationParserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880A61F2CF91E004AB71A /* LocationParserType.swift */; };
+		AA0880AC1F2CFB16004AB71A /* NavigationPresenterFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880AB1F2CFB16004AB71A /* NavigationPresenterFactoryType.swift */; };
+		AA0880AE1F2CFBB8004AB71A /* NavigationServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880AD1F2CFBB8004AB71A /* NavigationServiceType.swift */; };
+		AA0880B01F2CFBC3004AB71A /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880AF1F2CFBC3004AB71A /* NavigationService.swift */; };
+		AA0880B41F2CFD66004AB71A /* NavigationServiceFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880B31F2CFD66004AB71A /* NavigationServiceFactoryType.swift */; };
+		AA0880B61F2CFE0C004AB71A /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880B51F2CFE0C004AB71A /* Navigation.swift */; };
+		AA0880B81F2D0024004AB71A /* CarsListRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880B71F2D0024004AB71A /* CarsListRoute.swift */; };
+		AA0880BA1F2D002D004AB71A /* CarsAddRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880B91F2D002D004AB71A /* CarsAddRoute.swift */; };
+		AA0880BC1F2D0039004AB71A /* CarsDetailsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880BB1F2D0039004AB71A /* CarsDetailsRoute.swift */; };
+		AA0880BE1F2D0227004AB71A /* NavigationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880BD1F2D0227004AB71A /* NavigationServiceTests.swift */; };
 		AA1048EB1F2CC56900C36F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1048EA1F2CC56900C36F7A /* AppDelegate.swift */; };
 		AA1048F21F2CC56900C36F7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F11F2CC56900C36F7A /* Assets.xcassets */; };
 		AA1048F51F2CC56900C36F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F31F2CC56900C36F7A /* LaunchScreen.storyboard */; };
@@ -47,7 +55,6 @@
 		AA08805C1F2CDB18004AB71A /* WindowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowPresenter.swift; sourceTree = "<group>"; };
 		AA08805E1F2CDC23004AB71A /* NavigationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenter.swift; sourceTree = "<group>"; };
 		AA0880601F2CDD4B004AB71A /* NavigationPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenterTests.swift; sourceTree = "<group>"; };
-		AA0880631F2CE019004AB71A /* ViewControllerPresenterProducable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenterProducable.swift; sourceTree = "<group>"; };
 		AA0880671F2CE25A004AB71A /* ViewControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenter.swift; sourceTree = "<group>"; };
 		AA0880691F2CE446004AB71A /* ViewControllerPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenterTests.swift; sourceTree = "<group>"; };
 		AA0880861F2CF27E004AB71A /* NavigationPresenterFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenterFactory.swift; sourceTree = "<group>"; };
@@ -61,6 +68,15 @@
 		AA0880A01F2CF6E5004AB71A /* LocationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
 		AA0880A21F2CF821004AB71A /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		AA0880A61F2CF91E004AB71A /* LocationParserType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationParserType.swift; sourceTree = "<group>"; };
+		AA0880AB1F2CFB16004AB71A /* NavigationPresenterFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenterFactoryType.swift; sourceTree = "<group>"; };
+		AA0880AD1F2CFBB8004AB71A /* NavigationServiceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationServiceType.swift; sourceTree = "<group>"; };
+		AA0880AF1F2CFBC3004AB71A /* NavigationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
+		AA0880B31F2CFD66004AB71A /* NavigationServiceFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationServiceFactoryType.swift; sourceTree = "<group>"; };
+		AA0880B51F2CFE0C004AB71A /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		AA0880B71F2D0024004AB71A /* CarsListRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListRoute.swift; sourceTree = "<group>"; };
+		AA0880B91F2D002D004AB71A /* CarsAddRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsAddRoute.swift; sourceTree = "<group>"; };
+		AA0880BB1F2D0039004AB71A /* CarsDetailsRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsDetailsRoute.swift; sourceTree = "<group>"; };
+		AA0880BD1F2D0227004AB71A /* NavigationServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationServiceTests.swift; sourceTree = "<group>"; };
 		AA1048E71F2CC56900C36F7A /* CarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1048EA1F2CC56900C36F7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA1048F11F2CC56900C36F7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +107,7 @@
 		AA08804C1F2CD1C3004AB71A /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				AA0880BF1F2D0574004AB71A /* Cars */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -136,7 +153,6 @@
 		AA0880541F2CD8D2004AB71A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AA0880621F2CDF55004AB71A /* Factories */,
 				AA0880551F2CD8F7004AB71A /* ViewControllerPresentable.swift */,
 				AA08805C1F2CDB18004AB71A /* WindowPresenter.swift */,
 				AA08805E1F2CDC23004AB71A /* NavigationPresenter.swift */,
@@ -172,18 +188,15 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		AA0880621F2CDF55004AB71A /* Factories */ = {
-			isa = PBXGroup;
-			children = (
-				AA0880631F2CE019004AB71A /* ViewControllerPresenterProducable.swift */,
-			);
-			path = Factories;
-			sourceTree = "<group>";
-		};
 		AA0880811F2CF13D004AB71A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				AA0880861F2CF27E004AB71A /* NavigationPresenterFactory.swift */,
+				AA0880AA1F2CFAC7004AB71A /* Presenters */,
+				AA0880A91F2CFA68004AB71A /* Routes */,
+				AA0880B31F2CFD66004AB71A /* NavigationServiceFactoryType.swift */,
+				AA0880AD1F2CFBB8004AB71A /* NavigationServiceType.swift */,
+				AA0880AF1F2CFBC3004AB71A /* NavigationService.swift */,
+				AA0880B51F2CFE0C004AB71A /* Navigation.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -200,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				AA0880881F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift */,
+				AA0880BD1F2D0227004AB71A /* NavigationServiceTests.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -273,6 +287,32 @@
 				AA0880A61F2CF91E004AB71A /* LocationParserType.swift */,
 			);
 			path = Parser;
+			sourceTree = "<group>";
+		};
+		AA0880A91F2CFA68004AB71A /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				AA0880B71F2D0024004AB71A /* CarsListRoute.swift */,
+				AA0880B91F2D002D004AB71A /* CarsAddRoute.swift */,
+				AA0880BB1F2D0039004AB71A /* CarsDetailsRoute.swift */,
+			);
+			path = Routes;
+			sourceTree = "<group>";
+		};
+		AA0880AA1F2CFAC7004AB71A /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				AA0880AB1F2CFB16004AB71A /* NavigationPresenterFactoryType.swift */,
+				AA0880861F2CF27E004AB71A /* NavigationPresenterFactory.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		AA0880BF1F2D0574004AB71A /* Cars */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cars;
 			sourceTree = "<group>";
 		};
 		AA1048DE1F2CC56900C36F7A = {
@@ -448,8 +488,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA0880931F2CF5AE004AB71A /* LocationType.swift in Sources */,
+				AA0880AC1F2CFB16004AB71A /* NavigationPresenterFactoryType.swift in Sources */,
 				AA0880681F2CE25A004AB71A /* ViewControllerPresenter.swift in Sources */,
-				AA0880641F2CE019004AB71A /* ViewControllerPresenterProducable.swift in Sources */,
+				AA0880B01F2CFBC3004AB71A /* NavigationService.swift in Sources */,
 				AA08805F1F2CDC23004AB71A /* NavigationPresenter.swift in Sources */,
 				AA08809A1F2CF636004AB71A /* RouteError.swift in Sources */,
 				AA0880941F2CF5B2004AB71A /* Location.swift in Sources */,
@@ -459,8 +500,14 @@
 				AA1048EB1F2CC56900C36F7A /* AppDelegate.swift in Sources */,
 				AA0880981F2CF613004AB71A /* ErrorRoutable.swift in Sources */,
 				AA0880871F2CF27E004AB71A /* NavigationPresenterFactory.swift in Sources */,
+				AA0880B41F2CFD66004AB71A /* NavigationServiceFactoryType.swift in Sources */,
+				AA0880BA1F2D002D004AB71A /* CarsAddRoute.swift in Sources */,
+				AA0880B81F2D0024004AB71A /* CarsListRoute.swift in Sources */,
 				AA0880951F2CF5B7004AB71A /* Routable.swift in Sources */,
+				AA0880B61F2CFE0C004AB71A /* Navigation.swift in Sources */,
+				AA0880BC1F2D0039004AB71A /* CarsDetailsRoute.swift in Sources */,
 				AA08809C1F2CF663004AB71A /* Router.swift in Sources */,
+				AA0880AE1F2CFBB8004AB71A /* NavigationServiceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +521,7 @@
 				AA0880611F2CDD4B004AB71A /* NavigationPresenterTests.swift in Sources */,
 				AA0880A31F2CF821004AB71A /* RouterTests.swift in Sources */,
 				AA08805B1F2CD9B2004AB71A /* WindowPresenterTests.swift in Sources */,
+				AA0880BE1F2D0227004AB71A /* NavigationServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

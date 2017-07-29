@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct NavigationPresenterFactory: ViewControllerPresenterProducable {
+struct NavigationPresenterFactory: NavigationPresenterFactoryType {
 
     let window: UIWindow
     let navigationController: UINavigationController

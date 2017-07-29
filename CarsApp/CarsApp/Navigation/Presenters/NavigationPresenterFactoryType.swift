@@ -1,5 +1,5 @@
 //
-//  ViewControllerPresenterProducable.swift
+//  NavigationPresenterFactoryType.swift
 //  CarsApp
 //
 //  Created by Joachim Kret on 29/07/2017.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ViewControllerPresenterProducable {
+protocol NavigationPresenterFactoryType {
     func createPresenter() -> ViewControllerPresentable
 }
