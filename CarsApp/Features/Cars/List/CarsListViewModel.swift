@@ -7,13 +7,16 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 protocol CarsListViewModelInputs {
-
+    func fetch()
 }
 
 protocol CarsListViewModelOutputs {
-
+    var onPresentItems: Driver<Array<CarsListItemPresentable>> { get }
+    var onPresentError: Driver<CarsServiceError> { get }
 }
 
 protocol CarsListViewModelType {
@@ -22,20 +25,39 @@ protocol CarsListViewModelType {
 }
 
 final class CarsListViewModel: CarsListViewModelType {
-    let service: CarsListServiceType
+    let signalFetch: PublishSubject<Void>
+    let driverPresentItems: Driver<Array<CarsListItemPresentable>>
+//    let driverPresentError: Driver<CarsServiceError>
 
     var inputs: CarsListViewModelInputs { return self }
     var outputs: CarsListViewModelOutputs { return self }
 
     init(service: CarsListServiceType) {
-        self.service = service
+        let trigger = PublishSubject<Void>()
+        signalFetch = trigger
+        driverPresentItems = trigger
+            .flatMapLatest {
+                return service.requestCarsList().take(1)
+            }
+            .map {
+                $0.map { CarsListPresentationItem($0) as CarsListItemPresentable }
+            }
+            .asDriver(onErrorDriveWith: Driver.never())
     }
 }
 
 extension CarsListViewModel: CarsListViewModelInputs {
-
+    func fetch() {
+        signalFetch.onNext()
+    }
 }
 
 extension CarsListViewModel: CarsListViewModelOutputs {
+    var onPresentItems: Driver<Array<CarsListItemPresentable>> {
+        return driverPresentItems
+    }
 
+    var onPresentError: Driver<CarsServiceError> {
+        return Driver.empty()
+    }
 }

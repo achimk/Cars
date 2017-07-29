@@ -17,6 +17,7 @@ final class CarsListViewController: UITableViewController {
     private let bag = DisposeBag()
     private let onSelectCallback: ((CarType) -> Void)?
     private var items: Array<CarsListItemPresentable> = []
+    private var appearsFirstTime = true
 
     init(service: CarsListServiceType, onSelectCallback: ((CarType) -> Void)? = nil) {
         self.viewModel = CarsListViewModel(service: service)
@@ -30,14 +31,45 @@ final class CarsListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureTableView()
+        configureBindings()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if appearsFirstTime {
+            viewModel.inputs.fetch()
+        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        appearsFirstTime = false
     }
 
     private func configureTableView() {
         tableView.register(cellType: CarsListTableViewCell.self)
     }
 
+    private func configureBindings() {
+        viewModel.outputs.onPresentItems.drive(onNext: { [weak self] (items) in
+            self?.reloadData(with: items)
+        }).addDisposableTo(bag)
+    }
+
+    private func reloadData(with items: Array<CarsListItemPresentable>) {
+        self.items = items
+        reloadData()
+    }
+
+    private func reloadData() {
+        tableView.reloadData()
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count

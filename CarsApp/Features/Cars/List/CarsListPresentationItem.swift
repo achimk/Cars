@@ -21,7 +21,21 @@ struct CarsListPresentationItem: CarsListItemPresentable {
     }
 
     var subtitle: String {
-        return "\(car.brand ?? "") \(car.model ?? "") (\(car.manufactureDate?.description ?? ""))"
+        var items: Array<String> = []
+
+        if let brand = car.brand {
+            items.append(brand)
+        }
+
+        if let model = car.model {
+            items.append(model)
+        }
+
+        if let year = CarsModelEntityMapper.year(from: car.manufactureDate) {
+            items.append(String("(\(year))"))
+        }
+
+        return items.joined(separator: " ")
     }
 
     init(_ car: CarType) {
