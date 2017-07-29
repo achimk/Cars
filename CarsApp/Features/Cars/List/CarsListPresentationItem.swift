@@ -17,11 +17,11 @@ struct CarsListPresentationItem: CarsListItemPresentable {
     let car: CarType
 
     var title: String {
-        return car.name
+        return car.name ?? ""
     }
 
     var subtitle: String {
-        return "\(car.brand) \(car.model) (\(car.manufactureDate.description))"
+        return "\(car.brand ?? "") \(car.model ?? "") (\(car.manufactureDate?.description ?? ""))"
     }
 
     init(_ car: CarType) {

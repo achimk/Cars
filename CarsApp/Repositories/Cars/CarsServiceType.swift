@@ -10,11 +10,11 @@ import Foundation
 import RxSwift
 
 protocol CarDetailsServiceType {
-    func requestCarDetails(using identifier: String) -> Observable<CarType>
+    func requestCarDetails(using identity: CarIdentityModel) -> Observable<CarType>
 }
 
 protocol CarAddServiceType {
-    func createCar(with entity: CarType) -> Observable<Void>
+    func createCar(with model: CarCreateModel) -> Observable<Void>
 }
 
 protocol CarsListServiceType {

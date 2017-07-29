@@ -1,5 +1,5 @@
 //
-//  Car.swift
+//  CarCreateModel.swift
 //  CarsApp
 //
 //  Created by Joachim Kret on 29/07/2017.
@@ -8,23 +8,27 @@
 
 import Foundation
 
-struct Car: CarType {
-    let identifier: String
+struct CarCreateModel: Equatable {
     let name: String?
     let model: String?
     let brand: String?
-    let manufactureDate: Date?
+    let year: Int?
 
-    init(identifier: String,
-         name: String?,
+    init(name: String?,
          model: String?,
          brand: String?,
-         manufactureDate: Date?) {
+         year: Int?) {
 
-        self.identifier = identifier
         self.name = name
         self.model = model
         self.brand = brand
-        self.manufactureDate = manufactureDate
+        self.year = year
     }
+}
+
+func ==(lhs: CarCreateModel, rhs: CarCreateModel) -> Bool {
+    return lhs.name == rhs.name
+        && lhs.model == rhs.model
+        && lhs.brand == rhs.brand
+        && lhs.year == rhs.year
 }

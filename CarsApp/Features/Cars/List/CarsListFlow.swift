@@ -10,18 +10,21 @@ import Foundation
 import UIKit
 
 struct CarsListFlow: FlowPresentable {
+    let navigationService: NavigationServiceType
+    let listService: CarsListServiceType
 
-    init() {
+    init(navigationService: NavigationServiceType,
+         listService: CarsListServiceType) {
 
-        // FIXME: Implement
-
+        self.navigationService = navigationService
+        self.listService = listService
     }
 
     func present(using presenter: ViewControllerPresentable) {
 
         // FIXME: Implement
 
-        let viewController = CarsListViewController(onSelectCallback: nil)
+        let viewController = CarsListViewController(service: listService, onSelectCallback: nil)
         viewController.title = "List"
         presenter.present(viewController)
     }

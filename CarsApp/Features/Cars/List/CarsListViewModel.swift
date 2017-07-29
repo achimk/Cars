@@ -22,12 +22,13 @@ protocol CarsListViewModelType {
 }
 
 final class CarsListViewModel: CarsListViewModelType {
+    let service: CarsListServiceType
 
     var inputs: CarsListViewModelInputs { return self }
     var outputs: CarsListViewModelOutputs { return self }
 
-    init() {
-
+    init(service: CarsListServiceType) {
+        self.service = service
     }
 }
 

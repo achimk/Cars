@@ -18,8 +18,8 @@ final class CarsListViewController: UITableViewController {
     private let onSelectCallback: ((CarType) -> Void)?
     private var items: Array<CarsListItemPresentable> = []
 
-    init(onSelectCallback: ((CarType) -> Void)? = nil) {
-        self.viewModel = CarsListViewModel()
+    init(service: CarsListServiceType, onSelectCallback: ((CarType) -> Void)? = nil) {
+        self.viewModel = CarsListViewModel(service: service)
         self.onSelectCallback = onSelectCallback
         super.init(style: .grouped)
     }

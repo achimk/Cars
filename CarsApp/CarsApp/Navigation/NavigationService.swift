@@ -12,11 +12,14 @@ struct NavigationService: NavigationServiceType, NavigationServiceFactoryType {
     let router: Router
 
     static func create() -> NavigationServiceType {
+        let service: CarsServiceType = CarsService()
+
         let navigator = NavigationServiceProxy()
         var router = Router()
 
         router.routes[Navigation.Route.carsList.asPath()] = CarsListRoute(
-            navigationService: navigator
+            navigationService: navigator,
+            listService: service
         )
 
         router.routes[Navigation.Route.carAdd.asPath()] = CarAddRoute(

@@ -1,5 +1,5 @@
 //
-//  Car.swift
+//  CarModel.swift
 //  CarsApp
 //
 //  Created by Joachim Kret on 29/07/2017.
@@ -8,23 +8,23 @@
 
 import Foundation
 
-struct Car: CarType {
-    let identifier: String
+struct CarModel {
+    let id: String
     let name: String?
     let model: String?
     let brand: String?
-    let manufactureDate: Date?
+    let year: Int?
 
-    init(identifier: String,
+    init(id: String,
          name: String?,
          model: String?,
          brand: String?,
-         manufactureDate: Date?) {
+         year: Int?) {
 
-        self.identifier = identifier
+        self.id = id
         self.name = name
         self.model = model
         self.brand = brand
-        self.manufactureDate = manufactureDate
+        self.year = year
     }
 }
