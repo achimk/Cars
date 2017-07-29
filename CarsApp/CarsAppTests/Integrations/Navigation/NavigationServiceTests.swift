@@ -36,7 +36,7 @@ final class NavigationServiceTests: QuickSpec {
                     expect(presenter.navigationController.viewControllers).to(haveCount(1))
                 })
 
-                it("Can navigate to cars add", closure: {
+                it("Can navigate to car add", closure: {
 
                     expect(presenter.navigationController.viewControllers).to(haveCount(0))
 
@@ -46,7 +46,7 @@ final class NavigationServiceTests: QuickSpec {
                     expect(presenter.navigationController.viewControllers).to(haveCount(1))
                 })
 
-                it("Can navigate to cars details", closure: {
+                it("Can navigate to car details", closure: {
 
                     expect(presenter.navigationController.viewControllers).to(haveCount(0))
 
@@ -56,7 +56,7 @@ final class NavigationServiceTests: QuickSpec {
                     expect(presenter.navigationController.viewControllers).to(haveCount(1))
                 })
 
-                it("Should not navigate to any page") {
+                it("Should not navigate to any page when location is not handled") {
 
                     expect(presenter.navigationController.viewControllers).to(haveCount(0))
 
