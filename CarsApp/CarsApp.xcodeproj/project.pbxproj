@@ -44,6 +44,8 @@
 		AA0880E11F2D0F30004AB71A /* CarsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880E01F2D0F30004AB71A /* CarsListViewModel.swift */; };
 		AA0880E31F2D0F3F004AB71A /* CarsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880E21F2D0F3F004AB71A /* CarsListTableViewCell.swift */; };
 		AA0880E51F2D0F75004AB71A /* CarsListPresentationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880E41F2D0F75004AB71A /* CarsListPresentationItem.swift */; };
+		AA0880E81F2D1669004AB71A /* CarsServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880E71F2D1669004AB71A /* CarsServiceType.swift */; };
+		AA0880EA1F2D17E0004AB71A /* CarsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880E91F2D17E0004AB71A /* CarsService.swift */; };
 		AA1048EB1F2CC56900C36F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1048EA1F2CC56900C36F7A /* AppDelegate.swift */; };
 		AA1048F21F2CC56900C36F7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F11F2CC56900C36F7A /* Assets.xcassets */; };
 		AA1048F51F2CC56900C36F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F31F2CC56900C36F7A /* LaunchScreen.storyboard */; };
@@ -97,6 +99,8 @@
 		AA0880E01F2D0F30004AB71A /* CarsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListViewModel.swift; sourceTree = "<group>"; };
 		AA0880E21F2D0F3F004AB71A /* CarsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListTableViewCell.swift; sourceTree = "<group>"; };
 		AA0880E41F2D0F75004AB71A /* CarsListPresentationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListPresentationItem.swift; sourceTree = "<group>"; };
+		AA0880E71F2D1669004AB71A /* CarsServiceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsServiceType.swift; sourceTree = "<group>"; };
+		AA0880E91F2D17E0004AB71A /* CarsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsService.swift; sourceTree = "<group>"; };
 		AA1048E71F2CC56900C36F7A /* CarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1048EA1F2CC56900C36F7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA1048F11F2CC56900C36F7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -327,6 +331,8 @@
 			isa = PBXGroup;
 			children = (
 				AA0880C11F2D067B004AB71A /* Entities */,
+				AA0880E71F2D1669004AB71A /* CarsServiceType.swift */,
+				AA0880E91F2D17E0004AB71A /* CarsService.swift */,
 			);
 			path = Cars;
 			sourceTree = "<group>";
@@ -571,6 +577,7 @@
 				AA0880E51F2D0F75004AB71A /* CarsListPresentationItem.swift in Sources */,
 				AA0880681F2CE25A004AB71A /* ViewControllerPresenter.swift in Sources */,
 				AA0880B01F2CFBC3004AB71A /* NavigationService.swift in Sources */,
+				AA0880EA1F2D17E0004AB71A /* CarsService.swift in Sources */,
 				AA08805F1F2CDC23004AB71A /* NavigationPresenter.swift in Sources */,
 				AA08809A1F2CF636004AB71A /* RouteError.swift in Sources */,
 				AA0880E11F2D0F30004AB71A /* CarsListViewModel.swift in Sources */,
@@ -579,6 +586,7 @@
 				AA08805D1F2CDB18004AB71A /* WindowPresenter.swift in Sources */,
 				AA0880C71F2D07D2004AB71A /* CarType.swift in Sources */,
 				AA1048EB1F2CC56900C36F7A /* AppDelegate.swift in Sources */,
+				AA0880E81F2D1669004AB71A /* CarsServiceType.swift in Sources */,
 				AA0880981F2CF613004AB71A /* ErrorRoutable.swift in Sources */,
 				AA0880871F2CF27E004AB71A /* NavigationPresenterFactory.swift in Sources */,
 				AA0880B41F2CFD66004AB71A /* NavigationServiceFactoryType.swift in Sources */,
