@@ -1,0 +1,10 @@
+{
+  "xcodeVersion" : "Xcode 8.3.2\nBuild version 8E2002",
+  "commitish" : "3.0.1",
+  "iOS" : [
+    {
+      "hash" : "c33d58d7c760d2a9c6bdd794d6cfb6a4502000b72945be0ca0b3e644c3259882",
+      "name" : "Reusable"
+    }
+  ]
+}

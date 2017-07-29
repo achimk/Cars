@@ -1,0 +1,10 @@
+{
+  "xcodeVersion" : "Xcode 8.3.2\nBuild version 8E2002",
+  "commitish" : "v7.0.1",
+  "iOS" : [
+    {
+      "hash" : "d1219f092abbed6c9e523f54fc4a3ba1cf7125c0810fd48173e5dad66dcc9d0f",
+      "name" : "Nimble"
+    }
+  ]
+}

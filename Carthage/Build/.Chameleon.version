@@ -1,0 +1,10 @@
+{
+  "xcodeVersion" : "Xcode 8.3.2\nBuild version 8E2002",
+  "commitish" : "2.2.0",
+  "iOS" : [
+    {
+      "hash" : "fc5e7648718a415b749205225619aced5f4195e350777eb4e478154fb7392d88",
+      "name" : "Chameleon"
+    }
+  ]
+}
