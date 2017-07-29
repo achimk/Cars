@@ -17,6 +17,15 @@
 		AA08806A1F2CE446004AB71A /* ViewControllerPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880691F2CE446004AB71A /* ViewControllerPresenterTests.swift */; };
 		AA0880871F2CF27E004AB71A /* NavigationPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880861F2CF27E004AB71A /* NavigationPresenterFactory.swift */; };
 		AA0880891F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880881F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift */; };
+		AA0880931F2CF5AE004AB71A /* LocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08808D1F2CF4EE004AB71A /* LocationType.swift */; };
+		AA0880941F2CF5B2004AB71A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08808F1F2CF4FB004AB71A /* Location.swift */; };
+		AA0880951F2CF5B7004AB71A /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880911F2CF556004AB71A /* Routable.swift */; };
+		AA0880981F2CF613004AB71A /* ErrorRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880961F2CF60F004AB71A /* ErrorRoutable.swift */; };
+		AA08809A1F2CF636004AB71A /* RouteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880991F2CF636004AB71A /* RouteError.swift */; };
+		AA08809C1F2CF663004AB71A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08809B1F2CF663004AB71A /* Router.swift */; };
+		AA0880A11F2CF6E5004AB71A /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880A01F2CF6E5004AB71A /* LocationTests.swift */; };
+		AA0880A31F2CF821004AB71A /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880A21F2CF821004AB71A /* RouterTests.swift */; };
+		AA0880A81F2CF95C004AB71A /* LocationParserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880A61F2CF91E004AB71A /* LocationParserType.swift */; };
 		AA1048EB1F2CC56900C36F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1048EA1F2CC56900C36F7A /* AppDelegate.swift */; };
 		AA1048F21F2CC56900C36F7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F11F2CC56900C36F7A /* Assets.xcassets */; };
 		AA1048F51F2CC56900C36F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F31F2CC56900C36F7A /* LaunchScreen.storyboard */; };
@@ -43,6 +52,15 @@
 		AA0880691F2CE446004AB71A /* ViewControllerPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenterTests.swift; sourceTree = "<group>"; };
 		AA0880861F2CF27E004AB71A /* NavigationPresenterFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenterFactory.swift; sourceTree = "<group>"; };
 		AA0880881F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenterFactoryTests.swift; sourceTree = "<group>"; };
+		AA08808D1F2CF4EE004AB71A /* LocationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationType.swift; sourceTree = "<group>"; };
+		AA08808F1F2CF4FB004AB71A /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		AA0880911F2CF556004AB71A /* Routable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
+		AA0880961F2CF60F004AB71A /* ErrorRoutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorRoutable.swift; sourceTree = "<group>"; };
+		AA0880991F2CF636004AB71A /* RouteError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteError.swift; sourceTree = "<group>"; };
+		AA08809B1F2CF663004AB71A /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		AA0880A01F2CF6E5004AB71A /* LocationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
+		AA0880A21F2CF821004AB71A /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
+		AA0880A61F2CF91E004AB71A /* LocationParserType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationParserType.swift; sourceTree = "<group>"; };
 		AA1048E71F2CC56900C36F7A /* CarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1048EA1F2CC56900C36F7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA1048F11F2CC56900C36F7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +119,7 @@
 		AA0880511F2CD725004AB71A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AA08808A1F2CF3C5004AB71A /* Navigation */,
 				AA0880521F2CD798004AB71A /* Presenters */,
 			);
 			path = Components;
@@ -129,6 +148,7 @@
 		AA0880571F2CD94F004AB71A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AA08809D1F2CF69A004AB71A /* Navigation */,
 				AA0880581F2CD96C004AB71A /* Presenters */,
 			);
 			path = Components;
@@ -182,6 +202,77 @@
 				AA0880881F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		AA08808A1F2CF3C5004AB71A /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				AA08808C1F2CF445004AB71A /* Location */,
+				AA0880A51F2CF904004AB71A /* Parser */,
+				AA08808B1F2CF43A004AB71A /* Router */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		AA08808B1F2CF43A004AB71A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AA0880911F2CF556004AB71A /* Routable.swift */,
+				AA0880991F2CF636004AB71A /* RouteError.swift */,
+				AA0880961F2CF60F004AB71A /* ErrorRoutable.swift */,
+				AA08809B1F2CF663004AB71A /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		AA08808C1F2CF445004AB71A /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				AA08808D1F2CF4EE004AB71A /* LocationType.swift */,
+				AA08808F1F2CF4FB004AB71A /* Location.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		AA08809D1F2CF69A004AB71A /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				AA08809E1F2CF6B0004AB71A /* Location */,
+				AA0880A41F2CF8EE004AB71A /* Parser */,
+				AA08809F1F2CF6BE004AB71A /* Router */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		AA08809E1F2CF6B0004AB71A /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				AA0880A01F2CF6E5004AB71A /* LocationTests.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		AA08809F1F2CF6BE004AB71A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AA0880A21F2CF821004AB71A /* RouterTests.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		AA0880A41F2CF8EE004AB71A /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		AA0880A51F2CF904004AB71A /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				AA0880A61F2CF91E004AB71A /* LocationParserType.swift */,
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 		AA1048DE1F2CC56900C36F7A = {
@@ -356,13 +447,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA0880931F2CF5AE004AB71A /* LocationType.swift in Sources */,
 				AA0880681F2CE25A004AB71A /* ViewControllerPresenter.swift in Sources */,
 				AA0880641F2CE019004AB71A /* ViewControllerPresenterProducable.swift in Sources */,
 				AA08805F1F2CDC23004AB71A /* NavigationPresenter.swift in Sources */,
+				AA08809A1F2CF636004AB71A /* RouteError.swift in Sources */,
+				AA0880941F2CF5B2004AB71A /* Location.swift in Sources */,
 				AA0880561F2CD8F7004AB71A /* ViewControllerPresentable.swift in Sources */,
+				AA0880A81F2CF95C004AB71A /* LocationParserType.swift in Sources */,
 				AA08805D1F2CDB18004AB71A /* WindowPresenter.swift in Sources */,
 				AA1048EB1F2CC56900C36F7A /* AppDelegate.swift in Sources */,
+				AA0880981F2CF613004AB71A /* ErrorRoutable.swift in Sources */,
 				AA0880871F2CF27E004AB71A /* NavigationPresenterFactory.swift in Sources */,
+				AA0880951F2CF5B7004AB71A /* Routable.swift in Sources */,
+				AA08809C1F2CF663004AB71A /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,9 +468,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA0880A11F2CF6E5004AB71A /* LocationTests.swift in Sources */,
 				AA0880891F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift in Sources */,
 				AA08806A1F2CE446004AB71A /* ViewControllerPresenterTests.swift in Sources */,
 				AA0880611F2CDD4B004AB71A /* NavigationPresenterTests.swift in Sources */,
+				AA0880A31F2CF821004AB71A /* RouterTests.swift in Sources */,
 				AA08805B1F2CD9B2004AB71A /* WindowPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
