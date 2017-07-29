@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        let factory = WindowNavigationFactory()
+        window = factory.window
+
+        let viewController = UIViewController()
+        viewController.title = "Test"
+        viewController.view.backgroundColor = .red
+
+        let presenter = factory.createPresenter()
+        presenter.present(viewController)
+
         return true
     }
 
