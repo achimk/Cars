@@ -18,8 +18,8 @@ struct Navigation {
     // Default routes used in project
     enum Route {
         case carsList
-        case carsAdd
-        case carsDetails
+        case carAdd
+        case carDetails
     }
 }
 
@@ -28,8 +28,8 @@ extension Navigation.Route {
     func asPath() -> String {
         switch self {
         case .carsList: return "carsList"
-        case .carsAdd: return "carsAdd"
-        case .carsDetails: return "carsDetails"
+        case .carAdd: return "carAdd"
+        case .carDetails: return "carDetails"
         }
     }
 
@@ -37,9 +37,9 @@ extension Navigation.Route {
         switch self {
         case .carsList:
             return Location(scheme: Navigation.scheme, path: asPath())
-        case .carsAdd:
+        case .carAdd:
             return Location(scheme: Navigation.scheme, path: asPath())
-        case .carsDetails:
+        case .carDetails:
             return Location(scheme: Navigation.scheme, path: asPath())
         }
     }

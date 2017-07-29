@@ -19,11 +19,11 @@ struct NavigationService: NavigationServiceType, NavigationServiceFactoryType {
             navigationService: navigator
         )
 
-        router.routes[Navigation.Route.carsAdd.asPath()] = CarsAddRoute(
+        router.routes[Navigation.Route.carAdd.asPath()] = CarAddRoute(
             navigationService: navigator
         )
 
-        router.routes[Navigation.Route.carsDetails.asPath()] = CarsDetailsRoute(
+        router.routes[Navigation.Route.carDetails.asPath()] = CarDetailsRoute(
             navigationService: navigator
         )
 

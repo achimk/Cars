@@ -16,6 +16,10 @@ struct CarsListRoute: Routable {
     }
 
     func navigate(to location: LocationType, using presenter: ViewControllerPresentable) throws {
-        throw RouteError.notFound(location)
+
+        // FIXME: Implement!
+
+        let flow = CarsListFlow()
+        flow.present(using: presenter)
     }
 }

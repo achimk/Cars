@@ -1,5 +1,5 @@
 //
-//  CarsAddRoute.swift
+//  CarDetailsRoute.swift
 //  CarsApp
 //
 //  Created by Joachim Kret on 29/07/2017.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CarsAddRoute: Routable {
+struct CarDetailsRoute: Routable {
     let navigationService: NavigationServiceType
 
     init(navigationService: NavigationServiceType) {
@@ -16,6 +16,10 @@ struct CarsAddRoute: Routable {
     }
 
     func navigate(to location: LocationType, using presenter: ViewControllerPresentable) throws {
-        throw RouteError.notFound(location)
+
+        // FIXME: Implement!
+
+        let flow = CarDetailsFlow()
+        flow.present(using: presenter)
     }
 }

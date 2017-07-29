@@ -17,6 +17,7 @@ final class NavigationServiceTests: QuickSpec {
         describe("Navigation Service") {
 
             context("Used as factory", {
+
                 var service: NavigationServiceType!
                 var presenter: NavigationPresenter!
 
@@ -39,7 +40,7 @@ final class NavigationServiceTests: QuickSpec {
 
                     expect(presenter.navigationController.viewControllers).to(haveCount(0))
 
-                    let location = Navigation.Route.carsAdd.asLocation()
+                    let location = Navigation.Route.carAdd.asLocation()
                     service.navigate(to: location, using: presenter)
 
                     expect(presenter.navigationController.viewControllers).to(haveCount(1))
@@ -49,11 +50,21 @@ final class NavigationServiceTests: QuickSpec {
 
                     expect(presenter.navigationController.viewControllers).to(haveCount(0))
 
-                    let location = Navigation.Route.carsDetails.asLocation()
+                    let location = Navigation.Route.carDetails.asLocation()
                     service.navigate(to: location, using: presenter)
 
                     expect(presenter.navigationController.viewControllers).to(haveCount(1))
                 })
+
+                it("Should not navigate to any page") {
+
+                    expect(presenter.navigationController.viewControllers).to(haveCount(0))
+
+                    let location = Location(scheme: Navigation.scheme, path: "PathWhichNeverBeDispatched!")
+                    service.navigate(to: location, using: presenter)
+
+                    expect(presenter.navigationController.viewControllers).to(haveCount(0))
+                }
             })
 
         }
