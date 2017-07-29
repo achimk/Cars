@@ -1,5 +1,5 @@
 //
-//  WindowNavigationFactoryTests.swift
+//  NavigationPresenterFactoryTests.swift
 //  CarsApp
 //
 //  Created by Joachim Kret on 29/07/2017.
@@ -10,27 +10,27 @@ import Quick
 import Nimble
 @testable import CarsApp
 
-final class WindowNavigationFactoryTests: QuickSpec {
+final class NavigationPresenterFactoryTests: QuickSpec {
 
     override func spec() {
 
-        describe("Window Navigation Factory") {
+        describe("Navigation Presenter Factory") {
 
             context("Default initialization used") {
 
-                var factory: WindowNavigationFactory!
+                var factory: NavigationPresenterFactory!
 
                 beforeEach {
-                    factory = WindowNavigationFactory()
+                    factory = NavigationPresenterFactory()
                 }
 
-                it("Creates window and navigation controller by default", closure: { 
+                it("Creates window and navigation controller by default", closure: {
 
                     expect(factory.window).toNot(beNil())
                     expect(factory.navigationController).toNot(beNil())
                 })
 
-                it("Creates presenter", closure: { 
+                it("Creates presenter", closure: {
 
                     let presenter = factory.createPresenter()
                     expect(presenter).toNot(beNil())
@@ -41,19 +41,19 @@ final class WindowNavigationFactoryTests: QuickSpec {
 
                 let window = UIWindow()
                 let navigation = UINavigationController()
-                var factory: WindowNavigationFactory!
+                var factory: NavigationPresenterFactory!
 
                 beforeEach {
-                    factory = WindowNavigationFactory(window: window, navigation: navigation)
+                    factory = NavigationPresenterFactory(window: window, navigation: navigation)
                 }
 
-                it("Uses injected parameters", closure: { 
+                it("Uses injected parameters", closure: {
 
                     expect(factory.window).to(equal(window))
                     expect(factory.navigationController).to(equal(navigation))
                 })
 
-                it("Creates presenter", closure: { 
+                it("Creates presenter", closure: {
 
                     let presenter = factory.createPresenter()
                     expect(presenter).toNot(beNil())
@@ -64,7 +64,7 @@ final class WindowNavigationFactoryTests: QuickSpec {
 
                 let window = UIWindow()
                 let navigation = UINavigationController()
-                let factory = WindowNavigationFactory(window: window, navigation: navigation)
+                let factory = NavigationPresenterFactory(window: window, navigation: navigation)
 
                 it("Presents always valid controller on window", closure: {
 
@@ -83,13 +83,13 @@ final class WindowNavigationFactoryTests: QuickSpec {
 
                     expect(window.rootViewController).to(beNil())
                     expect(navigation.viewControllers).to(haveCount(1))
-
+                    
                     presenter.present(viewController)
-
+                    
                     expect(window.rootViewController).toNot(beNil())
                     expect(navigation.viewControllers).to(haveCount(1))
                 })
-
+                
             })
         }
     }

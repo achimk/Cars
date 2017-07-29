@@ -1,5 +1,5 @@
 //
-//  WindowNavigationFactory.swift
+//  NavigationPresenterFactory.swift
 //  CarsApp
 //
 //  Created by Joachim Kret on 29/07/2017.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct WindowNavigationFactory: ViewControllerPresenterProducable {
+struct NavigationPresenterFactory: ViewControllerPresenterProducable {
 
     let window: UIWindow
     let navigationController: UINavigationController

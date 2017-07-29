@@ -13,10 +13,10 @@
 		AA08805F1F2CDC23004AB71A /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08805E1F2CDC23004AB71A /* NavigationPresenter.swift */; };
 		AA0880611F2CDD4B004AB71A /* NavigationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880601F2CDD4B004AB71A /* NavigationPresenterTests.swift */; };
 		AA0880641F2CE019004AB71A /* ViewControllerPresenterProducable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880631F2CE019004AB71A /* ViewControllerPresenterProducable.swift */; };
-		AA0880661F2CE059004AB71A /* WindowNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880651F2CE059004AB71A /* WindowNavigationFactory.swift */; };
 		AA0880681F2CE25A004AB71A /* ViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880671F2CE25A004AB71A /* ViewControllerPresenter.swift */; };
 		AA08806A1F2CE446004AB71A /* ViewControllerPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880691F2CE446004AB71A /* ViewControllerPresenterTests.swift */; };
-		AA08806D1F2CE558004AB71A /* WindowNavigationFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08806C1F2CE558004AB71A /* WindowNavigationFactoryTests.swift */; };
+		AA0880871F2CF27E004AB71A /* NavigationPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880861F2CF27E004AB71A /* NavigationPresenterFactory.swift */; };
+		AA0880891F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880881F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift */; };
 		AA1048EB1F2CC56900C36F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1048EA1F2CC56900C36F7A /* AppDelegate.swift */; };
 		AA1048F21F2CC56900C36F7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F11F2CC56900C36F7A /* Assets.xcassets */; };
 		AA1048F51F2CC56900C36F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F31F2CC56900C36F7A /* LaunchScreen.storyboard */; };
@@ -39,10 +39,10 @@
 		AA08805E1F2CDC23004AB71A /* NavigationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenter.swift; sourceTree = "<group>"; };
 		AA0880601F2CDD4B004AB71A /* NavigationPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenterTests.swift; sourceTree = "<group>"; };
 		AA0880631F2CE019004AB71A /* ViewControllerPresenterProducable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenterProducable.swift; sourceTree = "<group>"; };
-		AA0880651F2CE059004AB71A /* WindowNavigationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowNavigationFactory.swift; sourceTree = "<group>"; };
 		AA0880671F2CE25A004AB71A /* ViewControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenter.swift; sourceTree = "<group>"; };
 		AA0880691F2CE446004AB71A /* ViewControllerPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenterTests.swift; sourceTree = "<group>"; };
-		AA08806C1F2CE558004AB71A /* WindowNavigationFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowNavigationFactoryTests.swift; sourceTree = "<group>"; };
+		AA0880861F2CF27E004AB71A /* NavigationPresenterFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenterFactory.swift; sourceTree = "<group>"; };
+		AA0880881F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenterFactoryTests.swift; sourceTree = "<group>"; };
 		AA1048E71F2CC56900C36F7A /* CarsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1048EA1F2CC56900C36F7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA1048F11F2CC56900C36F7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = Services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		AA0880511F2CD725004AB71A /* Components */ = {
@@ -145,7 +145,6 @@
 		AA0880591F2CD97E004AB71A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AA08806B1F2CE528004AB71A /* Factories */,
 				AA08805A1F2CD9B2004AB71A /* WindowPresenterTests.swift */,
 				AA0880601F2CDD4B004AB71A /* NavigationPresenterTests.swift */,
 				AA0880691F2CE446004AB71A /* ViewControllerPresenterTests.swift */,
@@ -157,23 +156,43 @@
 			isa = PBXGroup;
 			children = (
 				AA0880631F2CE019004AB71A /* ViewControllerPresenterProducable.swift */,
-				AA0880651F2CE059004AB71A /* WindowNavigationFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
 		};
-		AA08806B1F2CE528004AB71A /* Factories */ = {
+		AA0880811F2CF13D004AB71A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				AA08806C1F2CE558004AB71A /* WindowNavigationFactoryTests.swift */,
+				AA0880861F2CF27E004AB71A /* NavigationPresenterFactory.swift */,
 			);
-			path = Factories;
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		AA0880841F2CF23C004AB71A /* Integrations */ = {
+			isa = PBXGroup;
+			children = (
+				AA0880851F2CF255004AB71A /* Navigation */,
+			);
+			path = Integrations;
+			sourceTree = "<group>";
+		};
+		AA0880851F2CF255004AB71A /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				AA0880881F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		AA1048DE1F2CC56900C36F7A = {
 			isa = PBXGroup;
 			children = (
 				AA1048E91F2CC56900C36F7A /* CarsApp */,
+				AA0880511F2CD725004AB71A /* Components */,
+				AA08804C1F2CD1C3004AB71A /* Features */,
+				AA08804E1F2CD1D9004AB71A /* Repositories */,
+				AA08804F1F2CD1E0004AB71A /* Services */,
+				AA08804D1F2CD1D3004AB71A /* Tools */,
 				AA1048FE1F2CC56900C36F7A /* CarsAppTests */,
 				AA1048E81F2CC56900C36F7A /* Products */,
 			);
@@ -191,11 +210,7 @@
 		AA1048E91F2CC56900C36F7A /* CarsApp */ = {
 			isa = PBXGroup;
 			children = (
-				AA0880511F2CD725004AB71A /* Components */,
-				AA08804C1F2CD1C3004AB71A /* Features */,
-				AA08804E1F2CD1D9004AB71A /* Repositories */,
-				AA08804F1F2CD1E0004AB71A /* Services */,
-				AA08804D1F2CD1D3004AB71A /* Tools */,
+				AA0880811F2CF13D004AB71A /* Navigation */,
 				AA1048EA1F2CC56900C36F7A /* AppDelegate.swift */,
 				AA1048F11F2CC56900C36F7A /* Assets.xcassets */,
 				AA1048F31F2CC56900C36F7A /* LaunchScreen.storyboard */,
@@ -207,6 +222,7 @@
 		AA1048FE1F2CC56900C36F7A /* CarsAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				AA0880841F2CF23C004AB71A /* Integrations */,
 				AA0880571F2CD94F004AB71A /* Components */,
 				AA1049011F2CC56900C36F7A /* Info.plist */,
 			);
@@ -346,7 +362,7 @@
 				AA0880561F2CD8F7004AB71A /* ViewControllerPresentable.swift in Sources */,
 				AA08805D1F2CDB18004AB71A /* WindowPresenter.swift in Sources */,
 				AA1048EB1F2CC56900C36F7A /* AppDelegate.swift in Sources */,
-				AA0880661F2CE059004AB71A /* WindowNavigationFactory.swift in Sources */,
+				AA0880871F2CF27E004AB71A /* NavigationPresenterFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA08806D1F2CE558004AB71A /* WindowNavigationFactoryTests.swift in Sources */,
+				AA0880891F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift in Sources */,
 				AA08806A1F2CE446004AB71A /* ViewControllerPresenterTests.swift in Sources */,
 				AA0880611F2CDD4B004AB71A /* NavigationPresenterTests.swift in Sources */,
 				AA08805B1F2CD9B2004AB71A /* WindowPresenterTests.swift in Sources */,
