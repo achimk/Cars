@@ -24,7 +24,6 @@
 		AA08809C1F2CF663004AB71A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08809B1F2CF663004AB71A /* Router.swift */; };
 		AA0880A11F2CF6E5004AB71A /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880A01F2CF6E5004AB71A /* LocationTests.swift */; };
 		AA0880A31F2CF821004AB71A /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880A21F2CF821004AB71A /* RouterTests.swift */; };
-		AA0880A81F2CF95C004AB71A /* LocationParserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880A61F2CF91E004AB71A /* LocationParserType.swift */; };
 		AA0880AC1F2CFB16004AB71A /* NavigationPresenterFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880AB1F2CFB16004AB71A /* NavigationPresenterFactoryType.swift */; };
 		AA0880AE1F2CFBB8004AB71A /* NavigationServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880AD1F2CFBB8004AB71A /* NavigationServiceType.swift */; };
 		AA0880B01F2CFBC3004AB71A /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880AF1F2CFBC3004AB71A /* NavigationService.swift */; };
@@ -67,7 +66,6 @@
 		AA08809B1F2CF663004AB71A /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AA0880A01F2CF6E5004AB71A /* LocationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
 		AA0880A21F2CF821004AB71A /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
-		AA0880A61F2CF91E004AB71A /* LocationParserType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationParserType.swift; sourceTree = "<group>"; };
 		AA0880AB1F2CFB16004AB71A /* NavigationPresenterFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenterFactoryType.swift; sourceTree = "<group>"; };
 		AA0880AD1F2CFBB8004AB71A /* NavigationServiceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationServiceType.swift; sourceTree = "<group>"; };
 		AA0880AF1F2CFBC3004AB71A /* NavigationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
@@ -222,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				AA08808C1F2CF445004AB71A /* Location */,
-				AA0880A51F2CF904004AB71A /* Parser */,
 				AA08808B1F2CF43A004AB71A /* Router */,
 			);
 			path = Navigation;
@@ -252,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				AA08809E1F2CF6B0004AB71A /* Location */,
-				AA0880A41F2CF8EE004AB71A /* Parser */,
 				AA08809F1F2CF6BE004AB71A /* Router */,
 			);
 			path = Navigation;
@@ -272,21 +268,6 @@
 				AA0880A21F2CF821004AB71A /* RouterTests.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		AA0880A41F2CF8EE004AB71A /* Parser */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Parser;
-			sourceTree = "<group>";
-		};
-		AA0880A51F2CF904004AB71A /* Parser */ = {
-			isa = PBXGroup;
-			children = (
-				AA0880A61F2CF91E004AB71A /* LocationParserType.swift */,
-			);
-			path = Parser;
 			sourceTree = "<group>";
 		};
 		AA0880A91F2CFA68004AB71A /* Routes */ = {
@@ -495,7 +476,6 @@
 				AA08809A1F2CF636004AB71A /* RouteError.swift in Sources */,
 				AA0880941F2CF5B2004AB71A /* Location.swift in Sources */,
 				AA0880561F2CD8F7004AB71A /* ViewControllerPresentable.swift in Sources */,
-				AA0880A81F2CF95C004AB71A /* LocationParserType.swift in Sources */,
 				AA08805D1F2CDB18004AB71A /* WindowPresenter.swift in Sources */,
 				AA1048EB1F2CC56900C36F7A /* AppDelegate.swift in Sources */,
 				AA0880981F2CF613004AB71A /* ErrorRoutable.swift in Sources */,
