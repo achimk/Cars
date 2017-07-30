@@ -74,6 +74,13 @@
 		AAFA50E51F2DE06600AB9483 /* MockCarsServiceFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA50E41F2DE06600AB9483 /* MockCarsServiceFactoryTests.swift */; };
 		AAFA50E71F2DE10500AB9483 /* ErrorCarsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA50E61F2DE10500AB9483 /* ErrorCarsServiceTests.swift */; };
 		AAFA50E91F2DE1A300AB9483 /* DelayCarsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA50E81F2DE1A300AB9483 /* DelayCarsServiceTests.swift */; };
+		AAFA51101F2DF0D700AB9483 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA510F1F2DF0D700AB9483 /* ErrorHandling.swift */; };
+		AAFA51121F2DF0F900AB9483 /* ErrorHandlingChainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA51111F2DF0F900AB9483 /* ErrorHandlingChainable.swift */; };
+		AAFA51141F2DF14200AB9483 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA51131F2DF14200AB9483 /* ErrorHandler.swift */; };
+		AAFA51161F2DF17D00AB9483 /* ErrorPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA51151F2DF17D00AB9483 /* ErrorPresenterType.swift */; };
+		AAFA51181F2DF1BF00AB9483 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA51171F2DF1BF00AB9483 /* ErrorPresenter.swift */; };
+		AAFA511B1F2DF26700AB9483 /* ErrorHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA511A1F2DF26700AB9483 /* ErrorHandlerTests.swift */; };
+		AAFA511D1F2DF74700AB9483 /* ErrorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA511C1F2DF74700AB9483 /* ErrorPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +165,13 @@
 		AAFA50E41F2DE06600AB9483 /* MockCarsServiceFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockCarsServiceFactoryTests.swift; sourceTree = "<group>"; };
 		AAFA50E61F2DE10500AB9483 /* ErrorCarsServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCarsServiceTests.swift; sourceTree = "<group>"; };
 		AAFA50E81F2DE1A300AB9483 /* DelayCarsServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayCarsServiceTests.swift; sourceTree = "<group>"; };
+		AAFA510F1F2DF0D700AB9483 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		AAFA51111F2DF0F900AB9483 /* ErrorHandlingChainable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandlingChainable.swift; sourceTree = "<group>"; };
+		AAFA51131F2DF14200AB9483 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		AAFA51151F2DF17D00AB9483 /* ErrorPresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorPresenterType.swift; sourceTree = "<group>"; };
+		AAFA51171F2DF1BF00AB9483 /* ErrorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
+		AAFA511A1F2DF26700AB9483 /* ErrorHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandlerTests.swift; sourceTree = "<group>"; };
+		AAFA511C1F2DF74700AB9483 /* ErrorPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +227,7 @@
 		AA0880511F2CD725004AB71A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AAFA510E1F2DF0B100AB9483 /* ErrorHandling */,
 				AA08808A1F2CF3C5004AB71A /* Navigation */,
 				AA0880521F2CD798004AB71A /* Presenters */,
 			);
@@ -242,6 +257,7 @@
 		AA0880571F2CD94F004AB71A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AAFA51191F2DF24E00AB9483 /* ErrorHandling */,
 				AA08809D1F2CF69A004AB71A /* Navigation */,
 				AA0880581F2CD96C004AB71A /* Presenters */,
 			);
@@ -671,6 +687,27 @@
 			path = Specified;
 			sourceTree = "<group>";
 		};
+		AAFA510E1F2DF0B100AB9483 /* ErrorHandling */ = {
+			isa = PBXGroup;
+			children = (
+				AAFA510F1F2DF0D700AB9483 /* ErrorHandling.swift */,
+				AAFA51111F2DF0F900AB9483 /* ErrorHandlingChainable.swift */,
+				AAFA51131F2DF14200AB9483 /* ErrorHandler.swift */,
+				AAFA51151F2DF17D00AB9483 /* ErrorPresenterType.swift */,
+				AAFA51171F2DF1BF00AB9483 /* ErrorPresenter.swift */,
+			);
+			path = ErrorHandling;
+			sourceTree = "<group>";
+		};
+		AAFA51191F2DF24E00AB9483 /* ErrorHandling */ = {
+			isa = PBXGroup;
+			children = (
+				AAFA511A1F2DF26700AB9483 /* ErrorHandlerTests.swift */,
+				AAFA511C1F2DF74700AB9483 /* ErrorPresenterTests.swift */,
+			);
+			path = ErrorHandling;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -818,6 +855,7 @@
 				AAFA50CE1F2DDAAB00AB9483 /* CarsServiceFactoryType.swift in Sources */,
 				AA08812F1F2D3485004AB71A /* CarCreateModel.swift in Sources */,
 				AA0880941F2CF5B2004AB71A /* Location.swift in Sources */,
+				AAFA51161F2DF17D00AB9483 /* ErrorPresenterType.swift in Sources */,
 				AA0880561F2CD8F7004AB71A /* ViewControllerPresentable.swift in Sources */,
 				AA08805D1F2CDB18004AB71A /* WindowPresenter.swift in Sources */,
 				AA0880C71F2D07D2004AB71A /* CarType.swift in Sources */,
@@ -833,10 +871,13 @@
 				AA0880BA1F2D002D004AB71A /* CarAddRoute.swift in Sources */,
 				AAFA50DB1F2DDC3C00AB9483 /* DelayCarsService.swift in Sources */,
 				AA0880DF1F2D0F1B004AB71A /* CarsListViewController.swift in Sources */,
+				AAFA51121F2DF0F900AB9483 /* ErrorHandlingChainable.swift in Sources */,
 				AA0880B81F2D0024004AB71A /* CarsListRoute.swift in Sources */,
 				AA0880951F2CF5B7004AB71A /* Routable.swift in Sources */,
+				AAFA51141F2DF14200AB9483 /* ErrorHandler.swift in Sources */,
 				AA0881581F2D5752004AB71A /* Observable+Probe.swift in Sources */,
 				AA0880D31F2D0AC0004AB71A /* FlowPresentable.swift in Sources */,
+				AAFA51181F2DF1BF00AB9483 /* ErrorPresenter.swift in Sources */,
 				AA0880D81F2D0BC7004AB71A /* CarAddFlow.swift in Sources */,
 				AA0880B61F2CFE0C004AB71A /* Navigation.swift in Sources */,
 				AA0880C81F2D07D6004AB71A /* Car.swift in Sources */,
@@ -844,6 +885,7 @@
 				AA0880BC1F2D0039004AB71A /* CarDetailsRoute.swift in Sources */,
 				AA08809C1F2CF663004AB71A /* Router.swift in Sources */,
 				AA0880AE1F2CFBB8004AB71A /* NavigationServiceType.swift in Sources */,
+				AAFA51101F2DF0D700AB9483 /* ErrorHandling.swift in Sources */,
 				AA0880E31F2D0F3F004AB71A /* CarsListTableViewCell.swift in Sources */,
 				AA0880DD1F2D0C09004AB71A /* CarDetailsFlow.swift in Sources */,
 			);
@@ -854,6 +896,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA0880A11F2CF6E5004AB71A /* LocationTests.swift in Sources */,
+				AAFA511B1F2DF26700AB9483 /* ErrorHandlerTests.swift in Sources */,
 				AAFA50E51F2DE06600AB9483 /* MockCarsServiceFactoryTests.swift in Sources */,
 				AAFA50E91F2DE1A300AB9483 /* DelayCarsServiceTests.swift in Sources */,
 				AA0880891F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift in Sources */,
@@ -869,6 +912,7 @@
 				AA0880A31F2CF821004AB71A /* RouterTests.swift in Sources */,
 				AAFA50CB1F2DD96D00AB9483 /* CarsListPresentationItemTests.swift in Sources */,
 				AA08805B1F2CD9B2004AB71A /* WindowPresenterTests.swift in Sources */,
+				AAFA511D1F2DF74700AB9483 /* ErrorPresenterTests.swift in Sources */,
 				AA08813B1F2D3F69004AB71A /* CarIdentityModelTests.swift in Sources */,
 				AA0880BE1F2D0227004AB71A /* NavigationServiceTests.swift in Sources */,
 			);

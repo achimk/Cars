@@ -21,11 +21,13 @@ final class CarsListViewModelTests: QuickSpec {
         describe("Cars List View Model") { 
 
             context("Initialized with error service") {
+
                 let service: CarsServiceType = ErrorCarsService(error: .cantConnect)
                 let vm: CarsListViewModelType = CarsListViewModel(service: service)
                 let bag = DisposeBag()
 
                 it("Should present error") {
+
                     var loadingStates: Array<Bool> = []
                     var output: CarsListResult?
 
@@ -51,12 +53,14 @@ final class CarsListViewModelTests: QuickSpec {
                 }
             }
 
-            context("Initialized with valid service") {
+            context("Initialized with mock service") {
+
                 let service: CarsServiceType = MocksCarsServiceFactory.create()
                 let vm: CarsListViewModelType = CarsListViewModel(service: service)
                 let bag = DisposeBag()
 
                 it("Should present items") {
+
                     var loadingStates: Array<Bool> = []
                     var output: CarsListResult?
 
