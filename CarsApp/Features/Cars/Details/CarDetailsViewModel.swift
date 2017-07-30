@@ -1,8 +1,8 @@
 //
-//  CarsListViewModel.swift
+//  CarDetailsViewModel.swift
 //  CarsApp
 //
-//  Created by Joachim Kret on 29/07/2017.
+//  Created by Joachim Kret on 30/07/2017.
 //  Copyright © 2017 Joachim Kret. All rights reserved.
 //
 
@@ -11,32 +11,32 @@ import RxSwift
 import RxCocoa
 import Result
 
-typealias CarsListResult = Result<Array<CarsListItemPresentable>, CarsServiceError>
+typealias CarDetailsResult = Result<Array<CarDetailsItemPresentable>, CarsServiceError>
 
-protocol CarsListViewModelInputs {
+protocol CarDetailsViewModelInputs {
     func fetch()
 }
 
-protocol CarsListViewModelOutputs {
-    var onPresentResult: Driver<CarsListResult> { get }
+protocol CarDetailsViewModelOutputs {
+    var onPresentResult: Driver<CarDetailsResult> { get }
     var onLoading: Driver<Bool> { get }
 }
 
-protocol CarsListViewModelType {
-    var inputs: CarsListViewModelInputs { get }
-    var outputs: CarsListViewModelOutputs { get }
+protocol CarDetailsViewModelType {
+    var inputs: CarDetailsViewModelInputs { get }
+    var outputs: CarDetailsViewModelOutputs { get }
 }
 
-final class CarsListViewModel: CarsListViewModelType {
+final class CarDetailsViewModel: CarDetailsViewModelType {
 
     let signalFetch: PublishSubject<Void>
     let signalRequest: ObservableProbe
-    let driverPresentResult: Driver<CarsListResult>
+    let driverPresentResult: Driver<CarDetailsResult>
 
-    var inputs: CarsListViewModelInputs { return self }
-    var outputs: CarsListViewModelOutputs { return self }
+    var inputs: CarDetailsViewModelInputs { return self }
+    var outputs: CarDetailsViewModelOutputs { return self }
 
-    init(service: CarsListServiceType) {
+    init(identity: CarIdentityModel, service: CarDetailsServiceType) {
 
         let trigger = PublishSubject<Void>()
         let probe = ObservableProbe()
@@ -49,11 +49,9 @@ final class CarsListViewModel: CarsListViewModelType {
             .filter { !$0 }
             .flatMapLatest { _ in
                 return service
-                    .requestCarsList()
+                    .requestCarDetails(using: identity)
                     .take(1)
-                    .map {
-                        $0.map { CarsListPresentationItem($0) as CarsListItemPresentable }
-                    }
+                    .map { CarDetailsParametersMapper.map($0) }
                     .trackActivity(probe)
                     .mapCarsServiceResult()
             }
@@ -65,14 +63,14 @@ final class CarsListViewModel: CarsListViewModelType {
     }
 }
 
-extension CarsListViewModel: CarsListViewModelInputs {
+extension CarDetailsViewModel: CarDetailsViewModelInputs {
     func fetch() {
         signalFetch.onNext()
     }
 }
 
-extension CarsListViewModel: CarsListViewModelOutputs {
-    var onPresentResult: Driver<CarsListResult> {
+extension CarDetailsViewModel: CarDetailsViewModelOutputs {
+    var onPresentResult: Driver<CarDetailsResult> {
         return driverPresentResult
     }
 

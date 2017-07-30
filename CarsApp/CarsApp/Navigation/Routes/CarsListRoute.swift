@@ -23,7 +23,7 @@ struct CarsListRoute: Routable {
     }
 
     func navigate(to location: LocationType, using presenter: ViewControllerPresentable) throws {
-        guard location.path == Navigation.Route.carsList.asPath() else { return }
+        guard location.path == Navigation.Path.carsList.rawValue else { return }
 
         let flow = CarsListFlow(
             navigationService: navigationService,

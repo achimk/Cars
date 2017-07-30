@@ -24,19 +24,26 @@ struct CarsListFlow: FlowPresentable {
     }
 
     func present(using presenter: ViewControllerPresentable) {
+        let navigation = navigationService
         let errorPresenter = ProxyErrorPresenter(self.errorPresenter)
+
+        let onSelectCallback: ((CarType) -> Void) = { car in
+            let location = Navigation.Route.carDetails(car.asIdentityModel()).asLocation()
+            navigation.navigate(to: location, using: presenter)
+        }
 
         let viewController = CarsListViewController(
             service: listService,
             errorPresenter: errorPresenter,
-            onSelectCallback: nil
+            onSelectCallback: onSelectCallback
         )
 
         if errorPresenter.proxy == nil {
             errorPresenter.proxy = RetryErrorPresenter.create(using: viewController)
         }
 
-        viewController.title = NSLocalizedString("Cars List", comment: "List of cars")
+        viewController.title = NSLocalizedString("Cars List", comment: "List of cars title")
+        
         presenter.present(viewController)
     }
     

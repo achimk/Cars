@@ -1,37 +1,34 @@
 //
-//  CarsListViewController.swift
+//  CarDetailsViewController.swift
 //  CarsApp
 //
-//  Created by Joachim Kret on 29/07/2017.
+//  Created by Joachim Kret on 30/07/2017.
 //  Copyright © 2017 Joachim Kret. All rights reserved.
 //
 
 import Foundation
 import UIKit
-import Reusable
 import RxSwift
 import RxCocoa
 
-final class CarsListViewController: UITableViewController {
+final class CarDetailsViewController: UITableViewController {
 
     private let errorPresenter: ErrorPresenterType
-    private let viewModel: CarsListViewModelType
+    private let viewModel: CarDetailsViewModelType
     private let bag = DisposeBag()
-    private let onSelectCallback: ((CarType) -> Void)?
 
-    private var items: Array<CarsListItemPresentable> = []
+    private var items: Array<CarDetailsItemPresentable> = []
     private var appearsFirstTime = true
 
-    init(service: CarsListServiceType,
-         errorPresenter: ErrorPresenterType,
-         onSelectCallback: ((CarType) -> Void)? = nil) {
+    init(identity: CarIdentityModel,
+         service: CarDetailsServiceType,
+         errorPresenter: ErrorPresenterType) {
 
-        self.viewModel = CarsListViewModel(service: service)
+        self.viewModel = CarDetailsViewModel(identity: identity, service: service)
         self.errorPresenter = errorPresenter
-        self.onSelectCallback = onSelectCallback
         super.init(style: .grouped)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -45,7 +42,6 @@ final class CarsListViewController: UITableViewController {
 
         configureTableView()
         configureRefreshControl()
-        configureErrorPresenter()
         configureBindings()
     }
 
@@ -67,7 +63,8 @@ final class CarsListViewController: UITableViewController {
     }
 
     private func configureTableView() {
-        tableView.register(cellType: CarsListTableViewCell.self)
+        tableView.register(cellType: CarDetailsTableViewCell.self)
+        tableView.allowsSelection = false
     }
 
     private func configureRefreshControl() {
@@ -100,7 +97,7 @@ final class CarsListViewController: UITableViewController {
         }).addDisposableTo(bag)
     }
 
-    private func reloadData(with items: Array<CarsListItemPresentable>) {
+    private func reloadData(with items: Array<CarDetailsItemPresentable>) {
         self.items = items
         reloadData()
     }
@@ -119,18 +116,14 @@ final class CarsListViewController: UITableViewController {
         }
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        onSelectCallback?(items[indexPath.item].asCar())
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: CarsListTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        let cell: CarDetailsTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.configure(using: items[indexPath.item])
         return cell
     }
+
 }

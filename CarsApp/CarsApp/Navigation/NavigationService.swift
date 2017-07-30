@@ -19,18 +19,19 @@ struct NavigationService: NavigationServiceType, NavigationServiceFactoryType {
 
         // Source of all routes available in App
 
-        router.routes[Navigation.Route.carsList.asPath()] = CarsListRoute(
-            navigationService: navigator,
-            listService: service,
+        router.routes[Navigation.Path.carAdd.rawValue] = CarAddRoute(
+            navigationService: navigator
+        )
+
+        router.routes[Navigation.Path.carDetails.rawValue] = CarDetailsRoute(
+            detailsService: service,
             errorPresenter: nil
         )
 
-        router.routes[Navigation.Route.carAdd.asPath()] = CarAddRoute(
-            navigationService: navigator
-        )
-
-        router.routes[Navigation.Route.carDetails.asPath()] = CarDetailsRoute(
-            navigationService: navigator
+        router.routes[Navigation.Path.carsList.rawValue] = CarsListRoute(
+            navigationService: navigator,
+            listService: service,
+            errorPresenter: nil
         )
 
         navigator.proxy = NavigationService(router)

@@ -10,19 +10,35 @@ import Foundation
 import UIKit
 
 struct CarDetailsFlow: FlowPresentable {
+    let identity: CarIdentityModel
+    let detailsService: CarDetailsServiceType
+    let errorPresenter: ErrorPresenterType?
 
-    init() {
 
-        // FIXME: Implement
+    init(identity: CarIdentityModel,
+         detailsService: CarDetailsServiceType,
+         errorPresenter: ErrorPresenterType?) {
 
+        self.identity = identity
+        self.detailsService = detailsService
+        self.errorPresenter = errorPresenter
     }
 
     func present(using presenter: ViewControllerPresentable) {
+        let errorPresenter = ProxyErrorPresenter(self.errorPresenter)
 
-        // FIXME: Implement
+        let viewController = CarDetailsViewController(
+            identity: identity,
+            service: detailsService,
+            errorPresenter: errorPresenter
+        )
 
-        let viewController = UIViewController()
-        viewController.title = "Details"
+        if errorPresenter.proxy == nil {
+            errorPresenter.proxy = RetryErrorPresenter.create(using: viewController)
+        }
+
+        viewController.title = NSLocalizedString("Car Details", comment: "Details of the car title")
+        
         presenter.present(viewController)
     }
     

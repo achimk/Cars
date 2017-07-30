@@ -9,17 +9,26 @@
 import Foundation
 
 struct CarDetailsRoute: Routable {
-    let navigationService: NavigationServiceType
+    let detailsService: CarDetailsServiceType
+    let errorPresenter: ErrorPresenterType?
 
-    init(navigationService: NavigationServiceType) {
-        self.navigationService = navigationService
+    init(detailsService: CarDetailsServiceType,
+         errorPresenter: ErrorPresenterType?) {
+
+        self.detailsService = detailsService
+        self.errorPresenter = errorPresenter
     }
 
     func navigate(to location: LocationType, using presenter: ViewControllerPresentable) throws {
+        guard location.path == Navigation.Path.carDetails.rawValue else { return }
+        guard let identity = location.payload as? CarIdentityModel else { return }
 
-        // FIXME: Implement!
+        let flow = CarDetailsFlow(
+            identity: identity,
+            detailsService: detailsService,
+            errorPresenter: errorPresenter
+        )
 
-        let flow = CarDetailsFlow()
         flow.present(using: presenter)
     }
 }

@@ -19,28 +19,34 @@ struct Navigation {
     enum Route {
         case carsList
         case carAdd
+        case carDetails(CarIdentityModel)
+    }
+
+    enum Path: String {
+        case carsList
+        case carAdd
         case carDetails
     }
 }
 
 extension Navigation.Route {
 
-    func asPath() -> String {
+    func asPath() -> Navigation.Path {
         switch self {
-        case .carsList: return "carsList"
-        case .carAdd: return "carAdd"
-        case .carDetails: return "carDetails"
+        case .carsList: return Navigation.Path.carsList
+        case .carAdd: return Navigation.Path.carAdd
+        case .carDetails: return Navigation.Path.carDetails
         }
     }
 
     func asLocation() -> LocationType {
         switch self {
         case .carsList:
-            return Location(scheme: Navigation.scheme, path: asPath())
+            return Location(scheme: Navigation.scheme, path: asPath().rawValue)
         case .carAdd:
-            return Location(scheme: Navigation.scheme, path: asPath())
-        case .carDetails:
-            return Location(scheme: Navigation.scheme, path: asPath())
+            return Location(scheme: Navigation.scheme, path: asPath().rawValue)
+        case .carDetails(let identity):
+            return Location(scheme: Navigation.scheme, path: asPath().rawValue, payload: identity)
         }
     }
 }
