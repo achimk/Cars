@@ -9,11 +9,11 @@
 import Foundation
 
 struct Car: CarType {
-    let identifier: String
-    let name: String?
-    let model: String?
-    let brand: String?
-    let manufactureDate: Date?
+    var identifier: String
+    var name: String?
+    var model: String?
+    var brand: String?
+    var manufactureDate: Date?
 
     init(identifier: String,
          name: String?,

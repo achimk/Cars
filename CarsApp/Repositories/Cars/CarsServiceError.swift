@@ -10,12 +10,14 @@ import Foundation
 
 enum CarsServiceError: Error, Equatable {
     case notFound
+    case cantConnect
     case unknown(Error)
 }
 
 func ==(lhs: CarsServiceError, rhs: CarsServiceError) -> Bool {
     switch (lhs, rhs) {
     case (.notFound, .notFound): return true
+    case (.cantConnect, .cantConnect): return true
     case (.unknown, .unknown): return true
     default: return false
     }

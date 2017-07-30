@@ -9,8 +9,12 @@
 import Foundation
 import RxSwift
 
-final class CarsService: CarsServiceType {
+final class CarsService: CarsServiceType, CarsServiceFactoryType {
     let instance: CarsServiceType
+
+    static func create() -> CarsServiceType {
+        return CarsService()
+    }
 
     init() {
         let models = [
