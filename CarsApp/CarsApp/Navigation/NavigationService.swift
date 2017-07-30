@@ -12,14 +12,17 @@ struct NavigationService: NavigationServiceType, NavigationServiceFactoryType {
     let router: Router
 
     static func create() -> NavigationServiceType {
-        let service: CarsServiceType = CarsService()
+        let service: CarsServiceType = DelayCarsService(service: MocksCarsServiceFactory.create(), delay: 1)
 
         let navigator = NavigationServiceProxy()
         var router = Router()
 
+        // Source of all routes available in App
+
         router.routes[Navigation.Route.carsList.asPath()] = CarsListRoute(
             navigationService: navigator,
-            listService: service
+            listService: service,
+            errorPresenter: nil
         )
 
         router.routes[Navigation.Route.carAdd.asPath()] = CarAddRoute(

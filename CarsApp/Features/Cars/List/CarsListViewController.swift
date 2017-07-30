@@ -13,14 +13,21 @@ import RxSwift
 import RxCocoa
 
 final class CarsListViewController: UITableViewController {
+
+    private let errorPresenter: ErrorPresenterType
     private let viewModel: CarsListViewModelType
     private let bag = DisposeBag()
     private let onSelectCallback: ((CarType) -> Void)?
+
     private var items: Array<CarsListItemPresentable> = []
     private var appearsFirstTime = true
 
-    init(service: CarsListServiceType, onSelectCallback: ((CarType) -> Void)? = nil) {
+    init(service: CarsListServiceType,
+         errorPresenter: ErrorPresenterType,
+         onSelectCallback: ((CarType) -> Void)? = nil) {
+
         self.viewModel = CarsListViewModel(service: service)
+        self.errorPresenter = errorPresenter
         self.onSelectCallback = onSelectCallback
         super.init(style: .grouped)
     }
@@ -38,6 +45,7 @@ final class CarsListViewController: UITableViewController {
 
         configureTableView()
         configureRefreshControl()
+        configureErrorPresenter()
         configureBindings()
     }
 
@@ -70,6 +78,13 @@ final class CarsListViewController: UITableViewController {
         self.refreshControl = refreshControl
     }
 
+    private func configureErrorPresenter() {
+        errorPresenter.next = ErrorHandler { [weak self] _ in
+            self?.refreshAction()
+            return true
+        }
+    }
+
     private func configureBindings() {
         viewModel.outputs.onPresentResult.drive(onNext: { [weak self] (result) in
             switch result {
@@ -96,33 +111,7 @@ final class CarsListViewController: UITableViewController {
     }
 
     private func presentError(_ error: CarsServiceError) {
-
-        // FIXME: Messages should be localized
-        // FIXME: Cleaner creation of alert controller is needed here
-
-        let alert = UIAlertController(
-            title: "Error",
-            message: "Connection service error",
-            preferredStyle: UIAlertControllerStyle.alert
-        )
-
-        let cancel = UIAlertAction(
-            title: "Cancel",
-            style: UIAlertActionStyle.default,
-            handler: nil
-        )
-
-        let retry = UIAlertAction(
-            title: "Retry",
-            style: UIAlertActionStyle.destructive,
-            handler: { [weak self] action in
-                self?.refreshAction()
-            })
-
-        alert.addAction(cancel)
-        alert.addAction(retry)
-
-        present(alert, animated: true, completion: nil)
+        errorPresenter.present(with: error)
     }
 
     private func updateLoadingIndicator(_ isLoading: Bool) {

@@ -12,20 +12,31 @@ import UIKit
 struct CarsListFlow: FlowPresentable {
     let navigationService: NavigationServiceType
     let listService: CarsListServiceType
+    let errorPresenter: ErrorPresenterType?
 
     init(navigationService: NavigationServiceType,
-         listService: CarsListServiceType) {
+         listService: CarsListServiceType,
+         errorPresenter: ErrorPresenterType?) {
 
         self.navigationService = navigationService
         self.listService = listService
+        self.errorPresenter = errorPresenter
     }
 
     func present(using presenter: ViewControllerPresentable) {
+        let errorPresenter = ProxyErrorPresenter(self.errorPresenter)
 
-        // FIXME: Implement
+        let viewController = CarsListViewController(
+            service: listService,
+            errorPresenter: errorPresenter,
+            onSelectCallback: nil
+        )
 
-        let viewController = CarsListViewController(service: listService, onSelectCallback: nil)
-        viewController.title = "List"
+        if errorPresenter.proxy == nil {
+            errorPresenter.proxy = RetryErrorPresenter.create(using: viewController)
+        }
+
+        viewController.title = NSLocalizedString("Cars List", comment: "List of cars")
         presenter.present(viewController)
     }
     

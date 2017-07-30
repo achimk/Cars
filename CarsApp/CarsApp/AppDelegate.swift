@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let location = Navigation.Route.carsList.asLocation()
         let presenter = factory.createPresenter()
 
-        // Landing page providing ability to simulate dealocing controllers on stack
+        // Landing page providing ability to simulate deinit controller on stack
 //        let landing = UIViewController()
 //        landing.title = "Landing Page"
 //        landing.view.backgroundColor = .red

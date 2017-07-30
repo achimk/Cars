@@ -65,6 +65,12 @@
 		AA1048EB1F2CC56900C36F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1048EA1F2CC56900C36F7A /* AppDelegate.swift */; };
 		AA1048F21F2CC56900C36F7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F11F2CC56900C36F7A /* Assets.xcassets */; };
 		AA1048F51F2CC56900C36F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F31F2CC56900C36F7A /* LaunchScreen.storyboard */; };
+		AAC92D7A1F2DFD35006FA558 /* AlertErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92D791F2DFD35006FA558 /* AlertErrorPresenter.swift */; };
+		AAC92D7C1F2DFD41006FA558 /* RetryErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92D7B1F2DFD41006FA558 /* RetryErrorPresenter.swift */; };
+		AAC92D7E1F2DFD56006FA558 /* ErrorPresenterFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92D7D1F2DFD56006FA558 /* ErrorPresenterFactoryType.swift */; };
+		AAC92D811F2DFE37006FA558 /* ErrorMessageParserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92D801F2DFE37006FA558 /* ErrorMessageParserType.swift */; };
+		AAC92D831F2DFE3F006FA558 /* ErrorMessageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92D821F2DFE3F006FA558 /* ErrorMessageParser.swift */; };
+		AAC92D851F2E04C1006FA558 /* ProxyErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92D841F2E04C1006FA558 /* ProxyErrorPresenter.swift */; };
 		AAFA50C91F2DD8A400AB9483 /* CarsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA50C81F2DD8A400AB9483 /* CarsListViewModelTests.swift */; };
 		AAFA50CB1F2DD96D00AB9483 /* CarsListPresentationItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA50CA1F2DD96D00AB9483 /* CarsListPresentationItemTests.swift */; };
 		AAFA50CE1F2DDAAB00AB9483 /* CarsServiceFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA50CC1F2DDA7A00AB9483 /* CarsServiceFactoryType.swift */; };
@@ -156,6 +162,12 @@
 		AA1048F61F2CC56900C36F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA1048FB1F2CC56900C36F7A /* CarsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1049011F2CC56900C36F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAC92D791F2DFD35006FA558 /* AlertErrorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertErrorPresenter.swift; sourceTree = "<group>"; };
+		AAC92D7B1F2DFD41006FA558 /* RetryErrorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetryErrorPresenter.swift; sourceTree = "<group>"; };
+		AAC92D7D1F2DFD56006FA558 /* ErrorPresenterFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorPresenterFactoryType.swift; sourceTree = "<group>"; };
+		AAC92D801F2DFE37006FA558 /* ErrorMessageParserType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessageParserType.swift; sourceTree = "<group>"; };
+		AAC92D821F2DFE3F006FA558 /* ErrorMessageParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessageParser.swift; sourceTree = "<group>"; };
+		AAC92D841F2E04C1006FA558 /* ProxyErrorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyErrorPresenter.swift; sourceTree = "<group>"; };
 		AAFA50C81F2DD8A400AB9483 /* CarsListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListViewModelTests.swift; sourceTree = "<group>"; };
 		AAFA50CA1F2DD96D00AB9483 /* CarsListPresentationItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListPresentationItemTests.swift; sourceTree = "<group>"; };
 		AAFA50CC1F2DDA7A00AB9483 /* CarsServiceFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsServiceFactoryType.swift; sourceTree = "<group>"; };
@@ -285,7 +297,6 @@
 		AA0880811F2CF13D004AB71A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				AA0880AA1F2CFAC7004AB71A /* Presenters */,
 				AA0880A91F2CFA68004AB71A /* Routes */,
 				AA0880B31F2CFD66004AB71A /* NavigationServiceFactoryType.swift */,
 				AA0880AD1F2CFBB8004AB71A /* NavigationServiceType.swift */,
@@ -374,15 +385,6 @@
 				AA0880BB1F2D0039004AB71A /* CarDetailsRoute.swift */,
 			);
 			path = Routes;
-			sourceTree = "<group>";
-		};
-		AA0880AA1F2CFAC7004AB71A /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				AA0880AB1F2CFB16004AB71A /* NavigationPresenterFactoryType.swift */,
-				AA0880861F2CF27E004AB71A /* NavigationPresenterFactory.swift */,
-			);
-			path = Presenters;
 			sourceTree = "<group>";
 		};
 		AA0880BF1F2D0574004AB71A /* Cars */ = {
@@ -614,6 +616,7 @@
 		AA1048E91F2CC56900C36F7A /* CarsApp */ = {
 			isa = PBXGroup;
 			children = (
+				AAFA51201F2DFB8500AB9483 /* Presenters */,
 				AA0880811F2CF13D004AB71A /* Navigation */,
 				AA1048EA1F2CC56900C36F7A /* AppDelegate.swift */,
 				AA1048F11F2CC56900C36F7A /* Assets.xcassets */,
@@ -634,6 +637,15 @@
 				AA1049011F2CC56900C36F7A /* Info.plist */,
 			);
 			path = CarsAppTests;
+			sourceTree = "<group>";
+		};
+		AAC92D7F1F2DFE18006FA558 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				AAC92D801F2DFE37006FA558 /* ErrorMessageParserType.swift */,
+				AAC92D821F2DFE3F006FA558 /* ErrorMessageParser.swift */,
+			);
+			path = Parsers;
 			sourceTree = "<group>";
 		};
 		AAFA50C61F2DD87400AB9483 /* Cars */ = {
@@ -706,6 +718,36 @@
 				AAFA511C1F2DF74700AB9483 /* ErrorPresenterTests.swift */,
 			);
 			path = ErrorHandling;
+			sourceTree = "<group>";
+		};
+		AAFA51201F2DFB8500AB9483 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				AAFA51221F2DFBD800AB9483 /* Error */,
+				AAFA51211F2DFBD100AB9483 /* Navigation */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		AAFA51211F2DFBD100AB9483 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				AA0880AB1F2CFB16004AB71A /* NavigationPresenterFactoryType.swift */,
+				AA0880861F2CF27E004AB71A /* NavigationPresenterFactory.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		AAFA51221F2DFBD800AB9483 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				AAC92D7F1F2DFE18006FA558 /* Parsers */,
+				AAC92D7D1F2DFD56006FA558 /* ErrorPresenterFactoryType.swift */,
+				AAC92D791F2DFD35006FA558 /* AlertErrorPresenter.swift */,
+				AAC92D7B1F2DFD41006FA558 /* RetryErrorPresenter.swift */,
+				AAC92D841F2E04C1006FA558 /* ProxyErrorPresenter.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -836,6 +878,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC92D851F2E04C1006FA558 /* ProxyErrorPresenter.swift in Sources */,
 				AA0880931F2CF5AE004AB71A /* LocationType.swift in Sources */,
 				AA0880AC1F2CFB16004AB71A /* NavigationPresenterFactoryType.swift in Sources */,
 				AA0880F11F2D1DD4004AB71A /* CarModel.swift in Sources */,
@@ -865,6 +908,7 @@
 				AA0881591F2D5756004AB71A /* Observable+Result.swift in Sources */,
 				AA0880FC1F2D210D004AB71A /* InMemoryCarsService.swift in Sources */,
 				AA0880E81F2D1669004AB71A /* CarsServiceType.swift in Sources */,
+				AAC92D811F2DFE37006FA558 /* ErrorMessageParserType.swift in Sources */,
 				AA0880981F2CF613004AB71A /* ErrorRoutable.swift in Sources */,
 				AA0880871F2CF27E004AB71A /* NavigationPresenterFactory.swift in Sources */,
 				AA0880B41F2CFD66004AB71A /* NavigationServiceFactoryType.swift in Sources */,
@@ -880,11 +924,15 @@
 				AAFA51181F2DF1BF00AB9483 /* ErrorPresenter.swift in Sources */,
 				AA0880D81F2D0BC7004AB71A /* CarAddFlow.swift in Sources */,
 				AA0880B61F2CFE0C004AB71A /* Navigation.swift in Sources */,
+				AAC92D7C1F2DFD41006FA558 /* RetryErrorPresenter.swift in Sources */,
+				AAC92D7E1F2DFD56006FA558 /* ErrorPresenterFactoryType.swift in Sources */,
 				AA0880C81F2D07D6004AB71A /* Car.swift in Sources */,
 				AA0881391F2D3F5E004AB71A /* CarIdentityModel.swift in Sources */,
 				AA0880BC1F2D0039004AB71A /* CarDetailsRoute.swift in Sources */,
 				AA08809C1F2CF663004AB71A /* Router.swift in Sources */,
 				AA0880AE1F2CFBB8004AB71A /* NavigationServiceType.swift in Sources */,
+				AAC92D831F2DFE3F006FA558 /* ErrorMessageParser.swift in Sources */,
+				AAC92D7A1F2DFD35006FA558 /* AlertErrorPresenter.swift in Sources */,
 				AAFA51101F2DF0D700AB9483 /* ErrorHandling.swift in Sources */,
 				AA0880E31F2D0F3F004AB71A /* CarsListTableViewCell.swift in Sources */,
 				AA0880DD1F2D0C09004AB71A /* CarDetailsFlow.swift in Sources */,
