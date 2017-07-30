@@ -37,7 +37,6 @@ struct NavigationService: NavigationServiceType, NavigationServiceFactoryType {
         navigator.proxy = NavigationService(router)
 
         return navigator
-
     }
 
     init(_ router: Router) {

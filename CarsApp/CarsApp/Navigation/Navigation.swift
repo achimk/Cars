@@ -22,6 +22,7 @@ struct Navigation {
         case carDetails(CarIdentityModel)
     }
 
+    // Default paths usend in project (used for identify routes)
     enum Path: String {
         case carsList
         case carAdd
