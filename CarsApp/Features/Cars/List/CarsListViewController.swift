@@ -29,9 +29,15 @@ final class CarsListViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        print("[*] \(type(of: self)): \(#function)")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         configureTableView()
+        configureRefreshControl()
         configureBindings()
     }
 
@@ -48,13 +54,35 @@ final class CarsListViewController: UITableViewController {
         appearsFirstTime = false
     }
 
+    func refreshAction() {
+        viewModel.inputs.fetch()
+    }
+
     private func configureTableView() {
         tableView.register(cellType: CarsListTableViewCell.self)
     }
 
+    private func configureRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        let sel = #selector(CarsListViewController.refreshAction)
+        refreshControl.addTarget(self, action: sel, for: .valueChanged)
+        tableView.addSubview(refreshControl)
+        self.refreshControl = refreshControl
+    }
+
     private func configureBindings() {
-        viewModel.outputs.onPresentItems.drive(onNext: { [weak self] (items) in
-            self?.reloadData(with: items)
+        viewModel.outputs.onPresentResult.drive(onNext: { [weak self] (result) in
+            switch result {
+            case .success(let items):
+                self?.reloadData(with: items)
+            case .failure(let error):
+                self?.presentError(error)
+            }
+
+        }).addDisposableTo(bag)
+
+        viewModel.outputs.onLoading.drive(onNext: { [weak self] (isLoading) in
+            self?.updateLoadingIndicator(isLoading)
         }).addDisposableTo(bag)
     }
 
@@ -65,6 +93,42 @@ final class CarsListViewController: UITableViewController {
 
     private func reloadData() {
         tableView.reloadData()
+    }
+
+    private func presentError(_ error: CarsServiceError) {
+
+        // FIXME: Messages should be localized
+        // FIXME: Cleaner creation of alert controller is needed here
+
+        let alert = UIAlertController(
+            title: "Error",
+            message: "Connection service error",
+            preferredStyle: UIAlertControllerStyle.alert
+        )
+
+        let cancel = UIAlertAction(
+            title: "Cancel",
+            style: UIAlertActionStyle.default,
+            handler: nil
+        )
+
+        let retry = UIAlertAction(
+            title: "Retry",
+            style: UIAlertActionStyle.destructive,
+            handler: { [weak self] action in
+                self?.refreshAction()
+            })
+
+        alert.addAction(cancel)
+        alert.addAction(retry)
+
+        present(alert, animated: true, completion: nil)
+    }
+
+    private func updateLoadingIndicator(_ isLoading: Bool) {
+        if !isLoading {
+            refreshControl?.endRefreshing()
+        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

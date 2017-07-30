@@ -51,18 +51,3 @@ extension CarType {
             && manufactureDate == other.manufactureDate
     }
 }
-
-//extension CarConvertible where Self: CarType {
-//    final func asCar() -> CarType {
-//        return self
-//    }
-//}
-
-////extension Equatable where Self: CarType { }
-//func ==(lhs: CarType, rhs: CarType) -> Bool {
-//    return lhs.identifier == rhs.identifier
-//        && lhs.name == rhs.name
-//        && lhs.model == rhs.model
-//        && lhs.brand == rhs.brand
-//        && lhs.manufactureDate == rhs.manufactureDate
-//}

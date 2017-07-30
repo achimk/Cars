@@ -9,14 +9,17 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Result
+
+typealias CarsListResult = Result<Array<CarsListItemPresentable>, CarsServiceError>
 
 protocol CarsListViewModelInputs {
     func fetch()
 }
 
 protocol CarsListViewModelOutputs {
-    var onPresentItems: Driver<Array<CarsListItemPresentable>> { get }
-    var onPresentError: Driver<CarsServiceError> { get }
+    var onPresentResult: Driver<CarsListResult> { get }
+    var onLoading: Driver<Bool> { get }
 }
 
 protocol CarsListViewModelType {
@@ -26,23 +29,37 @@ protocol CarsListViewModelType {
 
 final class CarsListViewModel: CarsListViewModelType {
     let signalFetch: PublishSubject<Void>
-    let driverPresentItems: Driver<Array<CarsListItemPresentable>>
-//    let driverPresentError: Driver<CarsServiceError>
+    let signalRequest: ObservableProbe
+    let driverPresentResult: Driver<CarsListResult>
 
     var inputs: CarsListViewModelInputs { return self }
     var outputs: CarsListViewModelOutputs { return self }
 
     init(service: CarsListServiceType) {
+
         let trigger = PublishSubject<Void>()
+        let probe = ObservableProbe()
+
         signalFetch = trigger
-        driverPresentItems = trigger
-            .flatMapLatest {
-                return service.requestCarsList().take(1)
-            }
-            .map {
-                $0.map { CarsListPresentationItem($0) as CarsListItemPresentable }
+        signalRequest = probe
+
+        driverPresentResult = trigger
+            .withLatestFrom(probe)
+            .filter { !$0 }
+            .flatMapLatest { _ in
+                return service.requestCarsList()
+                    .take(1)
+                    .map {
+                        $0.map { CarsListPresentationItem($0) as CarsListItemPresentable }
+                    }
+                    .trackActivity(probe)
+                    .mapCarsServiceResult()
             }
             .asDriver(onErrorDriveWith: Driver.never())
+    }
+
+    deinit {
+        print("[*] \(type(of: self)): \(#function)")
     }
 }
 
@@ -53,11 +70,11 @@ extension CarsListViewModel: CarsListViewModelInputs {
 }
 
 extension CarsListViewModel: CarsListViewModelOutputs {
-    var onPresentItems: Driver<Array<CarsListItemPresentable>> {
-        return driverPresentItems
+    var onPresentResult: Driver<CarsListResult> {
+        return driverPresentResult
     }
 
-    var onPresentError: Driver<CarsServiceError> {
-        return Driver.empty()
+    var onLoading: Driver<Bool> {
+        return signalRequest.asDriver()
     }
 }
