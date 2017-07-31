@@ -10,13 +10,15 @@ import Foundation
 
 final class CarCreateBuilder: CarStepConfigurable, CarCreateBuilderType {
     private let validators: CarInputValidatorsFactoryType
+    private let converter: CarInputConverter
     private var name: String?
     private var brand: String?
     private var model: String?
     private var year: String?
 
-    init(validators: CarInputValidatorsFactoryType) {
+    init(validators: CarInputValidatorsFactoryType, converter: CarInputConverter) {
         self.validators = validators
+        self.converter = converter
     }
 
     func set(name: String?) {
@@ -50,20 +52,11 @@ final class CarCreateBuilder: CarStepConfigurable, CarCreateBuilderType {
     }
 
     private func createValid(value: String?, using validator: CarInputValidator) throws -> String {
-        let result = validator(value)
+        let result = validator(converter.run(value))
 
         switch result {
         case .success(let value): return value
         case .failure(let error): throw error
         }
-    }
-
-    private func createValid<O>(
-        value: String?,
-        preFormatter: ((String?) -> String?)? = nil,
-        validator: CarInputValidator,
-        postFormatter: ((String) -> O)? = nil) throws -> O {
-
-        fatalError()
     }
 }

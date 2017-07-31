@@ -36,15 +36,38 @@ final class CarAddViewModel: CarAddViewModelType {
     var inputs: CarAddViewModelInputs { return self }
     var outputs: CarAddViewModelOutputs { return self }
 
-    init(service: CarAddServiceType, inputs: Array<CarInputViewModelType>) {
+    init(service: CarAddServiceType,
+         validators: CarInputValidatorsFactoryType,
+         converter: CarInputConverter) {
+
+        let inputs: Array<CarInputViewModelType> = [
+            CarInputViewModel(inputType: .name, converter: converter, validator: validators.createNameValidator()),
+            CarInputViewModel(inputType: .brand, converter: converter, validator: validators.createBrandValidator()),
+            CarInputViewModel(inputType: .model, converter: converter, validator: validators.createModelValidator()),
+            CarInputViewModel(inputType: .year, converter: converter, validator: validators.createYearValidator())
+        ]
 
         valueInputViewModels = Variable<Array<CarInputViewModelType>>(inputs)
 
-        let isFormEnabled = Observable.from(inputs.map {
-                $0.outputs.onTextResult.asObservable().map { $0.isSuccess }
+        let signals = inputs.map {
+            $0.outputs.onTextResult.asObservable().map { $0.isSuccess }
+        }
+
+        let isFormEnabled = Observable.combineLatest(signals) { (items) -> Bool in
+            return items.reduce(true, { (result, value) -> Bool in
+                return result && value
             })
-            .merge()
-            .distinctUntilChanged()
+        }.distinctUntilChanged()
+
+//        let rs = Observable.combineLatest(signals[0], signals[1], signals[2], signals[3]) { (input1, input2, input3, input4) -> Bool in
+//            return false
+//        }
+
+//        let isFormEnabled = Observable.from(inputs.map {
+//                $0.outputs.onTextResult.asObservable().map { $0.isSuccess }
+//            })
+//            .merge()
+//            .distinctUntilChanged()
 
 
         driverFormEnabled = isFormEnabled

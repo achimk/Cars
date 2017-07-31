@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA027F571F2F9AB200265FB5 /* CarInputConverterFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA027F561F2F9AB200265FB5 /* CarInputConverterFactoryType.swift */; };
+		AA027F591F2F9B3C00265FB5 /* CarInputWhitespaceTrimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA027F581F2F9B3C00265FB5 /* CarInputWhitespaceTrimmer.swift */; };
 		AA0880561F2CD8F7004AB71A /* ViewControllerPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880551F2CD8F7004AB71A /* ViewControllerPresentable.swift */; };
 		AA08805B1F2CD9B2004AB71A /* WindowPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08805A1F2CD9B2004AB71A /* WindowPresenterTests.swift */; };
 		AA08805D1F2CDB18004AB71A /* WindowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08805C1F2CDB18004AB71A /* WindowPresenter.swift */; };
@@ -84,17 +86,13 @@
 		AAC92DA41F2E4164006FA558 /* CarInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DA31F2E4164006FA558 /* CarInputViewModel.swift */; };
 		AAC92DA61F2EFB8B006FA558 /* CarInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DA51F2EFB8B006FA558 /* CarInputTableViewCell.swift */; };
 		AAC92DC11F2F1474006FA558 /* Result+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DC01F2F1474006FA558 /* Result+Additions.swift */; };
-		AAC92DC41F2F151B006FA558 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DC31F2F151B006FA558 /* Validators.swift */; };
 		AAC92DC61F2F15D2006FA558 /* Result+Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DC51F2F15D2006FA558 /* Result+Validators.swift */; };
 		AAC92DC81F2F1828006FA558 /* CarInputValidatorsFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DC71F2F1828006FA558 /* CarInputValidatorsFactoryType.swift */; };
 		AAC92DCA1F2F1839006FA558 /* CarInputValidatorsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DC91F2F1839006FA558 /* CarInputValidatorsFactory.swift */; };
 		AAC92DD51F2F7EFC006FA558 /* CarCreateBuilderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DD41F2F7EFC006FA558 /* CarCreateBuilderType.swift */; };
 		AAC92DD71F2F8037006FA558 /* CarCreateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DD61F2F8037006FA558 /* CarCreateBuilder.swift */; };
-		AAC92DF21F2F879C006FA558 /* CarOutputValidatorsFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DF11F2F879C006FA558 /* CarOutputValidatorsFactoryType.swift */; };
 		AAC92DFF1F2F8BAF006FA558 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DFE1F2F8BAF006FA558 /* Reader.swift */; };
 		AAC92E011F2F8C62006FA558 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92E001F2F8C62006FA558 /* Types.swift */; };
-		AAC92E031F2F8DB9006FA558 /* TrimWhitespaceConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92E021F2F8DB9006FA558 /* TrimWhitespaceConverter.swift */; };
-		AAC92E051F2F8DCB006FA558 /* YearConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92E041F2F8DCB006FA558 /* YearConverter.swift */; };
 		AAFA50C91F2DD8A400AB9483 /* CarsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA50C81F2DD8A400AB9483 /* CarsListViewModelTests.swift */; };
 		AAFA50CB1F2DD96D00AB9483 /* CarsListPresentationItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA50CA1F2DD96D00AB9483 /* CarsListPresentationItemTests.swift */; };
 		AAFA50CE1F2DDAAB00AB9483 /* CarsServiceFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA50CC1F2DDA7A00AB9483 /* CarsServiceFactoryType.swift */; };
@@ -124,6 +122,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA027F561F2F9AB200265FB5 /* CarInputConverterFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputConverterFactoryType.swift; sourceTree = "<group>"; };
+		AA027F581F2F9B3C00265FB5 /* CarInputWhitespaceTrimmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputWhitespaceTrimmer.swift; sourceTree = "<group>"; };
 		AA0880551F2CD8F7004AB71A /* ViewControllerPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPresentable.swift; sourceTree = "<group>"; };
 		AA08805A1F2CD9B2004AB71A /* WindowPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowPresenterTests.swift; sourceTree = "<group>"; };
 		AA08805C1F2CDB18004AB71A /* WindowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowPresenter.swift; sourceTree = "<group>"; };
@@ -205,17 +205,13 @@
 		AAC92DA31F2E4164006FA558 /* CarInputViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputViewModel.swift; sourceTree = "<group>"; };
 		AAC92DA51F2EFB8B006FA558 /* CarInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputTableViewCell.swift; sourceTree = "<group>"; };
 		AAC92DC01F2F1474006FA558 /* Result+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+Additions.swift"; sourceTree = "<group>"; };
-		AAC92DC31F2F151B006FA558 /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		AAC92DC51F2F15D2006FA558 /* Result+Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+Validators.swift"; sourceTree = "<group>"; };
 		AAC92DC71F2F1828006FA558 /* CarInputValidatorsFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputValidatorsFactoryType.swift; sourceTree = "<group>"; };
 		AAC92DC91F2F1839006FA558 /* CarInputValidatorsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputValidatorsFactory.swift; sourceTree = "<group>"; };
 		AAC92DD41F2F7EFC006FA558 /* CarCreateBuilderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCreateBuilderType.swift; sourceTree = "<group>"; };
 		AAC92DD61F2F8037006FA558 /* CarCreateBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCreateBuilder.swift; sourceTree = "<group>"; };
-		AAC92DF11F2F879C006FA558 /* CarOutputValidatorsFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarOutputValidatorsFactoryType.swift; sourceTree = "<group>"; };
 		AAC92DFE1F2F8BAF006FA558 /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 		AAC92E001F2F8C62006FA558 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
-		AAC92E021F2F8DB9006FA558 /* TrimWhitespaceConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrimWhitespaceConverter.swift; sourceTree = "<group>"; };
-		AAC92E041F2F8DCB006FA558 /* YearConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearConverter.swift; sourceTree = "<group>"; };
 		AAFA50C81F2DD8A400AB9483 /* CarsListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListViewModelTests.swift; sourceTree = "<group>"; };
 		AAFA50CA1F2DD96D00AB9483 /* CarsListPresentationItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListPresentationItemTests.swift; sourceTree = "<group>"; };
 		AAFA50CC1F2DDA7A00AB9483 /* CarsServiceFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsServiceFactoryType.swift; sourceTree = "<group>"; };
@@ -264,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				AAC92DFC1F2F8B6D006FA558 /* Functional */,
-				AAC92DC21F2F14FC006FA558 /* Validation */,
 				AA0881521F2D5670004AB71A /* Extensions */,
 				AAC92E001F2F8C62006FA558 /* Types.swift */,
 			);
@@ -743,7 +738,6 @@
 			children = (
 				AAC92DC71F2F1828006FA558 /* CarInputValidatorsFactoryType.swift */,
 				AAC92DC91F2F1839006FA558 /* CarInputValidatorsFactory.swift */,
-				AAC92DF11F2F879C006FA558 /* CarOutputValidatorsFactoryType.swift */,
 			);
 			path = Validation;
 			sourceTree = "<group>";
@@ -757,19 +751,11 @@
 			path = Result;
 			sourceTree = "<group>";
 		};
-		AAC92DC21F2F14FC006FA558 /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-				AAC92DC31F2F151B006FA558 /* Validators.swift */,
-			);
-			path = Validation;
-			sourceTree = "<group>";
-		};
 		AAC92DCE1F2F4F5A006FA558 /* Converters */ = {
 			isa = PBXGroup;
 			children = (
-				AAC92E021F2F8DB9006FA558 /* TrimWhitespaceConverter.swift */,
-				AAC92E041F2F8DCB006FA558 /* YearConverter.swift */,
+				AA027F561F2F9AB200265FB5 /* CarInputConverterFactoryType.swift */,
+				AA027F581F2F9B3C00265FB5 /* CarInputWhitespaceTrimmer.swift */,
 			);
 			path = Converters;
 			sourceTree = "<group>";
@@ -1040,6 +1026,7 @@
 				"$(SRCROOT)/../Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/../Carthage/Build/iOS/Chameleon.framework",
 				"$(SRCROOT)/../Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/Validator.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -1089,7 +1076,6 @@
 				AA0881721F2D5A02004AB71A /* Observable+FilterNil.swift in Sources */,
 				AA1048EB1F2CC56900C36F7A /* AppDelegate.swift in Sources */,
 				AA0881591F2D5756004AB71A /* Observable+Result.swift in Sources */,
-				AAC92DF21F2F879C006FA558 /* CarOutputValidatorsFactoryType.swift in Sources */,
 				AA0880FC1F2D210D004AB71A /* InMemoryCarsService.swift in Sources */,
 				AA0880E81F2D1669004AB71A /* CarsServiceType.swift in Sources */,
 				AAC92D811F2DFE37006FA558 /* ErrorMessageParserType.swift in Sources */,
@@ -1100,11 +1086,10 @@
 				AA0880BA1F2D002D004AB71A /* CarAddRoute.swift in Sources */,
 				AAFA50DB1F2DDC3C00AB9483 /* DelayCarsService.swift in Sources */,
 				AAC92DCA1F2F1839006FA558 /* CarInputValidatorsFactory.swift in Sources */,
-				AAC92DC41F2F151B006FA558 /* Validators.swift in Sources */,
 				AA0880DF1F2D0F1B004AB71A /* CarsListViewController.swift in Sources */,
 				AAFA51121F2DF0F900AB9483 /* ErrorHandlingChainable.swift in Sources */,
-				AAC92E031F2F8DB9006FA558 /* TrimWhitespaceConverter.swift in Sources */,
 				AAC92DC81F2F1828006FA558 /* CarInputValidatorsFactoryType.swift in Sources */,
+				AA027F571F2F9AB200265FB5 /* CarInputConverterFactoryType.swift in Sources */,
 				AAC92DD71F2F8037006FA558 /* CarCreateBuilder.swift in Sources */,
 				AAC92DFF1F2F8BAF006FA558 /* Reader.swift in Sources */,
 				AA0880B81F2D0024004AB71A /* CarsListRoute.swift in Sources */,
@@ -1125,8 +1110,8 @@
 				AA0881391F2D3F5E004AB71A /* CarIdentityModel.swift in Sources */,
 				AA0880BC1F2D0039004AB71A /* CarDetailsRoute.swift in Sources */,
 				AA08809C1F2CF663004AB71A /* Router.swift in Sources */,
-				AAC92E051F2F8DCB006FA558 /* YearConverter.swift in Sources */,
 				AA0880AE1F2CFBB8004AB71A /* NavigationServiceType.swift in Sources */,
+				AA027F591F2F9B3C00265FB5 /* CarInputWhitespaceTrimmer.swift in Sources */,
 				AAC92D831F2DFE3F006FA558 /* ErrorMessageParser.swift in Sources */,
 				AAC92D7A1F2DFD35006FA558 /* AlertErrorPresenter.swift in Sources */,
 				AAC92DC61F2F15D2006FA558 /* Result+Validators.swift in Sources */,

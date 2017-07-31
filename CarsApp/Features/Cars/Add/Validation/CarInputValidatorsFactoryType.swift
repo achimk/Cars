@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Validator
 
-typealias CarInputValidator = ResultValidator<String, CarInputValidationError>
+typealias CarInputValidator = ResultValidation<String>
 
 enum CarInputValidationError: Error {
     case invalidName(String)

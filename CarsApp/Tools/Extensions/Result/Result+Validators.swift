@@ -8,16 +8,28 @@
 
 import Foundation
 import Result
+import Validator
 
-extension Result {
+struct ValidationErrors: Error {
+    let errors: Array<Error>
 
-    static func createValidator(
-        using validator: @escaping Validator<T>,
-        error: Error) -> ResultValidator<T, Error> {
+    init(_ errors: Array<Error>) {
+        self.errors = errors
+    }
+}
 
+typealias ResultValidation<T> = ((T) -> Result<T, ValidationErrors>)
+
+extension Result where T: Validatable {
+
+    static func createValidator(using rules: ValidationRuleSet<T>) -> ResultValidation<T> {
         return { value in
-            guard let value = value else { return Result(error: error) }
-            return validator(value) ? Result(value: value) : Result(error: error)
+            switch value.validate(rules: rules) {
+            case .valid:
+                return Result<T, ValidationErrors>(value: value)
+            case .invalid(let errors):
+                return Result<T, ValidationErrors>(error: ValidationErrors(errors))
+            }
         }
     }
 }

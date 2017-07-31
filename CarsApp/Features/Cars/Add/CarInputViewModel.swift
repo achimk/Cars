@@ -27,7 +27,7 @@ enum CarInputType: String {
     }
 }
 
-typealias CarInputResult = Result<String, CarInputValidationError>
+typealias CarInputResult = Result<String, ValidationErrors>
 
 protocol CarInputViewModelInputs {
     func change(input text: String?)
@@ -36,7 +36,7 @@ protocol CarInputViewModelInputs {
 
 protocol CarInputViewModelOutputs {
     var currentPlaceholder: String { get }
-    var currentText: String? { get }
+    var currentText: String { get }
     var onTextResult: Driver<CarInputResult> { get }
 }
 
@@ -47,6 +47,7 @@ protocol CarInputViewModelType {
 
 final class CarInputViewModel: CarInputViewModelType {
     fileprivate let inputType: CarInputType
+    fileprivate let converter: CarInputConverter
     fileprivate let valueInput = Variable<String?>(nil)
     fileprivate let driverTextResult: Driver<CarInputResult>
 
@@ -55,12 +56,14 @@ final class CarInputViewModel: CarInputViewModelType {
     var inputs: CarInputViewModelInputs { return self }
     var outputs: CarInputViewModelOutputs { return self }
 
-    init(inputType: CarInputType, validator: @escaping CarInputValidator) {
+    init(inputType: CarInputType, converter: CarInputConverter, validator: @escaping CarInputValidator) {
         self.inputType = inputType
+        self.converter = converter
         self.currentPlaceholder = inputType.asPlaceholder()
         self.driverTextResult = valueInput
             .asObservable()
-            .map { validator($0) }
+            .map { validator(converter.run($0)) }
+            .debug("---> \(inputType)")
             .asDriver(onErrorDriveWith: Driver.never())
     }
 
@@ -90,8 +93,8 @@ extension CarInputViewModel: CarInputViewModelInputs {
 }
 
 extension CarInputViewModel: CarInputViewModelOutputs {
-    var currentText: String? {
-        return valueInput.value
+    var currentText: String {
+        return converter.run(valueInput.value)
     }
 
     var onTextResult: Driver<CarInputResult> {

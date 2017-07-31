@@ -8,54 +8,78 @@
 
 import Foundation
 import Result
+import Validator
 
 struct CarInputValidatorsFactory: CarInputValidatorsFactoryType {
 
     init() { }
 
     func createNameValidator() -> CarInputValidator {
-        let message = NSLocalizedString("Invalid name", comment: "Invalid name error")
+        let message = NSLocalizedString("Name is required", comment: "Required name")
         let error = CarInputValidationError.invalidName(message)
-        let validator = Validation.isNotEmpty()
 
-        return Result<String, CarInputValidationError>.createValidator(
-            using: validator,
-            error: error
-        )
+        // Required length rule
+
+        var rules = ValidationRuleSet<String>()
+        let ruleRequired = ValidationRuleLength(min: 1, error: error)
+        rules.add(rule: ruleRequired)
+
+        return Result<String, ValidationErrors>.createValidator(using: rules)
     }
 
     func createBrandValidator() -> CarInputValidator {
-        let message = NSLocalizedString("Invalid brand name", comment: "Invalid brand error")
+        let message = NSLocalizedString("Brand is required", comment: "Required brand")
         let error = CarInputValidationError.invalidBrand(message)
-        let validator = Validation.isNotEmpty()
 
-        return Result<String, CarInputValidationError>.createValidator(
-            using: validator,
-            error: error
-        )
+        // Required length rule
+
+        var rules = ValidationRuleSet<String>()
+        let ruleRequired = ValidationRuleLength(min: 1, error: error)
+        rules.add(rule: ruleRequired)
+
+        return Result<String, ValidationErrors>.createValidator(using: rules)
     }
 
     func createModelValidator() -> CarInputValidator {
-        let message = NSLocalizedString("Invalid brand name", comment: "Invalid brand error")
+        let message = NSLocalizedString("Model is required", comment: "Required model")
         let error = CarInputValidationError.invalidBrand(message)
-        let validator = Validation.isNotEmpty()
 
-        return Result<String, CarInputValidationError>.createValidator(
-            using: validator,
-            error: error
-        )
+        // Required length rule
+
+        var rules = ValidationRuleSet<String>()
+        let ruleRequired = ValidationRuleLength(min: 1, error: error)
+        rules.add(rule: ruleRequired)
+
+        return Result<String, ValidationErrors>.createValidator(using: rules)
     }
 
     func createYearValidator() -> CarInputValidator {
-        let message = NSLocalizedString("Invalid brand name", comment: "Invalid brand error")
-        let error = CarInputValidationError.invalidBrand(message)
-        let validator = Validation.isNotEmpty()
+        var rules = ValidationRuleSet<String>()
 
-        // FIXME: Add year format validator here, also this will require validators composition functionality!
+        // Digits rule
 
-        return Result<String, CarInputValidationError>.createValidator(
-            using: validator,
-            error: error
+        let errorDigits = CarInputValidationError.invalidBrand(
+            NSLocalizedString("Year should contain only digits", comment: "Required year digits only")
         )
+
+        let ruleDigits = ValidationRuleCondition(error: errorDigits) { (value: String?) -> Bool in
+            guard let text = value else { return false }
+            guard text.characters.count > 0 else { return false }
+            let nonDigits = CharacterSet.decimalDigits.inverted
+            return text.rangeOfCharacter(from: nonDigits) == nil
+        }
+
+        rules.add(rule: ruleDigits)
+
+        // Length rule
+
+        let errorLength = CarInputValidationError.invalidBrand(
+            NSLocalizedString("Year should be 4 characters long", comment: "Required year 4 characters long")
+        )
+
+        let ruleLength = ValidationRuleLength(min: 4, max: 4, error: errorLength)
+        rules.add(rule: ruleLength)
+
+        return Result<String, ValidationErrors>.createValidator(using: rules)
     }
 }

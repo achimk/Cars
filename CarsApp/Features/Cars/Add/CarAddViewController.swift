@@ -23,16 +23,10 @@ final class CarAddViewController: UITableViewController {
 
     init(service: CarAddServiceType,
          errorPresenter: ErrorPresenterType) {
-
-        let factory = CarInputValidatorsFactory()
-        let inputs: Array<CarInputViewModelType> = [
-            CarInputViewModel(inputType: .name, validator: factory.createNameValidator()),
-            CarInputViewModel(inputType: .brand, validator: factory.createBrandValidator()),
-            CarInputViewModel(inputType: .model, validator: factory.createModelValidator()),
-            CarInputViewModel(inputType: .year, validator: factory.createYearValidator())
-        ]
-
-        self.viewModel = CarAddViewModel(service: service, inputs: inputs)
+        
+        let validators = CarInputValidatorsFactory()
+        let converter = CarInputWhitespaceTrimmer.create()
+        self.viewModel = CarAddViewModel(service: service, validators: validators, converter: converter)
         self.errorPresenter = errorPresenter
         super.init(style: .grouped)
     }
@@ -102,6 +96,7 @@ final class CarAddViewController: UITableViewController {
 
     private func reloadData(with viewModels: Array<CarInputViewModelType>) {
         self.inputViewModels = viewModels
+        reloadData()
     }
 
     private func reloadData() {
