@@ -10,19 +10,30 @@ import Foundation
 import UIKit
 
 struct CarAddFlow: FlowPresentable {
+    private let addService: CarAddServiceType
+    private let errorPresenter: ErrorPresenterType?
 
-    init() {
+    init(addService: CarAddServiceType,
+         errorPresenter: ErrorPresenterType?) {
 
-        // FIXME: Implement
-
+        self.addService = addService
+        self.errorPresenter = errorPresenter
     }
 
     func present(using presenter: ViewControllerPresentable) {
+        let errorPresenter = ProxyErrorPresenter(self.errorPresenter)
 
-        // FIXME: Implement
+        let viewController = CarAddViewController(
+            service: addService,
+            errorPresenter: errorPresenter
+        )
 
-        let viewController = UIViewController()
-        viewController.title = "Add"
+        if errorPresenter.proxy == nil {
+            errorPresenter.proxy = AlertErrorPresenter.create(using: viewController)
+        }
+
+        viewController.title = NSLocalizedString("Add Car", comment: "Add new car title")
+
         presenter.present(viewController)
     }
 

@@ -29,9 +29,9 @@ protocol CarsListViewModelType {
 
 final class CarsListViewModel: CarsListViewModelType {
 
-    let signalFetch: PublishSubject<Void>
-    let signalRequest: ObservableProbe
-    let driverPresentResult: Driver<CarsListResult>
+    fileprivate let signalFetch: PublishSubject<Void>
+    fileprivate let signalRequest: ObservableProbe
+    fileprivate let driverPresentResult: Driver<CarsListResult>
 
     var inputs: CarsListViewModelInputs { return self }
     var outputs: CarsListViewModelOutputs { return self }

@@ -20,7 +20,8 @@ struct NavigationService: NavigationServiceType, NavigationServiceFactoryType {
         // Source of all routes available in App
 
         router.routes[Navigation.Path.carAdd.rawValue] = CarAddRoute(
-            navigationService: navigator
+            addService: service,
+            errorPresenter: nil
         )
 
         router.routes[Navigation.Path.carDetails.rawValue] = CarDetailsRoute(

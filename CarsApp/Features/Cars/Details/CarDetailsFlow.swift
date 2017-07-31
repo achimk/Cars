@@ -10,10 +10,9 @@ import Foundation
 import UIKit
 
 struct CarDetailsFlow: FlowPresentable {
-    let identity: CarIdentityModel
-    let detailsService: CarDetailsServiceType
-    let errorPresenter: ErrorPresenterType?
-
+    private let identity: CarIdentityModel
+    private let detailsService: CarDetailsServiceType
+    private let errorPresenter: ErrorPresenterType?
 
     init(identity: CarIdentityModel,
          detailsService: CarDetailsServiceType,

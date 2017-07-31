@@ -9,10 +9,10 @@
 import Foundation
 
 struct CarCreateModel: Equatable {
-    let name: String?
-    let model: String?
-    let brand: String?
-    let year: Int?
+    var name: String?
+    var model: String?
+    var brand: String?
+    var year: Int?
 
     init(name: String?,
          model: String?,

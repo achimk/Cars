@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 struct CarsListFlow: FlowPresentable {
-    let navigationService: NavigationServiceType
-    let listService: CarsListServiceType
-    let errorPresenter: ErrorPresenterType?
+    private let navigationService: NavigationServiceType
+    private let listService: CarsListServiceType
+    private let errorPresenter: ErrorPresenterType?
 
     init(navigationService: NavigationServiceType,
          listService: CarsListServiceType,
