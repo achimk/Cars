@@ -14,7 +14,7 @@ struct Router: Routable {
 
     init() { }
 
-    func navigate(to location: LocationType, using presenter: ViewControllerPresentable) {
+    func navigate(to location: LocationType, using presenter: ViewControllerPresenterType) {
         guard let route = routes[location.path] else {
             errorRouteHandler?.handle(routeError: RouteError.notFound(location), using: presenter)
             return

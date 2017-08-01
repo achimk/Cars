@@ -9,5 +9,5 @@
 import Foundation
 
 protocol FlowPresentable {
-    func present(using presenter: ViewControllerPresentable)
+    func present(using presenter: ViewControllerPresenterType)
 }

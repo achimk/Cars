@@ -18,7 +18,7 @@ final class WindowPresenterTests: QuickSpec {
 
             context("Initialize with window", closure: {
 
-                it("Can present view controller", closure: {
+                it("Can present and dismiss view controller", closure: {
 
                     let window = UIWindow()
                     let presenter = WindowPresenter(window)
@@ -29,6 +29,10 @@ final class WindowPresenterTests: QuickSpec {
                     presenter.present(viewController)
 
                     expect(window.rootViewController).toNot(beNil())
+
+                    presenter.dismiss()
+
+                    expect(window.rootViewController).to(beNil())
                 })
             })
         }

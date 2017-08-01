@@ -23,7 +23,7 @@ struct CarsListFlow: FlowPresentable {
         self.errorPresenter = errorPresenter
     }
 
-    func present(using presenter: ViewControllerPresentable) {
+    func present(using presenter: ViewControllerPresenterType) {
         let navigation = navigationService
         let errorPresenter = ProxyErrorPresenter(self.errorPresenter)
 

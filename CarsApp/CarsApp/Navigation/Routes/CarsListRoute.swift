@@ -22,7 +22,7 @@ struct CarsListRoute: Routable {
         self.errorPresenter = errorPresenter
     }
 
-    func navigate(to location: LocationType, using presenter: ViewControllerPresentable) throws {
+    func navigate(to location: LocationType, using presenter: ViewControllerPresenterType) throws {
         guard location.path == Navigation.Path.carsList.rawValue else { return }
 
         let flow = CarsListFlow(

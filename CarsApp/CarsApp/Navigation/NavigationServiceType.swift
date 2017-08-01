@@ -9,5 +9,5 @@
 import Foundation
 
 protocol NavigationServiceType {
-    func navigate(to location: LocationType, using presenter: ViewControllerPresentable)
+    func navigate(to location: LocationType, using presenter: ViewControllerPresenterType)
 }

@@ -9,13 +9,10 @@
 /* Begin PBXBuildFile section */
 		AA027F571F2F9AB200265FB5 /* CarInputConverterFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA027F561F2F9AB200265FB5 /* CarInputConverterFactoryType.swift */; };
 		AA027F591F2F9B3C00265FB5 /* CarInputWhitespaceTrimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA027F581F2F9B3C00265FB5 /* CarInputWhitespaceTrimmer.swift */; };
-		AA0880561F2CD8F7004AB71A /* ViewControllerPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880551F2CD8F7004AB71A /* ViewControllerPresentable.swift */; };
 		AA08805B1F2CD9B2004AB71A /* WindowPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08805A1F2CD9B2004AB71A /* WindowPresenterTests.swift */; };
 		AA08805D1F2CDB18004AB71A /* WindowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08805C1F2CDB18004AB71A /* WindowPresenter.swift */; };
 		AA08805F1F2CDC23004AB71A /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08805E1F2CDC23004AB71A /* NavigationPresenter.swift */; };
 		AA0880611F2CDD4B004AB71A /* NavigationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880601F2CDD4B004AB71A /* NavigationPresenterTests.swift */; };
-		AA0880681F2CE25A004AB71A /* ViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880671F2CE25A004AB71A /* ViewControllerPresenter.swift */; };
-		AA08806A1F2CE446004AB71A /* ViewControllerPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880691F2CE446004AB71A /* ViewControllerPresenterTests.swift */; };
 		AA0880871F2CF27E004AB71A /* NavigationPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880861F2CF27E004AB71A /* NavigationPresenterFactory.swift */; };
 		AA0880891F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880881F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift */; };
 		AA0880931F2CF5AE004AB71A /* LocationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08808D1F2CF4EE004AB71A /* LocationType.swift */; };
@@ -117,6 +114,9 @@
 		AAFA511B1F2DF26700AB9483 /* ErrorHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA511A1F2DF26700AB9483 /* ErrorHandlerTests.swift */; };
 		AAFA511D1F2DF74700AB9483 /* ErrorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA511C1F2DF74700AB9483 /* ErrorPresenterTests.swift */; };
 		AAFC2FD21F308E6500407802 /* CarAddViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFC2FD11F308E6500407802 /* CarAddViewModelTests.swift */; };
+		AAFC2FD71F30AB8B00407802 /* ViewControllerPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFC2FD51F30AB1600407802 /* ViewControllerPresenterType.swift */; };
+		AAFC2FDA1F30AD8100407802 /* ConditionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFC2FD81F30AD7600407802 /* ConditionPresenter.swift */; };
+		AAFC2FDC1F30AEA800407802 /* ConditionPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFC2FDB1F30AEA800407802 /* ConditionPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,13 +132,10 @@
 /* Begin PBXFileReference section */
 		AA027F561F2F9AB200265FB5 /* CarInputConverterFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputConverterFactoryType.swift; sourceTree = "<group>"; };
 		AA027F581F2F9B3C00265FB5 /* CarInputWhitespaceTrimmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputWhitespaceTrimmer.swift; sourceTree = "<group>"; };
-		AA0880551F2CD8F7004AB71A /* ViewControllerPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPresentable.swift; sourceTree = "<group>"; };
 		AA08805A1F2CD9B2004AB71A /* WindowPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowPresenterTests.swift; sourceTree = "<group>"; };
 		AA08805C1F2CDB18004AB71A /* WindowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowPresenter.swift; sourceTree = "<group>"; };
 		AA08805E1F2CDC23004AB71A /* NavigationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenter.swift; sourceTree = "<group>"; };
 		AA0880601F2CDD4B004AB71A /* NavigationPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenterTests.swift; sourceTree = "<group>"; };
-		AA0880671F2CE25A004AB71A /* ViewControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenter.swift; sourceTree = "<group>"; };
-		AA0880691F2CE446004AB71A /* ViewControllerPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenterTests.swift; sourceTree = "<group>"; };
 		AA0880861F2CF27E004AB71A /* NavigationPresenterFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenterFactory.swift; sourceTree = "<group>"; };
 		AA0880881F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPresenterFactoryTests.swift; sourceTree = "<group>"; };
 		AA08808D1F2CF4EE004AB71A /* LocationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationType.swift; sourceTree = "<group>"; };
@@ -244,6 +241,9 @@
 		AAFA511A1F2DF26700AB9483 /* ErrorHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandlerTests.swift; sourceTree = "<group>"; };
 		AAFA511C1F2DF74700AB9483 /* ErrorPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorPresenterTests.swift; sourceTree = "<group>"; };
 		AAFC2FD11F308E6500407802 /* CarAddViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarAddViewModelTests.swift; sourceTree = "<group>"; };
+		AAFC2FD51F30AB1600407802 /* ViewControllerPresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPresenterType.swift; sourceTree = "<group>"; };
+		AAFC2FD81F30AD7600407802 /* ConditionPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionPresenter.swift; sourceTree = "<group>"; };
+		AAFC2FDB1F30AEA800407802 /* ConditionPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,10 +320,10 @@
 		AA0880541F2CD8D2004AB71A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AA0880551F2CD8F7004AB71A /* ViewControllerPresentable.swift */,
+				AAFC2FD51F30AB1600407802 /* ViewControllerPresenterType.swift */,
 				AA08805C1F2CDB18004AB71A /* WindowPresenter.swift */,
 				AA08805E1F2CDC23004AB71A /* NavigationPresenter.swift */,
-				AA0880671F2CE25A004AB71A /* ViewControllerPresenter.swift */,
+				AAFC2FD81F30AD7600407802 /* ConditionPresenter.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -351,7 +351,7 @@
 			children = (
 				AA08805A1F2CD9B2004AB71A /* WindowPresenterTests.swift */,
 				AA0880601F2CDD4B004AB71A /* NavigationPresenterTests.swift */,
-				AA0880691F2CE446004AB71A /* ViewControllerPresenterTests.swift */,
+				AAFC2FDB1F30AEA800407802 /* ConditionPresenterTests.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1108,7 +1108,6 @@
 				AAFA50DC1F2DDCE200AB9483 /* ErrorCarsService.swift in Sources */,
 				AA0880E51F2D0F75004AB71A /* CarsListPresentationItem.swift in Sources */,
 				AA0881001F2D2256004AB71A /* CarsModelEntityMapper.swift in Sources */,
-				AA0880681F2CE25A004AB71A /* ViewControllerPresenter.swift in Sources */,
 				AA0880B01F2CFBC3004AB71A /* NavigationService.swift in Sources */,
 				AA0880EA1F2D17E0004AB71A /* CarsService.swift in Sources */,
 				AAC92DA41F2E4164006FA558 /* CarInputViewModel.swift in Sources */,
@@ -1127,7 +1126,6 @@
 				AA9350841F3065B5007B88B2 /* CarInputValidationOperation.swift in Sources */,
 				AA0880941F2CF5B2004AB71A /* Location.swift in Sources */,
 				AAFA51161F2DF17D00AB9483 /* ErrorPresenterType.swift in Sources */,
-				AA0880561F2CD8F7004AB71A /* ViewControllerPresentable.swift in Sources */,
 				AA08805D1F2CDB18004AB71A /* WindowPresenter.swift in Sources */,
 				AA0880C71F2D07D2004AB71A /* CarType.swift in Sources */,
 				AAFA50E11F2DDF5A00AB9483 /* MocksCarsServiceFactory.swift in Sources */,
@@ -1137,6 +1135,7 @@
 				AA0880FC1F2D210D004AB71A /* InMemoryCarsService.swift in Sources */,
 				AA0880E81F2D1669004AB71A /* CarsServiceType.swift in Sources */,
 				AAC92D811F2DFE37006FA558 /* ErrorMessageParserType.swift in Sources */,
+				AAFC2FDA1F30AD8100407802 /* ConditionPresenter.swift in Sources */,
 				AA0880981F2CF613004AB71A /* ErrorRoutable.swift in Sources */,
 				AAC92D921F2E1A03006FA558 /* CarDetailsParametersMapper.swift in Sources */,
 				AA0880871F2CF27E004AB71A /* NavigationPresenterFactory.swift in Sources */,
@@ -1162,6 +1161,7 @@
 				AAC92D871F2E0E61006FA558 /* CarDetailsViewController.swift in Sources */,
 				AA0880D81F2D0BC7004AB71A /* CarAddFlow.swift in Sources */,
 				AA0880B61F2CFE0C004AB71A /* Navigation.swift in Sources */,
+				AAFC2FD71F30AB8B00407802 /* ViewControllerPresenterType.swift in Sources */,
 				AAC92D7C1F2DFD41006FA558 /* RetryErrorPresenter.swift in Sources */,
 				AAC92D7E1F2DFD56006FA558 /* ErrorPresenterFactoryType.swift in Sources */,
 				AAC92D9B1F2E3C81006FA558 /* CarAddViewModel.swift in Sources */,
@@ -1199,7 +1199,7 @@
 				AA0880CB1F2D0810004AB71A /* CarEntityTests.swift in Sources */,
 				AA0880F51F2D1EF0004AB71A /* CarModelTests.swift in Sources */,
 				AAC92D971F2E3A3C006FA558 /* CarDetailsViewModelTests.swift in Sources */,
-				AA08806A1F2CE446004AB71A /* ViewControllerPresenterTests.swift in Sources */,
+				AAFC2FDC1F30AEA800407802 /* ConditionPresenterTests.swift in Sources */,
 				AA08812E1F2D347F004AB71A /* CarCreateModelTests.swift in Sources */,
 				AAFA50E71F2DE10500AB9483 /* ErrorCarsServiceTests.swift in Sources */,
 				AA0880611F2CDD4B004AB71A /* NavigationPresenterTests.swift in Sources */,

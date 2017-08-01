@@ -24,7 +24,7 @@ final class RouterTests: XCTestCase {
             self.callback = callback
         }
 
-        func navigate(to location: LocationType, using presenter: ViewControllerPresentable) throws {
+        func navigate(to location: LocationType, using presenter: ViewControllerPresenterType) throws {
             resolved = true
             callback?()
         }
@@ -37,7 +37,7 @@ final class RouterTests: XCTestCase {
             case unknown
         }
 
-        func navigate(to location: LocationType, using presenter: ViewControllerPresentable) throws {
+        func navigate(to location: LocationType, using presenter: ViewControllerPresenterType) throws {
             resolved = true
             throw InternalError.unknown
         }
@@ -46,7 +46,7 @@ final class RouterTests: XCTestCase {
     final class ErrorRouteHandler: ErrorRoutable {
         var error: RouteError?
 
-        func handle(routeError error: RouteError, using presenter: ViewControllerPresentable) {
+        func handle(routeError error: RouteError, using presenter: ViewControllerPresenterType) {
             self.error = error
         }
     }
@@ -130,7 +130,7 @@ final class RouterTests: XCTestCase {
 
     // MARK: Private
 
-    private func createPresenter() -> ViewControllerPresentable {
+    private func createPresenter() -> ViewControllerPresenterType {
         return NavigationPresenter(UINavigationController())
     }
 }

@@ -23,7 +23,7 @@ struct CarAddRoute: Routable {
         self.errorPresenter = errorPresenter
     }
 
-    func navigate(to location: LocationType, using presenter: ViewControllerPresentable) throws {
+    func navigate(to location: LocationType, using presenter: ViewControllerPresenterType) throws {
         guard location.path == Navigation.Path.carAdd.rawValue else { return }
         let payload = location.payload as? CarAddRoutePayload
 

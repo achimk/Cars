@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct NavigationPresenter: ViewControllerPresentable {
+struct NavigationPresenter: ViewControllerPresenterType {
     let navigationController: UINavigationController
     let animated: Bool
 
@@ -21,5 +21,13 @@ struct NavigationPresenter: ViewControllerPresentable {
     func present(_ viewController: UIViewController) {
         let shouldAnimate = navigationController.viewControllers.count > 0 && animated
         navigationController.pushViewController(viewController, animated: shouldAnimate)
+    }
+
+    func dismiss() {
+        if navigationController.viewControllers.count > 1 {
+            navigationController.popViewController(animated: animated)
+        } else {
+            navigationController.viewControllers = []
+        }
     }
 }

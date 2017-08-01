@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct WindowPresenter: ViewControllerPresentable {
+struct WindowPresenter: ViewControllerPresenterType {
     let window: UIWindow
 
     init(_ window: UIWindow) {
@@ -22,5 +22,9 @@ struct WindowPresenter: ViewControllerPresentable {
         if !window.isKeyWindow {
             window.makeKeyAndVisible()
         }
+    }
+
+    func dismiss() {
+        window.rootViewController = nil
     }
 }

@@ -18,7 +18,7 @@ final class NavigationPresenterTests: QuickSpec {
 
             context("Initialize with navigation controller", closure: { 
 
-                it("Can present view controller", closure: { 
+                it("Can present and dismiss view controller", closure: {
 
                     let navigationController = UINavigationController()
                     let presenter = NavigationPresenter(navigationController)
@@ -29,6 +29,10 @@ final class NavigationPresenterTests: QuickSpec {
                     presenter.present(viewController)
 
                     expect(navigationController.viewControllers).to(haveCount(1))
+
+                    presenter.dismiss()
+
+                    expect(navigationController.viewControllers).to(haveCount(0))
                 })
             })
         }

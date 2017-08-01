@@ -18,11 +18,11 @@ struct NavigationPresenterFactory: NavigationPresenterFactoryType {
         self.navigationController = navigation ?? UINavigationController()
     }
 
-    func createPresenter() -> ViewControllerPresentable {
+    func createPresenter() -> ViewControllerPresenterType {
         let windowPresenter = WindowPresenter(window)
         let navigationPresenter = NavigationPresenter(navigationController, animated: true)
 
-        return ViewControllerPresenter { viewController in
+        let onPresent: ((UIViewController) -> Void) = { viewController in
             let currentController = windowPresenter.window.rootViewController
             let navigationController = navigationPresenter.navigationController
             let hasNavigationAsRoot = (currentController === navigationController)
@@ -33,5 +33,11 @@ struct NavigationPresenterFactory: NavigationPresenterFactoryType {
 
             navigationPresenter.present(viewController)
         }
+
+        let onDismiss: ((Void) -> Void) = {
+            navigationPresenter.dismiss()
+        }
+
+        return ConditionPresenter(onPresent: onPresent, onDismiss: onDismiss)
     }
 }

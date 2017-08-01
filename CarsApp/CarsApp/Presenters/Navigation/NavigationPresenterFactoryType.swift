@@ -9,5 +9,5 @@
 import Foundation
 
 protocol NavigationPresenterFactoryType {
-    func createPresenter() -> ViewControllerPresentable
+    func createPresenter() -> ViewControllerPresenterType
 }

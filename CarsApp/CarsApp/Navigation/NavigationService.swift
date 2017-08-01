@@ -44,7 +44,7 @@ struct NavigationService: NavigationServiceType, NavigationServiceFactoryType {
         self.router = router
     }
 
-    func navigate(to location: LocationType, using presenter: ViewControllerPresentable) {
+    func navigate(to location: LocationType, using presenter: ViewControllerPresenterType) {
         router.navigate(to: location, using: presenter)
     }
 }
@@ -54,7 +54,7 @@ private final class NavigationServiceProxy: NavigationServiceType {
 
     init() { }
 
-    func navigate(to location: LocationType, using presenter: ViewControllerPresentable) {
+    func navigate(to location: LocationType, using presenter: ViewControllerPresenterType) {
         proxy?.navigate(to: location, using: presenter)
     }
 }
