@@ -24,7 +24,7 @@ protocol CarAddViewModelInputs {
 }
 
 protocol CarAddViewModelOutputs {
-    var onInputViewModels: Driver<Array<CarInputViewModelType>> { get }
+    var currentInputs: Array<CarInputViewModelType> { get }
     var onFormEnabled: Driver<Bool> { get }
     var onLoading: Driver<Bool> { get }
     var onSaveResult: Driver<CarSaveResult> { get }
@@ -35,10 +35,14 @@ protocol CarAddViewModelType {
     var outputs: CarAddViewModelOutputs { get }
 }
 
+struct CarAddViewModelSpecs {
+    let shouldValidateFormBeforeSave: Bool
+}
+
 final class CarAddViewModel: CarAddViewModelType {
+    fileprivate let inputViewModels: Array<CarInputViewModelType>
     fileprivate let signalSave = PublishSubject<Void>()
     fileprivate let signalRequest: ObservableProbe
-    fileprivate let valueInputViewModels: Variable<Array<CarInputViewModelType>>
     fileprivate let driverFormEnabled: Driver<Bool>
     fileprivate let driverSaveResult: Driver<CarSaveResult>
 
@@ -48,7 +52,7 @@ final class CarAddViewModel: CarAddViewModelType {
     init(service: CarAddServiceType,
          validators: CarInputValidatorsFactoryType,
          converter: CarInputConverter,
-         shouldValidateForm: Bool = true) {
+         specs: CarAddViewModelSpecs) {
 
         let probe = ObservableProbe()
         signalRequest = probe
@@ -61,12 +65,11 @@ final class CarAddViewModel: CarAddViewModelType {
             CarInputViewModel(inputType: .model, converter: converter, validator: validators.createModelValidator()),
             CarInputViewModel(inputType: .year, converter: converter, validator: validators.createYearValidator())
         ]
-
-        valueInputViewModels = Variable<Array<CarInputViewModelType>>(inputs)
+        inputViewModels = inputs
 
         // Prepare form validation
 
-        let isFormEnabled: Observable<Bool> = shouldValidateForm
+        let isFormEnabled: Observable<Bool> = specs.shouldValidateFormBeforeSave
             ? CarInputValidationOperation(inputs).asObservable()
             : Observable.just(true)
 
@@ -110,8 +113,8 @@ extension CarAddViewModel: CarAddViewModelInputs {
 }
 
 extension CarAddViewModel: CarAddViewModelOutputs {
-    var onInputViewModels: Driver<Array<CarInputViewModelType>> {
-        return valueInputViewModels.asDriver()
+    var currentInputs: Array<CarInputViewModelType> {
+        return inputViewModels
     }
 
     var onFormEnabled: Driver<Bool> {

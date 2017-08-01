@@ -19,19 +19,19 @@ final class CarAddViewController: UITableViewController {
 
     private var buttonDone: UIBarButtonItem?
     private var buttonCancel: UIBarButtonItem?
-    private var inputViewModels: Array<CarInputViewModelType> = []
 
     init(service: CarAddServiceType,
          errorPresenter: ErrorPresenterType) {
         
         let validators = CarInputValidatorsFactory()
         let converter = CarInputWhitespaceTrimmer.create()
+        let specs = CarAddViewModelSpecs(shouldValidateFormBeforeSave: true)
 
         self.viewModel = CarAddViewModel(
             service: service,
             validators: validators,
             converter: converter,
-            shouldValidateForm: false
+            specs: specs
         )
 
         self.errorPresenter = errorPresenter
@@ -88,10 +88,6 @@ final class CarAddViewController: UITableViewController {
     }
 
     private func configureBindings() {
-        viewModel.outputs.onInputViewModels.drive(onNext: { [weak self] (viewModels) in
-            self?.reloadData(with: viewModels)
-        }).addDisposableTo(bag)
-
         viewModel.outputs.onFormEnabled.drive(onNext: { [weak self] (isEnabled) in
             self?.updateFormEnabled(isEnabled)
         }).addDisposableTo(bag)
@@ -118,22 +114,17 @@ final class CarAddViewController: UITableViewController {
         errorPresenter.present(with: error)
     }
 
-    private func reloadData(with viewModels: Array<CarInputViewModelType>) {
-        self.inputViewModels = viewModels
-        reloadData()
-    }
-
     private func reloadData() {
         tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return inputViewModels.count
+        return viewModel.outputs.currentInputs.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CarInputTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.configure(with: inputViewModels[indexPath.item])
+        cell.configure(with: viewModel.outputs.currentInputs[indexPath.item])
         return cell
     }
 }

@@ -18,6 +18,7 @@ protocol CarInputViewModelInputs: CarStepCreateAcceptable {
 }
 
 protocol CarInputViewModelOutputs {
+    var inputType: CarInputType { get }
     var currentPlaceholder: String { get }
     var currentText: String? { get }
     var onTextResult: Driver<CarInputResult> { get }
@@ -29,11 +30,12 @@ protocol CarInputViewModelType {
 }
 
 final class CarInputViewModel: CarInputViewModelType {
-    fileprivate let inputType: CarInputType
+
     fileprivate let converter: CarInputConverter
     fileprivate let valueInput = Variable<String?>(nil)
     fileprivate let driverTextResult: Driver<CarInputResult>
 
+    let inputType: CarInputType
     let currentPlaceholder: String
 
     var inputs: CarInputViewModelInputs { return self }
