@@ -9,15 +9,11 @@
 import Foundation
 import RxSwift
 
-final class CarsService: CarsServiceType, CarsServiceFactoryType {
+final class CarsService: CarsServiceType {
     let instance: CarsServiceType
 
-    static func create() -> CarsServiceType {
-        return CarsService()
-    }
-
-    init() {
-        self.instance = InMemoryCarsServiceAdapter()
+    init(_ instance: CarsServiceType) {
+        self.instance = instance
     }
 
     func requestCarsList() -> Observable<Array<CarType>> {

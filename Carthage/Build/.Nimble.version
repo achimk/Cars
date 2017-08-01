@@ -3,7 +3,7 @@
   "commitish" : "v7.0.1",
   "iOS" : [
     {
-      "hash" : "828300bbde17178e61d9a645330c55a21f0f54d6298d095de0ee6c8a6a200136",
+      "hash" : "2511a0e613432c92ae349dd813a9f14422fe73be94ea6dfdbd3266a515bf232c",
       "name" : "Nimble"
     }
   ]

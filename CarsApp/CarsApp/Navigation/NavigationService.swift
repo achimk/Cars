@@ -12,7 +12,16 @@ struct NavigationService: NavigationServiceType, NavigationServiceFactoryType {
     let router: Router
 
     static func create() -> NavigationServiceType {
-        let service: CarsServiceType = DelayCarsService(service: MocksCarsServiceFactory.create(), delay: 1)
+
+        // Select backend service by environment
+
+        let service: CarsServiceType
+        switch App.environment {
+        case .develop:
+            service = CarsService(InMemoryCarsServiceAdapter())
+        case .production:
+            service = CarsService(RestCarsServiceAdapter())
+        }
 
         let navigator = NavigationServiceProxy()
         var router = Router()

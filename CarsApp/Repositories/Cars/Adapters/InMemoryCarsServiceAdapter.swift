@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 final class InMemoryCarsServiceAdapter: CarsServiceType {
-    let service = InMemoryCarsService()
+    private let service = InMemoryCarsService()
 
     init(_ models: Array<CarModel> = []) {
         service.models = models

@@ -74,7 +74,7 @@ final class CarAddViewModelTests: QuickSpec {
             return val ?? ""
         }
 
-        let setupInput: ((CarAddViewModelType, CarInputType, String?) -> Void) = { [weak self] (vm, type, val) in
+        let setupInput: ((CarAddViewModelType, CarInputType, String?) -> Void) = { (vm, type, val) in
             for input in vm.outputs.currentInputs {
                 if input.outputs.inputType == type {
                     input.inputs.change(input: val)

@@ -27,11 +27,13 @@ protocol CarType: CarEquatable, CarConvertible {
 extension CarType {
     final func asCreateModel() -> CarCreateModel {
         let year = CarsModelEntityMapper.year(from: manufactureDate)
+
+        // FIXME: Default unwrap should be removed!
         return CarCreateModel(
-            name: name,
-            model: model,
-            brand: brand,
-            year: year
+            name: name ?? "",
+            model: model ?? "",
+            brand: brand ?? "",
+            year: year ?? 0
         )
     }
 
