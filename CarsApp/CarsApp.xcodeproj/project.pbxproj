@@ -67,6 +67,8 @@
 		AA1048EB1F2CC56900C36F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1048EA1F2CC56900C36F7A /* AppDelegate.swift */; };
 		AA1048F21F2CC56900C36F7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F11F2CC56900C36F7A /* Assets.xcassets */; };
 		AA1048F51F2CC56900C36F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F31F2CC56900C36F7A /* LaunchScreen.storyboard */; };
+		AA627E771F2FC7A1009CEDFB /* CarInputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA627E761F2FC7A1009CEDFB /* CarInputType.swift */; };
+		AA9350821F305614007B88B2 /* CarSaveResultOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9350811F305614007B88B2 /* CarSaveResultOperation.swift */; };
 		AAC92D7A1F2DFD35006FA558 /* AlertErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92D791F2DFD35006FA558 /* AlertErrorPresenter.swift */; };
 		AAC92D7C1F2DFD41006FA558 /* RetryErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92D7B1F2DFD41006FA558 /* RetryErrorPresenter.swift */; };
 		AAC92D7E1F2DFD56006FA558 /* ErrorPresenterFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92D7D1F2DFD56006FA558 /* ErrorPresenterFactoryType.swift */; };
@@ -89,8 +91,8 @@
 		AAC92DC61F2F15D2006FA558 /* Result+Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DC51F2F15D2006FA558 /* Result+Validators.swift */; };
 		AAC92DC81F2F1828006FA558 /* CarInputValidatorsFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DC71F2F1828006FA558 /* CarInputValidatorsFactoryType.swift */; };
 		AAC92DCA1F2F1839006FA558 /* CarInputValidatorsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DC91F2F1839006FA558 /* CarInputValidatorsFactory.swift */; };
-		AAC92DD51F2F7EFC006FA558 /* CarCreateBuilderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DD41F2F7EFC006FA558 /* CarCreateBuilderType.swift */; };
-		AAC92DD71F2F8037006FA558 /* CarCreateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DD61F2F8037006FA558 /* CarCreateBuilder.swift */; };
+		AAC92DD51F2F7EFC006FA558 /* CarStepCreateBuilderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DD41F2F7EFC006FA558 /* CarStepCreateBuilderType.swift */; };
+		AAC92DD71F2F8037006FA558 /* CarStepCreateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DD61F2F8037006FA558 /* CarStepCreateBuilder.swift */; };
 		AAC92DFF1F2F8BAF006FA558 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92DFE1F2F8BAF006FA558 /* Reader.swift */; };
 		AAC92E011F2F8C62006FA558 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC92E001F2F8C62006FA558 /* Types.swift */; };
 		AAFA50C91F2DD8A400AB9483 /* CarsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA50C81F2DD8A400AB9483 /* CarsListViewModelTests.swift */; };
@@ -186,6 +188,8 @@
 		AA1048F61F2CC56900C36F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA1048FB1F2CC56900C36F7A /* CarsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1049011F2CC56900C36F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA627E761F2FC7A1009CEDFB /* CarInputType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputType.swift; sourceTree = "<group>"; };
+		AA9350811F305614007B88B2 /* CarSaveResultOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarSaveResultOperation.swift; sourceTree = "<group>"; };
 		AAC92D791F2DFD35006FA558 /* AlertErrorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertErrorPresenter.swift; sourceTree = "<group>"; };
 		AAC92D7B1F2DFD41006FA558 /* RetryErrorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetryErrorPresenter.swift; sourceTree = "<group>"; };
 		AAC92D7D1F2DFD56006FA558 /* ErrorPresenterFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorPresenterFactoryType.swift; sourceTree = "<group>"; };
@@ -208,8 +212,8 @@
 		AAC92DC51F2F15D2006FA558 /* Result+Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+Validators.swift"; sourceTree = "<group>"; };
 		AAC92DC71F2F1828006FA558 /* CarInputValidatorsFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputValidatorsFactoryType.swift; sourceTree = "<group>"; };
 		AAC92DC91F2F1839006FA558 /* CarInputValidatorsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputValidatorsFactory.swift; sourceTree = "<group>"; };
-		AAC92DD41F2F7EFC006FA558 /* CarCreateBuilderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCreateBuilderType.swift; sourceTree = "<group>"; };
-		AAC92DD61F2F8037006FA558 /* CarCreateBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCreateBuilder.swift; sourceTree = "<group>"; };
+		AAC92DD41F2F7EFC006FA558 /* CarStepCreateBuilderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarStepCreateBuilderType.swift; sourceTree = "<group>"; };
+		AAC92DD61F2F8037006FA558 /* CarStepCreateBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarStepCreateBuilder.swift; sourceTree = "<group>"; };
 		AAC92DFE1F2F8BAF006FA558 /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 		AAC92E001F2F8C62006FA558 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		AAFA50C81F2DD8A400AB9483 /* CarsListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListViewModelTests.swift; sourceTree = "<group>"; };
@@ -507,15 +511,15 @@
 		AA0880CD1F2D09CB004AB71A /* Add */ = {
 			isa = PBXGroup;
 			children = (
+				AA627E751F2FC77F009CEDFB /* Inputs */,
 				AAC92DD31F2F7ED4006FA558 /* Builders */,
 				AAC92DCE1F2F4F5A006FA558 /* Converters */,
+				AA9350801F3055C9007B88B2 /* Operations */,
 				AAC92DBE1F2F13A3006FA558 /* Validation */,
 				AAC92DA01F2E3F66006FA558 /* XIBs */,
 				AA0880D61F2D0B16004AB71A /* CarAddFlow.swift */,
 				AAC92D981F2E3C76006FA558 /* CarAddViewController.swift */,
 				AAC92D9A1F2E3C81006FA558 /* CarAddViewModel.swift */,
-				AAC92DA31F2E4164006FA558 /* CarInputViewModel.swift */,
-				AAC92DA51F2EFB8B006FA558 /* CarInputTableViewCell.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -699,6 +703,23 @@
 			path = CarsAppTests;
 			sourceTree = "<group>";
 		};
+		AA627E751F2FC77F009CEDFB /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				AA627E761F2FC7A1009CEDFB /* CarInputType.swift */,
+				AAC92DA31F2E4164006FA558 /* CarInputViewModel.swift */,
+			);
+			path = Inputs;
+			sourceTree = "<group>";
+		};
+		AA9350801F3055C9007B88B2 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				AA9350811F305614007B88B2 /* CarSaveResultOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		AAC92D7F1F2DFE18006FA558 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,6 +749,7 @@
 		AAC92DA01F2E3F66006FA558 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				AAC92DA51F2EFB8B006FA558 /* CarInputTableViewCell.swift */,
 				AAC92DA11F2E3F8D006FA558 /* CarInputTableViewCell.xib */,
 			);
 			path = XIBs;
@@ -763,8 +785,8 @@
 		AAC92DD31F2F7ED4006FA558 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
-				AAC92DD41F2F7EFC006FA558 /* CarCreateBuilderType.swift */,
-				AAC92DD61F2F8037006FA558 /* CarCreateBuilder.swift */,
+				AAC92DD41F2F7EFC006FA558 /* CarStepCreateBuilderType.swift */,
+				AAC92DD61F2F8037006FA558 /* CarStepCreateBuilder.swift */,
 			);
 			path = Builders;
 			sourceTree = "<group>";
@@ -1048,7 +1070,7 @@
 				AA0880F11F2D1DD4004AB71A /* CarModel.swift in Sources */,
 				AA0880DB1F2D0BF4004AB71A /* CarsListFlow.swift in Sources */,
 				AA0880FB1F2D2108004AB71A /* InMemoryCarsServiceAdapter.swift in Sources */,
-				AAC92DD51F2F7EFC006FA558 /* CarCreateBuilderType.swift in Sources */,
+				AAC92DD51F2F7EFC006FA558 /* CarStepCreateBuilderType.swift in Sources */,
 				AAFA50DC1F2DDCE200AB9483 /* ErrorCarsService.swift in Sources */,
 				AA0880E51F2D0F75004AB71A /* CarsListPresentationItem.swift in Sources */,
 				AA0881001F2D2256004AB71A /* CarsModelEntityMapper.swift in Sources */,
@@ -1067,6 +1089,7 @@
 				AA08812F1F2D3485004AB71A /* CarCreateModel.swift in Sources */,
 				AAC92D991F2E3C76006FA558 /* CarAddViewController.swift in Sources */,
 				AAC92DC11F2F1474006FA558 /* Result+Additions.swift in Sources */,
+				AA627E771F2FC7A1009CEDFB /* CarInputType.swift in Sources */,
 				AA0880941F2CF5B2004AB71A /* Location.swift in Sources */,
 				AAFA51161F2DF17D00AB9483 /* ErrorPresenterType.swift in Sources */,
 				AA0880561F2CD8F7004AB71A /* ViewControllerPresentable.swift in Sources */,
@@ -1090,7 +1113,7 @@
 				AAFA51121F2DF0F900AB9483 /* ErrorHandlingChainable.swift in Sources */,
 				AAC92DC81F2F1828006FA558 /* CarInputValidatorsFactoryType.swift in Sources */,
 				AA027F571F2F9AB200265FB5 /* CarInputConverterFactoryType.swift in Sources */,
-				AAC92DD71F2F8037006FA558 /* CarCreateBuilder.swift in Sources */,
+				AAC92DD71F2F8037006FA558 /* CarStepCreateBuilder.swift in Sources */,
 				AAC92DFF1F2F8BAF006FA558 /* Reader.swift in Sources */,
 				AA0880B81F2D0024004AB71A /* CarsListRoute.swift in Sources */,
 				AA0880951F2CF5B7004AB71A /* Routable.swift in Sources */,
@@ -1100,6 +1123,7 @@
 				AA0881581F2D5752004AB71A /* Observable+Probe.swift in Sources */,
 				AA0880D31F2D0AC0004AB71A /* FlowPresentable.swift in Sources */,
 				AAFA51181F2DF1BF00AB9483 /* ErrorPresenter.swift in Sources */,
+				AA9350821F305614007B88B2 /* CarSaveResultOperation.swift in Sources */,
 				AAC92D871F2E0E61006FA558 /* CarDetailsViewController.swift in Sources */,
 				AA0880D81F2D0BC7004AB71A /* CarAddFlow.swift in Sources */,
 				AA0880B61F2CFE0C004AB71A /* Navigation.swift in Sources */,

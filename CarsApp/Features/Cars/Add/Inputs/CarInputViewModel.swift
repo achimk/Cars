@@ -11,32 +11,15 @@ import RxSwift
 import RxCocoa
 import Result
 
-enum CarInputType: String {
-    case name
-    case model
-    case brand
-    case year
-
-    func asPlaceholder() -> String {
-        switch self {
-        case .name: return NSLocalizedString("Name", comment: "Name placeholder input")
-        case .model: return NSLocalizedString("Model", comment: "Model placeholder input")
-        case .brand: return NSLocalizedString("Brand", comment: "Brand placeholder input")
-        case .year: return NSLocalizedString("Year", comment: "Year placeholder input")
-        }
-    }
-}
-
 typealias CarInputResult = Result<String, ValidationErrors>
 
-protocol CarInputViewModelInputs {
+protocol CarInputViewModelInputs: CarStepCreateAcceptable {
     func change(input text: String?)
-    func accepts(create model: inout CarCreateModel)
 }
 
 protocol CarInputViewModelOutputs {
     var currentPlaceholder: String { get }
-    var currentText: String { get }
+    var currentText: String? { get }
     var onTextResult: Driver<CarInputResult> { get }
 }
 
@@ -56,14 +39,16 @@ final class CarInputViewModel: CarInputViewModelType {
     var inputs: CarInputViewModelInputs { return self }
     var outputs: CarInputViewModelOutputs { return self }
 
-    init(inputType: CarInputType, converter: CarInputConverter, validator: @escaping CarInputValidator) {
+    init(inputType: CarInputType,
+         converter: CarInputConverter,
+         validator: @escaping CarInputValidator) {
+
         self.inputType = inputType
         self.converter = converter
         self.currentPlaceholder = inputType.asPlaceholder()
         self.driverTextResult = valueInput
             .asObservable()
             .map { validator(converter.run($0)) }
-            .debug("---> \(inputType)")
             .asDriver(onErrorDriveWith: Driver.never())
     }
 
@@ -77,24 +62,26 @@ extension CarInputViewModel: CarInputViewModelInputs {
         valueInput.value = text
     }
 
-    func accepts(create model: inout CarCreateModel) {
+    func accept(_ stepCreate: CarStepCreateConfigurable) {
         switch inputType {
         case .name:
-            model.name = currentText
+            stepCreate.set(name: currentText)
+
         case .brand:
-            model.brand = currentText
+            stepCreate.set(brand: currentText)
+
         case .model:
-            model.model = currentText
+            stepCreate.set(model: currentText)
+
         case .year:
-//            model.year = currentText
-            break
+            stepCreate.set(year: currentText)
         }
     }
 }
 
 extension CarInputViewModel: CarInputViewModelOutputs {
-    var currentText: String {
-        return converter.run(valueInput.value)
+    var currentText: String? {
+        return valueInput.value
     }
 
     var onTextResult: Driver<CarInputResult> {

@@ -26,7 +26,14 @@ final class CarAddViewController: UITableViewController {
         
         let validators = CarInputValidatorsFactory()
         let converter = CarInputWhitespaceTrimmer.create()
-        self.viewModel = CarAddViewModel(service: service, validators: validators, converter: converter)
+
+        self.viewModel = CarAddViewModel(
+            service: service,
+            validators: validators,
+            converter: converter,
+            shouldValidateForm: false
+        )
+
         self.errorPresenter = errorPresenter
         super.init(style: .grouped)
     }
@@ -48,7 +55,7 @@ final class CarAddViewController: UITableViewController {
     }
 
     func saveAction() {
-        print("-> save")
+        viewModel.inputs.save()
     }
 
     func cancelAction() {
@@ -81,17 +88,34 @@ final class CarAddViewController: UITableViewController {
     }
 
     private func configureBindings() {
+        viewModel.outputs.onInputViewModels.drive(onNext: { [weak self] (viewModels) in
+            self?.reloadData(with: viewModels)
+        }).addDisposableTo(bag)
+
         viewModel.outputs.onFormEnabled.drive(onNext: { [weak self] (isEnabled) in
             self?.updateFormEnabled(isEnabled)
         }).addDisposableTo(bag)
 
-        viewModel.outputs.onInputViewModels.drive(onNext: { [weak self] (viewModels) in
-            self?.reloadData(with: viewModels)
+        viewModel.outputs.onSaveResult.drive(onNext: { [weak self] (result) in
+            switch result {
+            case .success:
+                self?.presentSaveSuccess()
+            case .failure(let error):
+                self?.presentSaveFailure(error)
+            }
         }).addDisposableTo(bag)
     }
 
     private func updateFormEnabled(_ isEnabled: Bool) {
         buttonDone?.isEnabled = isEnabled
+    }
+
+    private func presentSaveSuccess() {
+        print("->>> Save Success!")
+    }
+
+    private func presentSaveFailure(_ error: CarSaveError) {
+        errorPresenter.present(with: error)
     }
 
     private func reloadData(with viewModels: Array<CarInputViewModelType>) {

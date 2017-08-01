@@ -1,5 +1,5 @@
 //
-//  CarCreateBuilder.swift
+//  CarStepCreateBuilder.swift
 //  CarsApp
 //
 //  Created by Joachim Kret on 31/07/2017.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class CarCreateBuilder: CarStepConfigurable, CarCreateBuilderType {
+final class CarStepCreateBuilder: CarStepCreateBuilderType {
     private let validators: CarInputValidatorsFactoryType
     private let converter: CarInputConverter
     private var name: String?
@@ -19,6 +19,13 @@ final class CarCreateBuilder: CarStepConfigurable, CarCreateBuilderType {
     init(validators: CarInputValidatorsFactoryType, converter: CarInputConverter) {
         self.validators = validators
         self.converter = converter
+    }
+
+    func prepareForUse() {
+        name = nil
+        brand = nil
+        model = nil
+        year = nil
     }
 
     func set(name: String?) {
@@ -41,13 +48,14 @@ final class CarCreateBuilder: CarStepConfigurable, CarCreateBuilderType {
         let validName = try createValid(value: name, using: validators.createNameValidator())
         let validBrand = try createValid(value: brand, using: validators.createBrandValidator())
         let validModel = try createValid(value: model, using: validators.createModelValidator())
-        let validYear = try createValid(value: year, using: validators.createYearValidator())
+        let textYear = try createValid(value: year, using: validators.createYearValidator())
+        let validYear = try convertYear(from: textYear)
 
         return CarCreateModel(
             name: validName,
             model: validModel,
             brand: validBrand,
-            year: Int(validYear) // FIXME: Year should have dedicated converter!
+            year: validYear
         )
     }
 
@@ -58,5 +66,14 @@ final class CarCreateBuilder: CarStepConfigurable, CarCreateBuilderType {
         case .success(let value): return value
         case .failure(let error): throw error
         }
+    }
+
+    private func convertYear(from text: String) throws -> Int {
+        guard let year = Int(text) else {
+            let message = NSLocalizedString("Invalid year conversion", comment: "Cannot convert year text")
+            throw CarInputValidationError.invalidYear(message)
+        }
+
+        return year
     }
 }

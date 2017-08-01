@@ -11,7 +11,13 @@ import RxSwift
 import RxCocoa
 import Result
 
-typealias CarSaveResult = Result<Void, CarsServiceError>
+enum CarSaveError: Error {
+    case invalidForm(ValidationErrors)
+    case serviceError(CarsServiceError)
+    case unknown(Error)
+}
+
+typealias CarSaveResult = Result<Void, CarSaveError>
 
 protocol CarAddViewModelInputs {
     func save()
@@ -30,15 +36,23 @@ protocol CarAddViewModelType {
 
 final class CarAddViewModel: CarAddViewModelType {
     fileprivate let signalSave = PublishSubject<Void>()
+    fileprivate let signalRequest: ObservableProbe
     fileprivate let valueInputViewModels: Variable<Array<CarInputViewModelType>>
     fileprivate let driverFormEnabled: Driver<Bool>
+    fileprivate let driverSaveResult: Driver<CarSaveResult>
 
     var inputs: CarAddViewModelInputs { return self }
     var outputs: CarAddViewModelOutputs { return self }
 
     init(service: CarAddServiceType,
          validators: CarInputValidatorsFactoryType,
-         converter: CarInputConverter) {
+         converter: CarInputConverter,
+         shouldValidateForm: Bool = true) {
+
+        let probe = ObservableProbe()
+        signalRequest = probe
+
+        // Prepare inputs
 
         let inputs: Array<CarInputViewModelType> = [
             CarInputViewModel(inputType: .name, converter: converter, validator: validators.createNameValidator()),
@@ -49,36 +63,50 @@ final class CarAddViewModel: CarAddViewModelType {
 
         valueInputViewModels = Variable<Array<CarInputViewModelType>>(inputs)
 
-        let signals = inputs.map {
-            $0.outputs.onTextResult.asObservable().map { $0.isSuccess }
+        // Prepare form validation
+
+        let isFormEnabled: Observable<Bool>
+
+        if shouldValidateForm {
+
+            let signals = inputs.map {
+                $0.outputs.onTextResult.asObservable().map { $0.isSuccess }
+            }
+
+            isFormEnabled = Observable.combineLatest(signals) { (items) -> Bool in
+                    return items.reduce(true, { (result, value) -> Bool in
+                        return result && value
+                    })
+                }
+                .distinctUntilChanged()
+
+        } else {
+            isFormEnabled = Observable.just(true)
         }
-
-        let isFormEnabled = Observable.combineLatest(signals) { (items) -> Bool in
-            return items.reduce(true, { (result, value) -> Bool in
-                return result && value
-            })
-        }.distinctUntilChanged()
-
-//        let rs = Observable.combineLatest(signals[0], signals[1], signals[2], signals[3]) { (input1, input2, input3, input4) -> Bool in
-//            return false
-//        }
-
-//        let isFormEnabled = Observable.from(inputs.map {
-//                $0.outputs.onTextResult.asObservable().map { $0.isSuccess }
-//            })
-//            .merge()
-//            .distinctUntilChanged()
-
 
         driverFormEnabled = isFormEnabled
             .asDriver(onErrorDriveWith: Driver.never())
 
-//        signalSave.asObservable()
-//            .withLatestFrom(isFormEnabled)
-//            .filter { $0 }
-//            .flatMapLatest { _ in
-//                return service.createCar(with: <#T##CarCreateModel#>)
-//            }
+        // Prepare save operation
+
+        let builder = CarStepCreateBuilder(
+            validators: validators,
+            converter: converter
+        )
+
+        let saveOperation = CarSaveResultOperation(
+            service: service,
+            builder: builder,
+            inputs: inputs,
+            probe: probe
+        )
+
+        driverSaveResult = signalSave
+            .asObservable()
+            .withLatestFrom(isFormEnabled)
+            .filter { $0 }
+            .flatMapLatest { _ in saveOperation.asObservable() }
+            .asDriver(onErrorDriveWith: Driver.never())
     }
 
     deinit {
@@ -102,6 +130,6 @@ extension CarAddViewModel: CarAddViewModelOutputs {
     }
 
     var onSaveResult: Driver<CarSaveResult> {
-        return Driver.empty()
+        return driverSaveResult
     }
 }
