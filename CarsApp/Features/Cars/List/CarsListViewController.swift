@@ -17,6 +17,7 @@ final class CarsListViewController: UITableViewController {
     private let errorPresenter: ErrorPresenterType
     private let viewModel: CarsListViewModelType
     private let bag = DisposeBag()
+    private let onAddCallback: ((@escaping (Bool) -> Void) -> Void)?
     private let onSelectCallback: ((CarType) -> Void)?
 
     private var items: Array<CarsListItemPresentable> = []
@@ -24,10 +25,12 @@ final class CarsListViewController: UITableViewController {
 
     init(service: CarsListServiceType,
          errorPresenter: ErrorPresenterType,
+         onAddCallback: ((@escaping (Bool) -> Void) -> Void)? = nil,
          onSelectCallback: ((CarType) -> Void)? = nil) {
 
         self.viewModel = CarsListViewModel(service: service)
         self.errorPresenter = errorPresenter
+        self.onAddCallback = onAddCallback
         self.onSelectCallback = onSelectCallback
         super.init(style: .grouped)
     }
@@ -46,6 +49,7 @@ final class CarsListViewController: UITableViewController {
         configureTableView()
         configureRefreshControl()
         configureErrorPresenter()
+        configureAddButtonIfNeeded()
         configureBindings()
     }
 
@@ -66,6 +70,16 @@ final class CarsListViewController: UITableViewController {
         viewModel.inputs.fetch()
     }
 
+    func addAction() {
+        let completion: ((Bool) -> Void) = { [weak self] isSuccess in
+            if isSuccess {
+                self?.refreshAction()
+            }
+        }
+
+        onAddCallback?(completion)
+    }
+
     private func configureTableView() {
         tableView.register(cellType: CarsListTableViewCell.self)
     }
@@ -83,6 +97,14 @@ final class CarsListViewController: UITableViewController {
             self?.refreshAction()
             return true
         }
+    }
+
+    private func configureAddButtonIfNeeded() {
+        guard onAddCallback != nil else { return }
+
+        let sel = #selector(CarsListViewController.addAction)
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: sel)
+        navigationItem.rightBarButtonItem = add
     }
 
     private func configureBindings() {

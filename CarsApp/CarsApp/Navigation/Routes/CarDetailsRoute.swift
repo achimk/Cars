@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct CarDetailsRoutePayload {
+    let identity: CarIdentityModel
+}
+
 struct CarDetailsRoute: Routable {
     let detailsService: CarDetailsServiceType
     let errorPresenter: ErrorPresenterType?
@@ -21,10 +25,10 @@ struct CarDetailsRoute: Routable {
 
     func navigate(to location: LocationType, using presenter: ViewControllerPresentable) throws {
         guard location.path == Navigation.Path.carDetails.rawValue else { return }
-        guard let identity = location.payload as? CarIdentityModel else { return }
+        guard let payload = location.payload as? CarDetailsRoutePayload else { return }
 
         let flow = CarDetailsFlow(
-            identity: identity,
+            identity: payload.identity,
             detailsService: detailsService,
             errorPresenter: errorPresenter
         )

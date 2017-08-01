@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct CarAddRoutePayload {
+    let completion: ((Bool) -> Void)?
+}
+
 struct CarAddRoute: Routable {
     let addService: CarAddServiceType
     let errorPresenter: ErrorPresenterType?
@@ -21,10 +25,12 @@ struct CarAddRoute: Routable {
 
     func navigate(to location: LocationType, using presenter: ViewControllerPresentable) throws {
         guard location.path == Navigation.Path.carAdd.rawValue else { return }
+        let payload = location.payload as? CarAddRoutePayload
 
         let flow = CarAddFlow(
             addService: addService,
-            errorPresenter: errorPresenter
+            errorPresenter: errorPresenter,
+            onSaveCallback: payload?.completion
         )
 
         flow.present(using: presenter)

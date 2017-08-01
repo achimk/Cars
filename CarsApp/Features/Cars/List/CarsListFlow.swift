@@ -27,14 +27,22 @@ struct CarsListFlow: FlowPresentable {
         let navigation = navigationService
         let errorPresenter = ProxyErrorPresenter(self.errorPresenter)
 
+        let onAddCallback: ((@escaping (Bool) -> Void) -> Void) = { completion in
+            let payload = CarAddRoutePayload(completion: completion)
+            let location = Navigation.Route.carAdd(payload).asLocation()
+            navigation.navigate(to: location, using: presenter)
+        }
+
         let onSelectCallback: ((CarType) -> Void) = { car in
-            let location = Navigation.Route.carDetails(car.asIdentityModel()).asLocation()
+            let payload = CarDetailsRoutePayload(identity: car.asIdentityModel())
+            let location = Navigation.Route.carDetails(payload).asLocation()
             navigation.navigate(to: location, using: presenter)
         }
 
         let viewController = CarsListViewController(
             service: listService,
             errorPresenter: errorPresenter,
+            onAddCallback: onAddCallback,
             onSelectCallback: onSelectCallback
         )
 

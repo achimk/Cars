@@ -18,8 +18,8 @@ struct Navigation {
     // Default routes used in project
     enum Route {
         case carsList
-        case carAdd
-        case carDetails(CarIdentityModel)
+        case carAdd(CarAddRoutePayload)
+        case carDetails(CarDetailsRoutePayload)
     }
 
     // Default paths usend in project (used for identify routes)
@@ -44,10 +44,10 @@ extension Navigation.Route {
         switch self {
         case .carsList:
             return Location(scheme: Navigation.scheme, path: asPath().rawValue)
-        case .carAdd:
-            return Location(scheme: Navigation.scheme, path: asPath().rawValue)
-        case .carDetails(let identity):
-            return Location(scheme: Navigation.scheme, path: asPath().rawValue, payload: identity)
+        case .carAdd(let payload):
+            return Location(scheme: Navigation.scheme, path: asPath().rawValue, payload: payload)
+        case .carDetails(let payload):
+            return Location(scheme: Navigation.scheme, path: asPath().rawValue, payload: payload)
         }
     }
 }

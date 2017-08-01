@@ -24,8 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationService = NavigationService.create()
         navigator = navigationService
 
-//        let location = Navigation.Route.carsList.asLocation()
-        let location = Navigation.Route.carAdd.asLocation()
+        let location = Navigation.Route.carsList.asLocation()
         let presenter = factory.createPresenter()
 
         // Landing page providing ability to simulate deinit controller on stack

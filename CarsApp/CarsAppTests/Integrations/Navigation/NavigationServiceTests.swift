@@ -40,7 +40,8 @@ final class NavigationServiceTests: QuickSpec {
 
                     expect(presenter.navigationController.viewControllers).to(haveCount(0))
 
-                    let location = Navigation.Route.carAdd.asLocation()
+                    let payload = CarAddRoutePayload(completion: nil)
+                    let location = Navigation.Route.carAdd(payload).asLocation()
                     service.navigate(to: location, using: presenter)
 
                     expect(presenter.navigationController.viewControllers).to(haveCount(1))
@@ -50,7 +51,8 @@ final class NavigationServiceTests: QuickSpec {
 
                     expect(presenter.navigationController.viewControllers).to(haveCount(0))
 
-                    let location = Navigation.Route.carDetails(CarIdentityModel("1")).asLocation()
+                    let payload = CarDetailsRoutePayload(identity: CarIdentityModel("1"))
+                    let location = Navigation.Route.carDetails(payload).asLocation()
                     service.navigate(to: location, using: presenter)
 
                     expect(presenter.navigationController.viewControllers).to(haveCount(1))

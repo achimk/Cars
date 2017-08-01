@@ -12,12 +12,15 @@ import UIKit
 struct CarAddFlow: FlowPresentable {
     private let addService: CarAddServiceType
     private let errorPresenter: ErrorPresenterType?
+    private let onSaveCallback: ((Bool) -> Void)?
 
     init(addService: CarAddServiceType,
-         errorPresenter: ErrorPresenterType?) {
+         errorPresenter: ErrorPresenterType?,
+         onSaveCallback: ((Bool) -> Void)?) {
 
         self.addService = addService
         self.errorPresenter = errorPresenter
+        self.onSaveCallback = onSaveCallback
     }
 
     func present(using presenter: ViewControllerPresentable) {
@@ -25,7 +28,8 @@ struct CarAddFlow: FlowPresentable {
 
         let viewController = CarAddViewController(
             service: addService,
-            errorPresenter: errorPresenter
+            errorPresenter: errorPresenter,
+            onSaveCallback: onSaveCallback
         )
 
         if errorPresenter.proxy == nil {

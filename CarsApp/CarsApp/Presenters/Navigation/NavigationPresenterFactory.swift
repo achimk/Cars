@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 struct NavigationPresenterFactory: NavigationPresenterFactoryType {
-
     let window: UIWindow
     let navigationController: UINavigationController
 

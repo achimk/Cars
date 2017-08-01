@@ -16,12 +16,14 @@ final class CarAddViewController: UITableViewController {
     private let errorPresenter: ErrorPresenterType
     private let viewModel: CarAddViewModelType
     private let bag = DisposeBag()
+    private let onSaveCallback: ((Bool) -> Void)?
 
     private var buttonDone: UIBarButtonItem?
     private var buttonCancel: UIBarButtonItem?
 
     init(service: CarAddServiceType,
-         errorPresenter: ErrorPresenterType) {
+         errorPresenter: ErrorPresenterType,
+         onSaveCallback: ((Bool) -> Void)? = nil) {
         
         let validators = CarInputValidatorsFactory()
         let converter = CarInputWhitespaceTrimmer.create()
@@ -35,6 +37,7 @@ final class CarAddViewController: UITableViewController {
         )
 
         self.errorPresenter = errorPresenter
+        self.onSaveCallback = onSaveCallback
         super.init(style: .grouped)
     }
 
@@ -50,7 +53,7 @@ final class CarAddViewController: UITableViewController {
         super.viewDidLoad()
 
         configureTableView()
-        configureNavigationButtons()
+        configureDoneButton()
         configureBindings()
     }
 
@@ -58,25 +61,8 @@ final class CarAddViewController: UITableViewController {
         viewModel.inputs.save()
     }
 
-    func cancelAction() {
-        print("-> cancel")
-    }
-
     private func configureTableView() {
         tableView.register(cellType: CarInputTableViewCell.self)
-    }
-
-    private func configureNavigationButtons() {
-        configureCancelButton()
-        configureDoneButton()
-    }
-
-    private func configureCancelButton() {
-        let cancelSel = #selector(CarAddViewController.cancelAction)
-        let cancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: cancelSel)
-        cancel.isEnabled = true
-        navigationItem.leftBarButtonItem = cancel
-        self.buttonCancel = cancel
     }
 
     private func configureDoneButton() {
@@ -107,7 +93,7 @@ final class CarAddViewController: UITableViewController {
     }
 
     private func presentSaveSuccess() {
-        print("->>> Save Success!")
+        onSaveCallback?(true)
     }
 
     private func presentSaveFailure(_ error: CarSaveError) {
