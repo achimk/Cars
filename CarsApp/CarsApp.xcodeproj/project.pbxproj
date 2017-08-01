@@ -290,12 +290,12 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
-		AA08804F1F2CD1E0004AB71A /* Services */ = {
+		AA08804F1F2CD1E0004AB71A /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
 				AA0880EB1F2D1AF8004AB71A /* Cars */,
 			);
-			path = Services;
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		AA0880511F2CD725004AB71A /* Components */ = {
@@ -582,12 +582,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		AA0880F21F2D1E82004AB71A /* Services */ = {
+		AA0880F21F2D1E82004AB71A /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
 				AA0880F31F2D1E91004AB71A /* Cars */,
 			);
-			path = Services;
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		AA0880F31F2D1E91004AB71A /* Cars */ = {
@@ -670,10 +670,10 @@
 			isa = PBXGroup;
 			children = (
 				AA1048E91F2CC56900C36F7A /* CarsApp */,
-				AA0880511F2CD725004AB71A /* Components */,
 				AA08804C1F2CD1C3004AB71A /* Features */,
 				AA08804E1F2CD1D9004AB71A /* Repositories */,
-				AA08804F1F2CD1E0004AB71A /* Services */,
+				AA08804F1F2CD1E0004AB71A /* Infrastructure */,
+				AA0880511F2CD725004AB71A /* Components */,
 				AA08804D1F2CD1D3004AB71A /* Tools */,
 				AA1048FE1F2CC56900C36F7A /* CarsAppTests */,
 				AA1048E81F2CC56900C36F7A /* Products */,
@@ -705,10 +705,10 @@
 		AA1048FE1F2CC56900C36F7A /* CarsAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				AA08817C1F2DD820004AB71A /* Features */,
-				AA0880F21F2D1E82004AB71A /* Services */,
-				AA0880C61F2D07C2004AB71A /* Repositories */,
 				AA0880841F2CF23C004AB71A /* Integrations */,
+				AA08817C1F2DD820004AB71A /* Features */,
+				AA0880C61F2D07C2004AB71A /* Repositories */,
+				AA0880F21F2D1E82004AB71A /* Infrastructure */,
 				AA0880571F2CD94F004AB71A /* Components */,
 				AA1049011F2CC56900C36F7A /* Info.plist */,
 			);
