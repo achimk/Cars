@@ -26,6 +26,7 @@ protocol CarAddViewModelInputs {
 protocol CarAddViewModelOutputs {
     var onInputViewModels: Driver<Array<CarInputViewModelType>> { get }
     var onFormEnabled: Driver<Bool> { get }
+    var onLoading: Driver<Bool> { get }
     var onSaveResult: Driver<CarSaveResult> { get }
 }
 
@@ -65,24 +66,10 @@ final class CarAddViewModel: CarAddViewModelType {
 
         // Prepare form validation
 
-        let isFormEnabled: Observable<Bool>
+        let isFormEnabled: Observable<Bool> = shouldValidateForm
+            ? CarInputValidationOperation(inputs).asObservable()
+            : Observable.just(true)
 
-        if shouldValidateForm {
-
-            let signals = inputs.map {
-                $0.outputs.onTextResult.asObservable().map { $0.isSuccess }
-            }
-
-            isFormEnabled = Observable.combineLatest(signals) { (items) -> Bool in
-                    return items.reduce(true, { (result, value) -> Bool in
-                        return result && value
-                    })
-                }
-                .distinctUntilChanged()
-
-        } else {
-            isFormEnabled = Observable.just(true)
-        }
 
         driverFormEnabled = isFormEnabled
             .asDriver(onErrorDriveWith: Driver.never())
@@ -103,6 +90,8 @@ final class CarAddViewModel: CarAddViewModelType {
 
         driverSaveResult = signalSave
             .asObservable()
+            .withLatestFrom(probe)
+            .filter { !$0 }
             .withLatestFrom(isFormEnabled)
             .filter { $0 }
             .flatMapLatest { _ in saveOperation.asObservable() }
@@ -127,6 +116,10 @@ extension CarAddViewModel: CarAddViewModelOutputs {
 
     var onFormEnabled: Driver<Bool> {
         return driverFormEnabled
+    }
+
+    var onLoading: Driver<Bool> {
+        return signalRequest.asDriver()
     }
 
     var onSaveResult: Driver<CarSaveResult> {

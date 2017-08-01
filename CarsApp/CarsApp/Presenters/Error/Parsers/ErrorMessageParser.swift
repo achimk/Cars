@@ -40,7 +40,23 @@ struct ErrorMessageParser: ErrorMessageParserType {
         guard let first = error.errors.first else {
             return unknownFormError()
         }
-        return first.localizedDescription
+
+        switch first {
+        case let error as CarInputValidationError:
+            return carCreateValidationError(error)
+
+        default:
+            return unknownFormError()
+        }
+    }
+
+    private func carCreateValidationError(_ error: CarInputValidationError) -> String {
+        switch error {
+        case .invalidName(let message): return message
+        case .invalidBrand(let message): return message
+        case .invalidModel(let message): return message
+        case .invalidYear(let message): return message
+        }
     }
 
     private func carsServiceError(_ error: CarsServiceError) -> String {

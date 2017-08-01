@@ -30,8 +30,6 @@ struct CarSaveResultOperation: ObservableConvertibleType {
         let operation = self
         let probe = self.probe
 
-        print("-> create observable")
-
         return createModelObserverable()
             .flatMapLatest { operation.createServiceObservable(with: $0, probe: probe) }
             .map { CarSaveResult.success() }
@@ -70,15 +68,12 @@ struct CarSaveResultOperation: ObservableConvertibleType {
 
         switch error {
         case let error as ValidationErrors:
-            print("# error: \(error.errors[0])")
             result = CarSaveResult.failure(CarSaveError.invalidForm(error))
 
         case let error as CarsServiceError:
-            print("# error: \(error)")
             result = CarSaveResult.failure(CarSaveError.serviceError(error))
 
         default:
-            print("# error: \(error)")
             result = CarSaveResult.failure(CarSaveError.unknown(error))
         }
 
