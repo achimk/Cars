@@ -66,6 +66,15 @@
 		AA1048F51F2CC56900C36F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F31F2CC56900C36F7A /* LaunchScreen.storyboard */; };
 		AA627E771F2FC7A1009CEDFB /* CarInputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA627E761F2FC7A1009CEDFB /* CarInputType.swift */; };
 		AA8A14811F31B66A00474FDD /* ProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A14801F31B66A00474FDD /* ProgressHud.swift */; };
+		AA8A14851F31C42800474FDD /* RestCarsEndpointBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A14841F31C42800474FDD /* RestCarsEndpointBuilderTests.swift */; };
+		AA8A14871F31C53B00474FDD /* CarModelResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A14861F31C53B00474FDD /* CarModelResponseTests.swift */; };
+		AA8A14891F31CAD200474FDD /* CarCreateModelResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A14881F31CAD200474FDD /* CarCreateModelResponseTests.swift */; };
+		AA8A148B1F31CC0100474FDD /* BaseCarsRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A148A1F31CC0100474FDD /* BaseCarsRequestTests.swift */; };
+		AA8A148D1F31CD5400474FDD /* AddCarTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A148C1F31CD5400474FDD /* AddCarTaskTests.swift */; };
+		AA8A14901F31CDC700474FDD /* AddCarMockDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A148F1F31CDC700474FDD /* AddCarMockDispatcher.swift */; };
+		AA8A14921F31CE5200474FDD /* ListCarsTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A14911F31CE5200474FDD /* ListCarsTaskTests.swift */; };
+		AA8A14941F31CE8200474FDD /* ListCarsMockDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A14931F31CE8200474FDD /* ListCarsMockDispatcher.swift */; };
+		AA8A14961F31CF1200474FDD /* ConditionCarsMockDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A14951F31CF1200474FDD /* ConditionCarsMockDispatcher.swift */; };
 		AA9350821F305614007B88B2 /* CarSaveResultOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9350811F305614007B88B2 /* CarSaveResultOperation.swift */; };
 		AA9350841F3065B5007B88B2 /* CarInputValidationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9350831F3065B5007B88B2 /* CarInputValidationOperation.swift */; };
 		AA9350861F3067E6007B88B2 /* CarStepCreateBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9350851F3067E6007B88B2 /* CarStepCreateBuilderTests.swift */; };
@@ -215,6 +224,15 @@
 		AA1049011F2CC56900C36F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA627E761F2FC7A1009CEDFB /* CarInputType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputType.swift; sourceTree = "<group>"; };
 		AA8A14801F31B66A00474FDD /* ProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHud.swift; sourceTree = "<group>"; };
+		AA8A14841F31C42800474FDD /* RestCarsEndpointBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestCarsEndpointBuilderTests.swift; sourceTree = "<group>"; };
+		AA8A14861F31C53B00474FDD /* CarModelResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarModelResponseTests.swift; sourceTree = "<group>"; };
+		AA8A14881F31CAD200474FDD /* CarCreateModelResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCreateModelResponseTests.swift; sourceTree = "<group>"; };
+		AA8A148A1F31CC0100474FDD /* BaseCarsRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCarsRequestTests.swift; sourceTree = "<group>"; };
+		AA8A148C1F31CD5400474FDD /* AddCarTaskTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarTaskTests.swift; sourceTree = "<group>"; };
+		AA8A148F1F31CDC700474FDD /* AddCarMockDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarMockDispatcher.swift; sourceTree = "<group>"; };
+		AA8A14911F31CE5200474FDD /* ListCarsTaskTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCarsTaskTests.swift; sourceTree = "<group>"; };
+		AA8A14931F31CE8200474FDD /* ListCarsMockDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCarsMockDispatcher.swift; sourceTree = "<group>"; };
+		AA8A14951F31CF1200474FDD /* ConditionCarsMockDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionCarsMockDispatcher.swift; sourceTree = "<group>"; };
 		AA9350811F305614007B88B2 /* CarSaveResultOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarSaveResultOperation.swift; sourceTree = "<group>"; };
 		AA9350831F3065B5007B88B2 /* CarInputValidationOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputValidationOperation.swift; sourceTree = "<group>"; };
 		AA9350851F3067E6007B88B2 /* CarStepCreateBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarStepCreateBuilderTests.swift; sourceTree = "<group>"; };
@@ -623,7 +641,8 @@
 		AA0880F31F2D1E91004AB71A /* Cars */ = {
 			isa = PBXGroup;
 			children = (
-				AA0880F41F2D1EF0004AB71A /* CarModelTests.swift */,
+				AA8A14821F31C3A600474FDD /* InMemoryService */,
+				AA8A14831F31C3CB00474FDD /* RestService */,
 			);
 			path = Cars;
 			sourceTree = "<group>";
@@ -771,6 +790,38 @@
 				AA8A14801F31B66A00474FDD /* ProgressHud.swift */,
 			);
 			path = ProgressHud;
+			sourceTree = "<group>";
+		};
+		AA8A14821F31C3A600474FDD /* InMemoryService */ = {
+			isa = PBXGroup;
+			children = (
+				AA0880F41F2D1EF0004AB71A /* CarModelTests.swift */,
+			);
+			path = InMemoryService;
+			sourceTree = "<group>";
+		};
+		AA8A14831F31C3CB00474FDD /* RestService */ = {
+			isa = PBXGroup;
+			children = (
+				AA8A148E1F31CDA400474FDD /* Helpers */,
+				AA8A14841F31C42800474FDD /* RestCarsEndpointBuilderTests.swift */,
+				AA8A14861F31C53B00474FDD /* CarModelResponseTests.swift */,
+				AA8A14881F31CAD200474FDD /* CarCreateModelResponseTests.swift */,
+				AA8A148A1F31CC0100474FDD /* BaseCarsRequestTests.swift */,
+				AA8A148C1F31CD5400474FDD /* AddCarTaskTests.swift */,
+				AA8A14911F31CE5200474FDD /* ListCarsTaskTests.swift */,
+			);
+			path = RestService;
+			sourceTree = "<group>";
+		};
+		AA8A148E1F31CDA400474FDD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AA8A14951F31CF1200474FDD /* ConditionCarsMockDispatcher.swift */,
+				AA8A148F1F31CDC700474FDD /* AddCarMockDispatcher.swift */,
+				AA8A14931F31CE8200474FDD /* ListCarsMockDispatcher.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		AA9350801F3055C9007B88B2 /* Operations */ = {
@@ -1332,23 +1383,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA8A14871F31C53B00474FDD /* CarModelResponseTests.swift in Sources */,
 				AA0880A11F2CF6E5004AB71A /* LocationTests.swift in Sources */,
 				AA93508C1F307289007B88B2 /* CarInputWhitespaceTrimmerTests.swift in Sources */,
+				AA8A14921F31CE5200474FDD /* ListCarsTaskTests.swift in Sources */,
+				AA8A14901F31CDC700474FDD /* AddCarMockDispatcher.swift in Sources */,
 				AA9350891F306881007B88B2 /* CarInputValidatorsFactoryTests.swift in Sources */,
+				AA8A14851F31C42800474FDD /* RestCarsEndpointBuilderTests.swift in Sources */,
 				AAFC2FD21F308E6500407802 /* CarAddViewModelTests.swift in Sources */,
 				AAFA511B1F2DF26700AB9483 /* ErrorHandlerTests.swift in Sources */,
 				AAFA50E51F2DE06600AB9483 /* MockCarsServiceFactoryTests.swift in Sources */,
 				AAFA50E91F2DE1A300AB9483 /* DelayCarsServiceTests.swift in Sources */,
+				AA8A148B1F31CC0100474FDD /* BaseCarsRequestTests.swift in Sources */,
 				AA0880891F2CF2A7004AB71A /* NavigationPresenterFactoryTests.swift in Sources */,
 				AA0881361F2D387B004AB71A /* InMemoryCarsServiceAdapterTests.swift in Sources */,
 				AAFA50C91F2DD8A400AB9483 /* CarsListViewModelTests.swift in Sources */,
+				AA8A14961F31CF1200474FDD /* ConditionCarsMockDispatcher.swift in Sources */,
 				AA0881021F2D25F0004AB71A /* CarsModelEntityMapperTests.swift in Sources */,
 				AA0880CB1F2D0810004AB71A /* CarEntityTests.swift in Sources */,
 				AA0880F51F2D1EF0004AB71A /* CarModelTests.swift in Sources */,
+				AA8A14891F31CAD200474FDD /* CarCreateModelResponseTests.swift in Sources */,
 				AAC92D971F2E3A3C006FA558 /* CarDetailsViewModelTests.swift in Sources */,
 				AAFC2FDC1F30AEA800407802 /* ConditionPresenterTests.swift in Sources */,
 				AA08812E1F2D347F004AB71A /* CarCreateModelTests.swift in Sources */,
 				AAFA50E71F2DE10500AB9483 /* ErrorCarsServiceTests.swift in Sources */,
+				AA8A148D1F31CD5400474FDD /* AddCarTaskTests.swift in Sources */,
 				AA0880611F2CDD4B004AB71A /* NavigationPresenterTests.swift in Sources */,
 				AA0880A31F2CF821004AB71A /* RouterTests.swift in Sources */,
 				AAC92D951F2E3A31006FA558 /* CarDetailsPresentationItemsTests.swift in Sources */,
@@ -1357,6 +1416,7 @@
 				AA08805B1F2CD9B2004AB71A /* WindowPresenterTests.swift in Sources */,
 				AAFA511D1F2DF74700AB9483 /* ErrorPresenterTests.swift in Sources */,
 				AA08813B1F2D3F69004AB71A /* CarIdentityModelTests.swift in Sources */,
+				AA8A14941F31CE8200474FDD /* ListCarsMockDispatcher.swift in Sources */,
 				AA93508E1F30732B007B88B2 /* CarInputViewModelTests.swift in Sources */,
 				AA0880BE1F2D0227004AB71A /* NavigationServiceTests.swift in Sources */,
 			);
