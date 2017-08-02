@@ -65,7 +65,7 @@ final class DelayCarsServiceTests: QuickSpec {
                             name: "Project Code 980",
                             model: "Carrera GT",
                             brand: "Porsche",
-                            year: 2004
+                            year: "2004"
                         )
 
                         let _ = try service

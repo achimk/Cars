@@ -12,12 +12,12 @@ struct CarCreateModel: Equatable {
     var name: String
     var model: String
     var brand: String
-    var year: Int
+    var year: String
 
     init(name: String,
          model: String,
          brand: String,
-         year: Int) {
+         year: String) {
 
         self.name = name
         self.model = model

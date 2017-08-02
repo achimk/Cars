@@ -47,7 +47,7 @@ final class InMemoryCarsServiceAdapterTests: QuickSpec {
                             name: "Project Code 980",
                             model: "Carrera GT",
                             brand: "Porsche",
-                            year: 2004
+                            year: "2004"
                         )
 
                         let _ = try service
@@ -96,7 +96,7 @@ final class InMemoryCarsServiceAdapterTests: QuickSpec {
                             name: "My Mercedes",
                             model: "GT R",
                             brand: "Mercedes-AMG",
-                            year: 2016
+                            year: "2016"
                         )
 
                         let _ = try service
@@ -158,9 +158,9 @@ final class InMemoryCarsServiceAdapterTests: QuickSpec {
 
     private func createModels() -> Array<CarModel> {
         return [
-            CarModel(id: "1", name: "My Porsche", model: "Carrera GT", brand: "Porsche", year: 2004),
-            CarModel(id: "2", name: "My Ferrari", model: "458 Italia", brand: "Ferrari", year: 2010),
-            CarModel(id: "3", name: "My McLaren", model: "P1", brand: "McLaren", year: 2013)
+            CarModel(id: "1", name: "My Porsche", model: "Carrera GT", brand: "Porsche", year: "2004"),
+            CarModel(id: "2", name: "My Ferrari", model: "458 Italia", brand: "Ferrari", year: "2010"),
+            CarModel(id: "3", name: "My McLaren", model: "P1", brand: "McLaren", year: "2013")
         ]
     }
 }

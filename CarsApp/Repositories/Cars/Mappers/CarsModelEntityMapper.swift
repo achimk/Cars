@@ -30,13 +30,13 @@ struct CarsModelEntityMapper {
         )
     }
 
-    static func date(from year: Int?) -> Date? {
+    static func date(from year: String?) -> Date? {
         guard let year = year else { return nil }
         return CarManufactureFormatter.dateFormatter.date(from: "\(year)-01-01 00:00:00 +0000")
     }
 
-    static func year(from date: Date?) -> Int? {
+    static func year(from date: Date?) -> String? {
         guard let date = date else { return nil }
-        return Int(CarManufactureFormatter.yearFormatter.string(from: date))
+        return CarManufactureFormatter.yearFormatter.string(from: date)
     }
 }

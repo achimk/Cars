@@ -18,13 +18,13 @@ final class CarCreateModelTests: XCTestCase {
             name: "Project Code 980",
             model: "Carrera GT",
             brand: "Porsche",
-            year: 2004
+            year: "2004"
         )
 
         expect(car.name).to(equal("Project Code 980"))
         expect(car.model).to(equal("Carrera GT"))
         expect(car.brand).to(equal("Porsche"))
-        expect(car.year).to(equal(2004))
+        expect(car.year).to(equal("2004"))
     }
 
     func testEquatable() {
@@ -32,7 +32,7 @@ final class CarCreateModelTests: XCTestCase {
             name: "Project Code 980",
             model: "Carrera GT",
             brand: "Porsche",
-            year: 2004
+            year: "2004"
         )
 
         expect(car).to(equal(car))
@@ -41,7 +41,7 @@ final class CarCreateModelTests: XCTestCase {
             name: "Project Code 98",
             model: "Carrera GT",
             brand: "Porsche",
-            year: 2004
+            year: "2004"
         )
 
         expect(car).toNot(equal(diffName))
@@ -50,7 +50,7 @@ final class CarCreateModelTests: XCTestCase {
             name: "Project Code 980",
             model: "Carrera",
             brand: "Porsche",
-            year: 2004
+            year: "2004"
         )
 
         expect(car).toNot(equal(diffModel))
@@ -59,7 +59,7 @@ final class CarCreateModelTests: XCTestCase {
             name: "Project Code 980",
             model: "Carrera GT",
             brand: "Fiat",
-            year: 2004
+            year: "2004"
         )
 
         expect(car).toNot(equal(diffBrand))
@@ -68,7 +68,7 @@ final class CarCreateModelTests: XCTestCase {
             name: "Project Code 980",
             model: "Carrera GT",
             brand: "Porsche",
-            year: 2001
+            year: "2001"
         )
 
         expect(car).toNot(equal(diffYear))

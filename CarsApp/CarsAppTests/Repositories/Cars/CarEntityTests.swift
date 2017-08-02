@@ -106,7 +106,7 @@ final class CarEntityTests: XCTestCase {
             name: "Project Code 980",
             model: "Carrera GT",
             brand: "Porsche",
-            year: 1970
+            year: "1970"
         )
 
         expect(car.asCreateModel()).to(equal(create))

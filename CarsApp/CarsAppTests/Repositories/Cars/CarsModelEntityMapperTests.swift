@@ -18,7 +18,7 @@ final class CarsModelEntityMapperTests: XCTestCase {
             name: "Project Code 980",
             model: "Carrera GT",
             brand: "Porsche",
-            year: 1970
+            year: "1970"
         )
 
         let output = CarsModelEntityMapper.from(input)
@@ -46,6 +46,6 @@ final class CarsModelEntityMapperTests: XCTestCase {
         expect(output.name).to(equal(input.name))
         expect(output.model).to(equal(input.model))
         expect(output.brand).to(equal(input.brand))
-        expect(output.year).to(equal(1970))
+        expect(output.year).to(equal("1970"))
     }
 }

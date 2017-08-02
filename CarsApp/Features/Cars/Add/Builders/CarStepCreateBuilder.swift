@@ -48,8 +48,7 @@ final class CarStepCreateBuilder: CarStepCreateBuilderType {
         let validName = try createValid(value: name, using: validators.createNameValidator())
         let validBrand = try createValid(value: brand, using: validators.createBrandValidator())
         let validModel = try createValid(value: model, using: validators.createModelValidator())
-        let textYear = try createValid(value: year, using: validators.createYearValidator())
-        let validYear = try convertYear(from: textYear)
+        let validYear = try createValid(value: year, using: validators.createYearValidator())
 
         return CarCreateModel(
             name: validName,
@@ -66,14 +65,5 @@ final class CarStepCreateBuilder: CarStepCreateBuilderType {
         case .success(let value): return value
         case .failure(let error): throw error
         }
-    }
-
-    private func convertYear(from text: String) throws -> Int {
-        guard let year = Int(text) else {
-            let message = NSLocalizedString("Invalid year conversion", comment: "Cannot convert year text")
-            throw CarInputValidationError.invalidYear(message)
-        }
-
-        return year
     }
 }

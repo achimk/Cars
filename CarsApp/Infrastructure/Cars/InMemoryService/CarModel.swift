@@ -13,13 +13,13 @@ struct CarModel {
     let name: String?
     let model: String?
     let brand: String?
-    let year: Int?
+    let year: String?
 
     init(id: String,
          name: String?,
          model: String?,
          brand: String?,
-         year: Int?) {
+         year: String?) {
 
         self.id = id
         self.name = name

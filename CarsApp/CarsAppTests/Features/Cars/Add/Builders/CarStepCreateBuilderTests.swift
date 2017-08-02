@@ -62,7 +62,7 @@ final class CarStepCreateBuilderTests: XCTestCase {
             expect(result.name).to(equal("name"))
             expect(result.brand).to(equal("brand"))
             expect(result.model).to(equal("model"))
-            expect(result.year).to(equal(1234))
+            expect(result.year).to(equal("1234"))
 
         } catch {
             fail("Should never happen")
@@ -147,7 +147,7 @@ final class CarStepCreateBuilderTests: XCTestCase {
             expect(result.name).to(equal("name"))
             expect(result.brand).to(equal("brand"))
             expect(result.model).to(equal("model"))
-            expect(result.year).to(equal(1234))
+            expect(result.year).to(equal("1234"))
 
         } catch {
             fail("Should never happen")
