@@ -65,6 +65,7 @@
 		AA1048F21F2CC56900C36F7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F11F2CC56900C36F7A /* Assets.xcassets */; };
 		AA1048F51F2CC56900C36F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1048F31F2CC56900C36F7A /* LaunchScreen.storyboard */; };
 		AA627E771F2FC7A1009CEDFB /* CarInputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA627E761F2FC7A1009CEDFB /* CarInputType.swift */; };
+		AA8A14811F31B66A00474FDD /* ProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8A14801F31B66A00474FDD /* ProgressHud.swift */; };
 		AA9350821F305614007B88B2 /* CarSaveResultOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9350811F305614007B88B2 /* CarSaveResultOperation.swift */; };
 		AA9350841F3065B5007B88B2 /* CarInputValidationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9350831F3065B5007B88B2 /* CarInputValidationOperation.swift */; };
 		AA9350861F3067E6007B88B2 /* CarStepCreateBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9350851F3067E6007B88B2 /* CarStepCreateBuilderTests.swift */; };
@@ -213,6 +214,7 @@
 		AA1048FB1F2CC56900C36F7A /* CarsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1049011F2CC56900C36F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA627E761F2FC7A1009CEDFB /* CarInputType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputType.swift; sourceTree = "<group>"; };
+		AA8A14801F31B66A00474FDD /* ProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHud.swift; sourceTree = "<group>"; };
 		AA9350811F305614007B88B2 /* CarSaveResultOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarSaveResultOperation.swift; sourceTree = "<group>"; };
 		AA9350831F3065B5007B88B2 /* CarInputValidationOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputValidationOperation.swift; sourceTree = "<group>"; };
 		AA9350851F3067E6007B88B2 /* CarStepCreateBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarStepCreateBuilderTests.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 		AA0880511F2CD725004AB71A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AA8A147E1F31B63D00474FDD /* UI */,
 				AAC233E21F30D22600806A88 /* Networking */,
 				AAFA510E1F2DF0B100AB9483 /* ErrorHandling */,
 				AA08808A1F2CF3C5004AB71A /* Navigation */,
@@ -752,6 +755,22 @@
 				AAC92DA31F2E4164006FA558 /* CarInputViewModel.swift */,
 			);
 			path = Inputs;
+			sourceTree = "<group>";
+		};
+		AA8A147E1F31B63D00474FDD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AA8A147F1F31B65300474FDD /* ProgressHud */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AA8A147F1F31B65300474FDD /* ProgressHud */ = {
+			isa = PBXGroup;
+			children = (
+				AA8A14801F31B66A00474FDD /* ProgressHud.swift */,
+			);
+			path = ProgressHud;
 			sourceTree = "<group>";
 		};
 		AA9350801F3055C9007B88B2 /* Operations */ = {
@@ -1188,6 +1207,7 @@
 				"$(SRCROOT)/../Carthage/Build/iOS/Validator.framework",
 				"$(SRCROOT)/../Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/../Carthage/Build/iOS/ObjectMapper.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/JGProgressHUD.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -1261,6 +1281,7 @@
 				AAC234011F30D75400806A88 /* CarModelResponse.swift in Sources */,
 				AAFA51121F2DF0F900AB9483 /* ErrorHandlingChainable.swift in Sources */,
 				AAC2340B1F30DA6400806A88 /* RestCarsServiceError.swift in Sources */,
+				AA8A14811F31B66A00474FDD /* ProgressHud.swift in Sources */,
 				AAC92DC81F2F1828006FA558 /* CarInputValidatorsFactoryType.swift in Sources */,
 				AA027F571F2F9AB200265FB5 /* CarInputConverterFactoryType.swift in Sources */,
 				AAC92DD71F2F8037006FA558 /* CarStepCreateBuilder.swift in Sources */,

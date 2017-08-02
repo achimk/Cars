@@ -13,7 +13,7 @@ import RxSwift
 import RxCocoa
 
 final class CarsListViewController: UITableViewController {
-
+    private let hud = ProgressHud()
     private let errorPresenter: ErrorPresenterType
     private let viewModel: CarsListViewModelType
     private let bag = DisposeBag()
@@ -136,8 +136,17 @@ final class CarsListViewController: UITableViewController {
     }
 
     private func updateLoadingIndicator(_ isLoading: Bool) {
-        if !isLoading {
+        let isRefreshing = refreshControl?.isRefreshing ?? false
+
+        switch (isLoading, isRefreshing) {
+        case (true, false):
+            hud.show(in: view, animated: true)
+
+        case (false, _):
+            hud.dismiss(animated: true)
             refreshControl?.endRefreshing()
+
+        default: break
         }
     }
 

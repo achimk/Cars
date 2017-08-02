@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 
 final class CarAddViewController: UITableViewController {
-
+    private let hud = ProgressHud()
     private let errorPresenter: ErrorPresenterType
     private let viewModel: CarAddViewModelType
     private let bag = DisposeBag()
@@ -74,6 +74,10 @@ final class CarAddViewController: UITableViewController {
     }
 
     private func configureBindings() {
+        viewModel.outputs.onLoading.drive(onNext: { [weak self] (isLoading) in
+            self?.updateLoadingIndicator(isLoading)
+        }).addDisposableTo(bag)
+
         viewModel.outputs.onFormEnabled.drive(onNext: { [weak self] (isEnabled) in
             self?.updateFormEnabled(isEnabled)
         }).addDisposableTo(bag)
@@ -86,6 +90,14 @@ final class CarAddViewController: UITableViewController {
                 self?.presentSaveFailure(error)
             }
         }).addDisposableTo(bag)
+    }
+
+    private func updateLoadingIndicator(_ isLoading: Bool) {
+        if isLoading {
+            hud.show(in: view, animated: true)
+        } else {
+            hud.dismiss(animated: true)
+        }
     }
 
     private func updateFormEnabled(_ isEnabled: Bool) {

@@ -16,11 +16,19 @@ struct NavigationService: NavigationServiceType, NavigationServiceFactoryType {
         // Select backend service by environment
 
         let service: CarsServiceType
-        switch App.environment {
-        case .develop:
+
+        switch App.Current.environment {
+        case .testing:
+            let mock = MocksCarsServiceFactory.create()
+            let delay = DelayCarsService(service: mock, delay: 2)
+            service = CarsService(delay)
+
+        case .staging:
             service = CarsService(InMemoryCarsServiceAdapter())
+
         case .production:
             service = CarsService(RestCarsServiceAdapter())
+
         }
 
         let navigator = NavigationServiceProxy()

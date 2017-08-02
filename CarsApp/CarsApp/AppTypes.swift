@@ -9,10 +9,19 @@
 import Foundation
 
 enum Environment: String {
-    case develop
+    case testing
+    case staging
     case production
 }
 
+// MARK: App Namespace
+
 struct App {
-    static let environment: Environment = .production
+    struct Current { }
+}
+
+// MARK: Current
+
+extension App.Current {
+    static let environment: Environment = .testing
 }
