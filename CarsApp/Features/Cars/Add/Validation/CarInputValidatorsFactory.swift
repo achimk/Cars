@@ -56,6 +56,15 @@ struct CarInputValidatorsFactory: CarInputValidatorsFactoryType {
     func createYearValidator() -> CarInputValidator {
         var rules = ValidationRuleSet<String>()
 
+        // Length rule
+
+        let errorLength = CarInputValidationError.invalidBrand(
+            NSLocalizedString("Year should be 4 characters long", comment: "Required year 4 characters long")
+        )
+
+        let ruleLength = ValidationRuleLength(min: 4, max: 4, error: errorLength)
+        rules.add(rule: ruleLength)
+
         // Digits rule
 
         let errorDigits = CarInputValidationError.invalidBrand(
@@ -70,15 +79,6 @@ struct CarInputValidatorsFactory: CarInputValidatorsFactoryType {
         }
 
         rules.add(rule: ruleDigits)
-
-        // Length rule
-
-        let errorLength = CarInputValidationError.invalidBrand(
-            NSLocalizedString("Year should be 4 characters long", comment: "Required year 4 characters long")
-        )
-
-        let ruleLength = ValidationRuleLength(min: 4, max: 4, error: errorLength)
-        rules.add(rule: ruleLength)
 
         return Result<String, ValidationErrors>.createValidator(using: rules)
     }
