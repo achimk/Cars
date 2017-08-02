@@ -23,5 +23,5 @@ struct App {
 // MARK: Current
 
 extension App.Current {
-    static let environment: Environment = .testing
+    static let environment: Environment = .production
 }

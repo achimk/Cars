@@ -10,10 +10,19 @@ import Foundation
 import RxSwift
 import Alamofire
 
-final class RestCarsService: NetworkDispatcher {
+final class RestCarsService: NetworkDispatcherType {
+    let sessionManager: SessionManager
 
-    override func execute(_ request: NetworkRequestType) -> Observable<Any> {
-        let operation = Alamofire.request(
+    init() {
+        let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
+        sessionManager = SessionManager(configuration: configuration)
+        sessionManager.startRequestsImmediately = false
+    }
+
+    func execute(_ request: NetworkRequestType) -> Observable<Any> {
+
+        let operation = sessionManager.request(
             request.url,
             method: httpMethod(from: request),
             parameters: request.parameters,
@@ -43,7 +52,11 @@ final class RestCarsService: NetworkDispatcher {
                     }
                 })
 
-            return Disposables.create()
+            operation.resume()
+
+            return Disposables.create {
+                operation.cancel()
+            }
         }
     }
 
