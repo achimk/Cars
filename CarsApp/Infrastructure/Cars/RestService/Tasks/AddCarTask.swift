@@ -53,6 +53,7 @@ final class AddCarTask: BaseCarsTask<CarBodyParameters, CarCreateModelResponse> 
 
         let parameters = createParameters(input)
         let completion: ((BaseCarsRequest) -> Void) = { request in
+            request.method = .post
             request.parameters = parameters
         }
 
