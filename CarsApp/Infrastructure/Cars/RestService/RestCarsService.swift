@@ -26,7 +26,7 @@ final class RestCarsService: NetworkDispatcherType {
             request.url,
             method: httpMethod(from: request),
             parameters: request.parameters,
-            encoding: URLEncoding(destination: .httpBody),
+            encoding: parameterEncoding(from: request),
             headers: request.headers
         )
 
@@ -64,6 +64,13 @@ final class RestCarsService: NetworkDispatcherType {
         switch request.method {
         case .get: return Alamofire.HTTPMethod.get
         case .post: return Alamofire.HTTPMethod.post
+        }
+    }
+
+    private func parameterEncoding(from request: NetworkRequestType) -> Alamofire.ParameterEncoding {
+        switch request.method {
+        case .get: return URLEncoding.default
+        case .post: return JSONEncoding.default
         }
     }
 }
