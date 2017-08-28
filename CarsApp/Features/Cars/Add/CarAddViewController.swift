@@ -53,8 +53,13 @@ final class CarAddViewController: UITableViewController {
         super.viewDidLoad()
 
         configureTableView()
+        configureCancelButtonIfNeeded()
         configureDoneButton()
         configureBindings()
+    }
+
+    func cancelAction() {
+        onSaveCallback?(false)
     }
 
     func saveAction() {
@@ -63,6 +68,17 @@ final class CarAddViewController: UITableViewController {
 
     private func configureTableView() {
         tableView.register(cellType: CarInputTableViewCell.self)
+    }
+
+    private func configureCancelButtonIfNeeded() {
+        if let _ = navigationItem.backBarButtonItem {
+            return
+        }
+
+        let cancelSel = #selector(CarAddViewController.cancelAction)
+        let cancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: cancelSel)
+        cancel.isEnabled = true
+        navigationItem.leftBarButtonItem = cancel
     }
 
     private func configureDoneButton() {

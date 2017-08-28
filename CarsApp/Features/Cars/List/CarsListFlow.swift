@@ -28,12 +28,24 @@ struct CarsListFlow: FlowPresentable {
         let errorPresenter = ProxyErrorPresenter(self.errorPresenter)
 
         let onAddCallback: ((@escaping (Bool) -> Void) -> Void) = { completion in
+            let modal = ModalPresenter(parent: presenter)
+            let stack = NavigationPresenter(
+                parent: modal,
+                navigationController: UINavigationController()
+            )
+            let sequence = ConditionPresenter(
+                parent: stack,
+                onPresent: { vc in modal.present(stack.navigationController); stack.present(vc) },
+                onDismiss: { modal.dismiss() }
+            )
+
             let payload = CarAddRoutePayload { isSuccess in
-                presenter.dismiss()
+                sequence.dismiss()
                 completion(isSuccess)
             }
+            
             let location = Navigation.Route.carAdd(payload).asLocation()
-            navigation.navigate(to: location, using: presenter)
+            navigation.navigate(to: location, using: sequence)
         }
 
         let onSelectCallback: ((CarType) -> Void) = { car in

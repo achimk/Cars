@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 struct ConditionPresenter: ViewControllerNavigationType {
+    let parent: ViewControllerNavigationType?
     let presentCallback: ((UIViewController) -> Void)
     let dismissCallback: ((Void) -> Void)
 
@@ -21,9 +22,11 @@ struct ConditionPresenter: ViewControllerNavigationType {
         return ConditionPresenter(onPresent: { _ in }, onDismiss: callback)
     }
 
-    init(onPresent: @escaping ((UIViewController) -> Void),
+    init(parent: ViewControllerNavigationType? = nil,
+         onPresent: @escaping ((UIViewController) -> Void),
          onDismiss: @escaping ((Void) -> Void)) {
 
+        self.parent = parent
         self.presentCallback = onPresent
         self.dismissCallback = onDismiss
     }

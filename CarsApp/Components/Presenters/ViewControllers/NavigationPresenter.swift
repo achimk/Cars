@@ -10,10 +10,19 @@ import Foundation
 import UIKit
 
 struct NavigationPresenter: ViewControllerNavigationType {
+    let parent: ViewControllerNavigationType?
     let navigationController: UINavigationController
     let animated: Bool
 
-    init(_ navigationController: UINavigationController, animated: Bool = true) {
+    var viewController: UIViewController? {
+        return navigationController
+    }
+
+    init(parent: ViewControllerNavigationType? = nil,
+         navigationController: UINavigationController,
+         animated: Bool = true) {
+
+        self.parent = parent
         self.navigationController = navigationController
         self.animated = animated
     }

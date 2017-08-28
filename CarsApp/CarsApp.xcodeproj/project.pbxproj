@@ -81,6 +81,7 @@
 		AA9350891F306881007B88B2 /* CarInputValidatorsFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9350881F306881007B88B2 /* CarInputValidatorsFactoryTests.swift */; };
 		AA93508C1F307289007B88B2 /* CarInputWhitespaceTrimmerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93508B1F307289007B88B2 /* CarInputWhitespaceTrimmerTests.swift */; };
 		AA93508E1F30732B007B88B2 /* CarInputViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93508D1F30732B007B88B2 /* CarInputViewModelTests.swift */; };
+		AA96E0751F54315D00AEA312 /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA96E0741F54315D00AEA312 /* ModalPresenter.swift */; };
 		AAC233E41F30D24700806A88 /* NetworkingTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC233E31F30D24700806A88 /* NetworkingTypes.swift */; };
 		AAC233E61F30D25500806A88 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC233E51F30D25500806A88 /* NetworkTask.swift */; };
 		AAC233E81F30D26900806A88 /* NetworkTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC233E71F30D26900806A88 /* NetworkTaskType.swift */; };
@@ -239,6 +240,7 @@
 		AA9350881F306881007B88B2 /* CarInputValidatorsFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputValidatorsFactoryTests.swift; sourceTree = "<group>"; };
 		AA93508B1F307289007B88B2 /* CarInputWhitespaceTrimmerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputWhitespaceTrimmerTests.swift; sourceTree = "<group>"; };
 		AA93508D1F30732B007B88B2 /* CarInputViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarInputViewModelTests.swift; sourceTree = "<group>"; };
+		AA96E0741F54315D00AEA312 /* ModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresenter.swift; sourceTree = "<group>"; };
 		AAC233E31F30D24700806A88 /* NetworkingTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTypes.swift; sourceTree = "<group>"; };
 		AAC233E51F30D25500806A88 /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		AAC233E71F30D26900806A88 /* NetworkTaskType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTaskType.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				AA08805C1F2CDB18004AB71A /* WindowPresenter.swift */,
 				AA08805E1F2CDC23004AB71A /* NavigationPresenter.swift */,
 				AAFC2FD81F30AD7600407802 /* ConditionPresenter.swift */,
+				AA96E0741F54315D00AEA312 /* ModalPresenter.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1306,6 +1309,7 @@
 				AAC233EA1F30D27600806A88 /* NetworkDispatcherType.swift in Sources */,
 				AA627E771F2FC7A1009CEDFB /* CarInputType.swift in Sources */,
 				AA9350841F3065B5007B88B2 /* CarInputValidationOperation.swift in Sources */,
+				AA96E0751F54315D00AEA312 /* ModalPresenter.swift in Sources */,
 				AA0880941F2CF5B2004AB71A /* Location.swift in Sources */,
 				AAFA51161F2DF17D00AB9483 /* ErrorPresenterType.swift in Sources */,
 				AA08805D1F2CDB18004AB71A /* WindowPresenter.swift in Sources */,
