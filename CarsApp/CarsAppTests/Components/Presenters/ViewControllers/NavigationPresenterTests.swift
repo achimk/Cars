@@ -21,7 +21,7 @@ final class NavigationPresenterTests: QuickSpec {
                 it("Can present and dismiss view controller", closure: {
 
                     let navigationController = UINavigationController()
-                    let presenter = NavigationPresenter(navigationController)
+                    let presenter = NavigationPresenter(navigationController: navigationController)
                     let viewController = UIViewController()
 
                     expect(navigationController.viewControllers).to(haveCount(0))

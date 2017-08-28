@@ -131,6 +131,6 @@ final class RouterTests: XCTestCase {
     // MARK: Private
 
     private func createPresenter() -> ViewControllerNavigationType {
-        return NavigationPresenter(UINavigationController())
+        return NavigationPresenter(navigationController: UINavigationController())
     }
 }

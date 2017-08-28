@@ -23,7 +23,7 @@ final class NavigationServiceTests: QuickSpec {
 
                 beforeEach {
                     service = NavigationService.create()
-                    presenter = NavigationPresenter(UINavigationController())
+                    presenter = NavigationPresenter(navigationController: UINavigationController())
                 }
 
                 it("Can navigate to cars list", closure: { 
