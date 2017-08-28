@@ -1,5 +1,5 @@
 //
-//  ViewControllerPresenterType.swift
+//  ViewControllerNavigationType.swift
 //  CarsApp
 //
 //  Created by Joachim Kret on 01/08/2017.
@@ -17,5 +17,5 @@ protocol ViewControllerDismissible {
     func dismiss()
 }
 
-protocol ViewControllerPresenterType: ViewControllerPresentable, ViewControllerDismissible {
+protocol ViewControllerNavigationType: ViewControllerPresentable, ViewControllerDismissible {
 }

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Routable {
-    func navigate(to location: LocationType, using presenter: ViewControllerPresenterType) throws
+    func navigate(to location: LocationType, using presenter: ViewControllerNavigationType) throws
 }

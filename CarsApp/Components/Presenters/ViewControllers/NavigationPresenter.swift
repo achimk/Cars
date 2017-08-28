@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct NavigationPresenter: ViewControllerPresenterType {
+struct NavigationPresenter: ViewControllerNavigationType {
     let navigationController: UINavigationController
     let animated: Bool
 

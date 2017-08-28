@@ -18,7 +18,7 @@ struct NavigationPresenterFactory: NavigationPresenterFactoryType {
         self.navigationController = navigation ?? UINavigationController()
     }
 
-    func createPresenter() -> ViewControllerPresenterType {
+    func createPresenter() -> ViewControllerNavigationType {
         let windowPresenter = WindowPresenter(window)
         let navigationPresenter = NavigationPresenter(navigationController, animated: true)
 

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct WindowPresenter: ViewControllerPresenterType {
+struct WindowPresenter: ViewControllerNavigationType {
     let window: UIWindow
 
     init(_ window: UIWindow) {

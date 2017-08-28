@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ErrorRoutable {
-    func handle(routeError error: RouteError, using presenter: ViewControllerPresenterType)
+    func handle(routeError error: RouteError, using presenter: ViewControllerNavigationType)
 }

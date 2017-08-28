@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-struct ConditionPresenter: ViewControllerPresenterType {
+struct ConditionPresenter: ViewControllerNavigationType {
     let presentCallback: ((UIViewController) -> Void)
     let dismissCallback: ((Void) -> Void)
 
-    static func present(_ callback: @escaping ((UIViewController) -> Void)) -> ViewControllerPresenterType {
+    static func present(_ callback: @escaping ((UIViewController) -> Void)) -> ViewControllerNavigationType {
         return ConditionPresenter(onPresent: callback, onDismiss: { })
     }
 
-    static func dismiss(_ callback: @escaping ((Void) -> Void)) -> ViewControllerPresenterType {
+    static func dismiss(_ callback: @escaping ((Void) -> Void)) -> ViewControllerNavigationType {
         return ConditionPresenter(onPresent: { _ in }, onDismiss: callback)
     }
 

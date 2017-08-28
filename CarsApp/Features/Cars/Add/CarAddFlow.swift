@@ -23,7 +23,7 @@ struct CarAddFlow: FlowPresentable {
         self.onSaveCallback = onSaveCallback
     }
 
-    func present(using presenter: ViewControllerPresenterType) {
+    func present(using presenter: ViewControllerNavigationType) {
         let errorPresenter = ProxyErrorPresenter(self.errorPresenter)
 
         let viewController = CarAddViewController(
