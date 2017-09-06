@@ -30,8 +30,8 @@ extension ViewControllerNavigationType {
         return parent?.root() ?? self
     }
 
-    final func first() -> UIViewController? {
-        for navigator in enumerated() {
+    final func firstChainController() -> UIViewController? {
+        for navigator in iterator() {
             if let viewController = navigator.viewController {
                 return viewController
             }
@@ -39,9 +39,9 @@ extension ViewControllerNavigationType {
         return nil
     }
 
-    final func last() -> UIViewController? {
+    final func lastChainController() -> UIViewController? {
         var viewController: UIViewController?
-        for navigator in enumerated() {
+        for navigator in iterator() {
             if navigator.viewController != nil {
                 viewController = navigator.viewController
             }
@@ -49,15 +49,11 @@ extension ViewControllerNavigationType {
         return viewController
     }
 
-    final func enumerated() -> AnyIterator<ViewControllerNavigationType> {
-        var current: ViewControllerNavigationType? = ConditionPresenter(
-            parent: self,
-            onPresent: { _ in },
-            onDismiss: { }
-        )
+    final func iterator() -> AnyIterator<ViewControllerNavigationType> {
+        var current: ViewControllerNavigationType? = self
 
         return AnyIterator<ViewControllerNavigationType> {
-            current = current?.parent
+            defer { current = current?.parent }
             return current
         }
     }

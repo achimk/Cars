@@ -19,12 +19,12 @@ struct ModalPresenter: ViewControllerNavigationType {
     }
 
     func present(_ viewController: UIViewController) {
-        guard let firstViewController = parent.first() else { return }
+        guard let firstViewController = parent.firstChainController() else { return }
         firstViewController.present(viewController, animated: animated, completion: nil)
     }
 
     func dismiss() {
-        guard let firstViewController = parent.first() else { return }
+        guard let firstViewController = parent.firstChainController() else { return }
         firstViewController.dismiss(animated: animated, completion: nil)
     }
 }
