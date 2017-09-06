@@ -36,7 +36,7 @@ struct CarAddFlow: FlowPresentable {
             errorPresenter.proxy = AlertErrorPresenter.create(using: viewController)
         }
 
-        viewController.title = NSLocalizedString("Add Car", comment: "Add new car title")
+        viewController.title = NSLocalizedString("Add", comment: "Add new car title")
 
         presenter.present(viewController)
     }

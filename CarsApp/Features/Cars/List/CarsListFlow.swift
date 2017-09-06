@@ -65,7 +65,7 @@ struct CarsListFlow: FlowPresentable {
             errorPresenter.proxy = RetryErrorPresenter.create(using: viewController)
         }
 
-        viewController.title = NSLocalizedString("Cars List", comment: "List of cars title")
+        viewController.title = NSLocalizedString("List", comment: "List of cars title")
         
         presenter.present(viewController)
     }
