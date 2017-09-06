@@ -36,7 +36,7 @@ struct CarsListFlow: FlowPresentable {
             let sequence = ConditionPresenter(
                 parent: stack,
                 onPresent: { vc in modal.present(stack.navigationController); stack.present(vc) },
-                onDismiss: { modal.dismiss() }
+                onDismiss: { modal.dismiss(); stack.dismiss() }
             )
 
             let payload = CarAddRoutePayload { isSuccess in
