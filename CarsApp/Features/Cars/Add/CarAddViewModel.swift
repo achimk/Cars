@@ -36,7 +36,7 @@ protocol CarAddViewModelType {
 }
 
 struct CarAddViewModelSpecs {
-    let shouldValidateFormBeforeSave: Bool
+    let isFormEnabledByValidationResult: Bool
 }
 
 final class CarAddViewModel: CarAddViewModelType {
@@ -69,7 +69,7 @@ final class CarAddViewModel: CarAddViewModelType {
 
         // Prepare form validation
 
-        let isFormEnabled: Observable<Bool> = specs.shouldValidateFormBeforeSave
+        let isFormEnabled: Observable<Bool> = specs.isFormEnabledByValidationResult
             ? CarInputValidationOperation(inputs).asObservable()
             : Observable.just(true)
 

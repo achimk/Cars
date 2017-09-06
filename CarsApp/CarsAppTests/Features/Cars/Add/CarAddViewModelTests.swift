@@ -89,7 +89,7 @@ final class CarAddViewModelTests: QuickSpec {
                 validators: Validators(validator),
                 converter: converter,
                 specs: CarAddViewModelSpecs(
-                    shouldValidateFormBeforeSave: true
+                    isFormEnabledByValidationResult: true
                 )
             )
 
@@ -111,7 +111,7 @@ final class CarAddViewModelTests: QuickSpec {
                     validators: Validators(validator),
                     converter: converter,
                     specs: CarAddViewModelSpecs(
-                        shouldValidateFormBeforeSave: true
+                        isFormEnabledByValidationResult: true
                     )
                 )
             }
@@ -187,7 +187,7 @@ final class CarAddViewModelTests: QuickSpec {
                     validators: Validators(validator),
                     converter: converter,
                     specs: CarAddViewModelSpecs(
-                        shouldValidateFormBeforeSave: true
+                        isFormEnabledByValidationResult: true
                     )
                 )
 
@@ -235,7 +235,7 @@ final class CarAddViewModelTests: QuickSpec {
                     validators: Validators(validator),
                     converter: converter,
                     specs: CarAddViewModelSpecs(
-                        shouldValidateFormBeforeSave: true
+                        isFormEnabledByValidationResult: true
                     )
                 )
 
@@ -283,7 +283,7 @@ final class CarAddViewModelTests: QuickSpec {
                     validators: Validators(validator),
                     converter: converter,
                     specs: CarAddViewModelSpecs(
-                        shouldValidateFormBeforeSave: true
+                        isFormEnabledByValidationResult: true
                     )
                 )
 
@@ -330,7 +330,7 @@ final class CarAddViewModelTests: QuickSpec {
                     validators: Validators(validator),
                     converter: converter,
                     specs: CarAddViewModelSpecs(
-                        shouldValidateFormBeforeSave: true
+                        isFormEnabledByValidationResult: true
                     )
                 )
 

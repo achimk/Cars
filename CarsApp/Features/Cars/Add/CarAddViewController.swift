@@ -27,7 +27,7 @@ final class CarAddViewController: UITableViewController {
         
         let validators = CarInputValidatorsFactory()
         let converter = CarInputWhitespaceTrimmer.create()
-        let specs = CarAddViewModelSpecs(shouldValidateFormBeforeSave: true)
+        let specs = CarAddViewModelSpecs(isFormEnabledByValidationResult: false)
 
         self.viewModel = CarAddViewModel(
             service: service,
