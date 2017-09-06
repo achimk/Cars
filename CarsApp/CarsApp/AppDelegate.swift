@@ -24,11 +24,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationService = NavigationService.create()
         navigator = navigationService
 
+        let presenter = factory.createPresenter()
+
+
+        // Add location
 //        let payload = CarAddRoutePayload { flag in print("Completed: \(flag)") }
 //        let location = Navigation.Route.carAdd(payload).asLocation()
-        let location = Navigation.Route.carsList.asLocation()
 
-        let presenter = factory.createPresenter()
+        // Details location
+//        let payload = CarDetailsRoutePayload(identity: CarIdentityModel("1"))
+//        let location = Navigation.Route.carDetails(payload).asLocation()
+
+        // List location
+        let location = Navigation.Route.carsList.asLocation()
 
 
         // Landing page providing ability to simulate deinit controller on root
